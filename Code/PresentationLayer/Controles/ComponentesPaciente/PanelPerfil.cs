@@ -1,0 +1,229 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
+using MinLab.Code.LogicLayer.LogicaTarifario;
+using MinLab.Code.EntityLayer.FichaExamen;
+using MinLab.Code.EntityLayer.FichaOrden;
+using MinLab.Code.LogicLayer.LogicaExamen;
+using static MinLab.Code.EntityLayer.FichaOrden.Orden;
+using MinLab.Code.PresentationLayer.Controles.ComponentesPaciente;
+using MinLab.Code.LogicLayer.LogicaPaciente;
+
+using MinLab.Code.EntityLayer;
+using MinLab.Code.ControlSistemaInterno;
+using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
+using MinLab.Code.ControlSistemaInterno.ControlImpresora;
+
+namespace MinLab.Code.PresentationLayer.Controles
+{
+    public partial class PanelPerfil : UserControl
+    {
+        
+        private bool isLoadingUI = false;
+        private DataTable tabla;
+        private BindingSource bindingSource;
+        Dictionary<int, Examen> examenesGeneral;
+        Dictionary<int, Orden> ordenes;
+        private Paciente perfil;
+
+        public Paciente Perfil {
+            get { return this.perfil; }
+            set {
+                this.perfil=value;
+
+                CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
+                CampDni.Text = perfil.Dni;
+                CampHistoria.Text = perfil.Historia;
+                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[perfil.Genero];
+                Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
+                if (tiempo.Año < 1)
+                    CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
+                CampEdad.Text = tiempo.Año + " años";
+                CampDireccion.Text = perfil.Direccion;
+                RellenarExamenesEnTabla();
+            }
+        }
+
+        public PanelPerfil()
+        {
+            InitializeComponent();
+
+            isLoadingUI = true;
+            InicializarTablaOrdenDetalle();
+            limpiarCamps();
+
+            this.SuspendLayout();
+            ComboEstado.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().EstadoOrden, null);
+            ComboEstado.DisplayMember = "Value";
+            ComboEstado.ValueMember = "Key";
+            this.ResumeLayout(false);
+
+
+            isLoadingUI = false;
+        }
+
+        private void PanelPerfil_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void RellenarExamenesEnTabla()
+        {
+            LogicaOrden enlaceOrden = new LogicaOrden();
+            LogicaExamen enlaceExamen = new LogicaExamen();
+            tabla.Clear();
+
+
+            ordenes = enlaceOrden.ObtenerOrdenesByPacienteByFechaByEstado(Perfil, PickerInit.Value, PickerEnd.Value, (EstadoOrden)ComboEstado.SelectedIndex);
+
+            examenesGeneral = new Dictionary<int, Examen>();
+            foreach (Orden orden in ordenes.Values)
+            {
+                Dictionary<int, Examen> temp = enlaceExamen.RecuperarExamenes(orden);
+                foreach (Examen ex in temp.Values)
+                {
+                    if (ex.Estado == Examen.EstadoExamen.Terminado)
+                    {
+                        this.SuspendLayout();
+                        examenesGeneral.Add(ex.IdData, ex);
+                        DataRow row = tabla.NewRow();
+                        row[0] = ex.IdOrdenDetalle; //Orden Detalle
+                        row[1] = ex.IdData; //Examen
+                        String nombrePaquete = Tarifario.GetInstance().GetPaqueteById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre;
+                        String nombrePlantilla = Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre;
+                        row[2] = (nombrePaquete == nombrePlantilla) ? nombrePaquete : (nombrePaquete + ":" + nombrePlantilla);
+                        row[3] = ex.DniResponsable;
+                        row[4] = ex.UltimaModificacion;
+                        row[5] = orden.IdData;
+                        tabla.Rows.Add(row);
+                        this.ResumeLayout(false);
+                    }
+                }
+            }
+            BtnPrint.Visible = examenesGeneral.Count > 0;
+        }
+
+
+
+        private void InicializarTablaOrdenDetalle()
+        {
+            bindingSource = new BindingSource();
+            DGVExamen.DataSource = bindingSource;
+            tabla = new DataTable("Examenes");
+            // Configuracion de Tablas
+
+            tabla.Columns.Add("Id", typeof(int));
+            tabla.Columns.Add("Codigo", typeof(int));
+            tabla.Columns.Add("Examen", typeof(string));
+            tabla.Columns.Add("Responsable", typeof(string));
+            tabla.Columns.Add("UltimaModificacion", typeof(string));
+            tabla.Columns.Add("IdOrden", typeof(int));
+
+            //ID DATA
+            this.DGVExamen.Columns[0].Visible = false;
+            this.DGVExamen.Columns[0].ReadOnly = true;
+            this.DGVExamen.Columns[0].DataPropertyName = "Id";
+            //DNI
+            this.DGVExamen.Columns[1].ReadOnly = true;
+            this.DGVExamen.Columns[1].Resizable = DataGridViewTriState.False;
+            this.DGVExamen.Columns[1].DataPropertyName = "Codigo";
+            //HISTORIA
+            this.DGVExamen.Columns[2].ReadOnly = true;
+            this.DGVExamen.Columns[2].Resizable = DataGridViewTriState.False;
+            this.DGVExamen.Columns[2].DataPropertyName = "Examen";
+            //NOMBRE
+            this.DGVExamen.Columns[3].ReadOnly = true;
+            this.DGVExamen.Columns[3].Resizable = DataGridViewTriState.False;
+            this.DGVExamen.Columns[3].DataPropertyName = "Responsable";
+            //APELLIDO PATERNO
+            this.DGVExamen.Columns[4].ReadOnly = true;
+            this.DGVExamen.Columns[4].Resizable = DataGridViewTriState.False;
+            this.DGVExamen.Columns[4].DataPropertyName = "UltimaModificacion";
+
+            this.DGVExamen.Columns[5].Visible = false;
+            this.DGVExamen.Columns[5].ReadOnly = true;
+            this.DGVExamen.Columns[5].DataPropertyName = "IdOrden";
+
+            bindingSource.DataSource = tabla;
+            this.DGVExamen.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+        }
+
+
+        public void limpiarCamps()
+        {
+            CampNombre.Text = "";
+            CampDireccion.Text = "";
+            CampEdad.Text = "";
+            CampHistoria.Text = "";
+            CampSexo.Text = "";
+            CampDni.Text = "";
+            BtnPrint.Visible = false;
+        }
+
+        private void ComboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!isLoadingUI)
+                RellenarExamenesEnTabla();
+        }
+
+        private void PickerEnd_ValueChanged(object sender, EventArgs e)
+        {
+            if (!isLoadingUI)
+                RellenarExamenesEnTabla();
+        }
+
+        private void PickerInit_ValueChanged(object sender, EventArgs e)
+        {
+            if (!isLoadingUI)
+                RellenarExamenesEnTabla();
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            LogicaOrden enlace = new LogicaOrden();
+            Dictionary<int, Orden> temp = new Dictionary<int, Orden>();
+            Dictionary<int, Examen> examenes = new Dictionary<int, Examen>();
+            foreach (DataGridViewRow r in DGVExamen.SelectedRows)
+            {
+                temp.Add((int)r.Cells[5].Value, ordenes[(int)r.Cells[5].Value]);
+            }
+            Impresora printer = new Impresora();
+            //printer.ContruirVistaPreviaExamenPaciente(temp, examenes);
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            BLPaciente enlace = new BLPaciente();
+            FormModificarPaciente form = new FormModificarPaciente();
+            form.Perfil = this.perfil;
+            form.LlenarDatosFormulario();
+            form.ShowDialog();
+
+            this.perfil = enlace.ObtenerPerfilPorId(perfil.IdData);
+            this.RellenarExamenesEnTabla();
+
+            CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
+            CampDni.Text = perfil.Dni;
+            CampHistoria.Text = perfil.Historia;
+            CampDireccion.Text = perfil.Direccion;
+            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[perfil.Genero];
+            Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
+            if (tiempo.Año < 1)
+                CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
+            CampEdad.Text = tiempo.Año + " años";
+            form.Dispose();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            BLPaciente enlacePaciente = new BLPaciente();
+
+            enlacePaciente.EliminarPaciente(perfil);
+
+            this.Dispose();
+        }
+    }
+}

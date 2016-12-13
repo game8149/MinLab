@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8408A99A-9DEE-4EED-A446-5B4F8246D4E5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MinLab</RootNamespace>
+    <AssemblyName>MinLab</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\MinLab.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MinLab.Code.PresentationLayer.SistemaWinchanzao</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>microscope.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionCabecera.cs" />
+    <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionPagina.cs" />
+    <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionPaginaLinea.cs" />
+    <Compile Include="Code\ControlSistemaInterno\SistemaControl.cs" />
+    <Compile Include="Code\DataLayer\DataCuenta.cs" />
+    <Compile Include="Code\ControlSistemaInterno\ConfiguracionDataAccess.cs" />
+    <Compile Include="Code\DataLayer\DataExamen.cs" />
+    <Compile Include="Code\DataLayer\DataPaciente.cs" />
+    <Compile Include="Code\DataLayer\DataPlantilla.cs" />
+    <Compile Include="Code\DataLayer\DataOrden.cs" />
+    <Compile Include="Code\DataLayer\DataPaquete.cs" />
+    <Compile Include="Code\DataLayer\Recursos\MsgError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MsgError.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\DataLayer\Recursos\ProcAdd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcAdd.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\DataLayer\Recursos\ProcUpd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcUpd.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\DataLayer\Recursos\ProcGet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcGet.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\DataLayer\Recursos\CuentaMaestra.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuentaMaestra.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\EntityLayer\FichaOrden\Orden.cs" />
+    <Compile Include="Code\EntityLayer\FichaOrden\OrdenDetalle.cs" />
+    <Compile Include="Code\EntityLayer\FichaReporte\ReporteMensual.cs" />
+    <Compile Include="Code\EntityLayer\FichaReporte\ReporteMensualDetalle.cs" />
+    <Compile Include="Code\EntityLayer\Paquete.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Tarifario.cs" />
+    <Compile Include="Code\EntityLayer\Paciente.cs" />
+    <Compile Include="Code\EntityLayer\Cuenta.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Clasificador.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Sesion.cs" />
+    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaItem.cs" />
+    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaItemList.cs" />
+    <Compile Include="Code\EntityLayer\FichaPlantilla\Plantilla.cs" />
+    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaFila.cs" />
+    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaFilaGrupo.cs" />
+    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaFilaSimple.cs" />
+    <Compile Include="Code\EntityLayer\FichaExamen\Examen.cs" />
+    <Compile Include="Code\EntityLayer\FichaExamen\ExamenDetalle.cs" />
+    <Compile Include="Code\ControlSistemaInterno\DiccionarioGeneral.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Plantillas.cs" />
+    <Compile Include="Code\LogicLayer\LogicaControl\BLControlSistema.cs" />
+    <Compile Include="Code\ControlSistemaInterno\CargadorArchivos.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.Designer.cs">
+      <DependentUpon>FormBuscarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.Designer.cs">
+      <DependentUpon>FormModificarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelFichaOrden.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelFichaOrden.Designer.cs">
+      <DependentUpon>PanelFichaOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.Designer.cs">
+      <DependentUpon>PanelNuevaOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.Designer.cs">
+      <DependentUpon>ModificarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.Designer.cs">
+      <DependentUpon>PanelCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.Designer.cs">
+      <DependentUpon>PanelPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\ControlImpresora\ConstructorFormato.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ControlExamen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlExamen.Designer.cs">
+      <DependentUpon>ControlExamen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlPaciente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlPaciente.Designer.cs">
+      <DependentUpon>ControlPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlReporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlReporte.Designer.cs">
+      <DependentUpon>ControlReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormBuscarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormBuscarPaciente.Designer.cs">
+      <DependentUpon>FormBuscarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlOrden.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlOrden.Designer.cs">
+      <DependentUpon>ControlOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\FormAcerca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\FormAcerca.Designer.cs">
+      <DependentUpon>FormAcerca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ConfiguracionExamen.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ItemFormInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ItemFormLista.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\FormExamenEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\FormExamenEditor.Designer.cs">
+      <DependentUpon>FormExamenEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\LogicLayer\LogicaExamen\BLExamen.cs" />
+    <Compile Include="Code\LogicLayer\LogicaExamen\BLPlantilla.cs" />
+    <Compile Include="Code\LogicLayer\LogicaPaciente\BLPaciente.cs" />
+    <Compile Include="Code\LogicLayer\LogicaTarifario\BLOrden.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ExamenEditorGrupo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\TipoCampo.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ExamenEditorFila.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ExamenEditorItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesExamen\ComponentesExamenEditor\ExamenEditorContenedor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormAutorizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormAutorizacion.Designer.cs">
+      <DependentUpon>FormAutorizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormInicioSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormInicioSesion.Designer.cs">
+      <DependentUpon>FormInicioSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\ControlImpresora\Impresora.cs" />
+    <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresion.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Paleta.cs" />
+    <Compile Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.Designer.cs">
+      <DependentUpon>PantallaDeCarga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\SistemaWinchanzao.cs" />
+    <Compile Include="Code\PresentationLayer\GUISesion\FormCrearCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormCrearCuenta.Designer.cs">
+      <DependentUpon>FormCrearCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlBienvenida.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlBienvenida.Designer.cs">
+      <DependentUpon>ControlBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Code\DataLayer\Recursos\MsgError.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MsgError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\DataLayer\Recursos\ProcAdd.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcAdd.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\DataLayer\Recursos\ProcUpd.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcUpd.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\DataLayer\Recursos\ProcGet.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcGet.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\DataLayer\Recursos\CuentaMaestra.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CuentaMaestra.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.resx">
+      <DependentUpon>FormModificarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.resx">
+      <DependentUpon>ModificarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlExamen.resx">
+      <DependentUpon>ControlExamen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlPaciente.resx">
+      <DependentUpon>ControlPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlReporte.resx">
+      <DependentUpon>ControlReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.resx">
+      <DependentUpon>FormBuscarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormBuscarPaciente.resx">
+      <DependentUpon>FormBuscarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlOrden.resx">
+      <DependentUpon>ControlOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelFichaOrden.resx">
+      <DependentUpon>PanelFichaOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.resx">
+      <DependentUpon>PanelNuevaOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.resx">
+      <DependentUpon>PanelCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.resx">
+      <DependentUpon>PanelPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormAcerca.resx">
+      <DependentUpon>FormAcerca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesExamen\FormExamenEditor.resx">
+      <DependentUpon>FormExamenEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormAutorizacion.resx">
+      <DependentUpon>FormAutorizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormInicioSesion.resx">
+      <DependentUpon>FormInicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.resx">
+      <DependentUpon>PantallaDeCarga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormCrearCuenta.resx">
+      <DependentUpon>FormCrearCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlBienvenida.resx">
+      <DependentUpon>ControlBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\MinLab.Code.EntityLayer.Coleccion.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\boy %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\exit %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\exit %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\letter-i.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\Sin título.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\search-engine %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\microscope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\microscope %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\delete %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\cash-register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\cleaner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\microscope %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\microscope %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Iconos\GRLL.png" />
+    <Content Include="Iconos\microscopeTratado.png" />
+    <Content Include="microscope.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

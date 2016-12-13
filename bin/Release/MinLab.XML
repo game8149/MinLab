@@ -1,0 +1,494 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinLab</name>
+    </assembly>
+    <members>
+        <member name="T:MinLab.Code.DataLayer.Configuracion">
+            <summary>
+            Descripción breve de Configuracion
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Configuracion.CadenaConexion">
+            <summary>
+            Descripción breve de Configuracion
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Configuracion.CadenaProveedor">
+            <summary>
+            Descripción breve de Configuracion
+            </summary>
+        </member>
+        <member name="T:MinLab.Code.DataLayer.Recursos.MsgError">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.MsgError.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.MsgError.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.MsgError.NoPosibleTrans">
+            <summary>
+              Busca una cadena traducida similar a No es posible transferir la información.
+            </summary>
+        </member>
+        <member name="T:MinLab.Code.DataLayer.Recursos.ProcAdd">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_examen">
+            <summary>
+              Busca una cadena traducida similar a add_examen.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_grupo">
+            <summary>
+              Busca una cadena traducida similar a add_grupo.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_grupo_item">
+            <summary>
+              Busca una cadena traducida similar a add_grupo_item.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_item">
+            <summary>
+              Busca una cadena traducida similar a add_item.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_listaItem">
+            <summary>
+              Busca una cadena traducida similar a add_listaItem.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_orden">
+            <summary>
+              Busca una cadena traducida similar a add_orden.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_paciente">
+            <summary>
+              Busca una cadena traducida similar a add_paciente.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_plantilla">
+            <summary>
+              Busca una cadena traducida similar a add_plantilla.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_plantilla_item">
+            <summary>
+              Busca una cadena traducida similar a add_plantilla_item.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_tipocampo">
+            <summary>
+              Busca una cadena traducida similar a add_tipocampo.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcAdd.add_tipoitem">
+            <summary>
+              Busca una cadena traducida similar a add_tipoitem.
+            </summary>
+        </member>
+        <member name="T:MinLab.Code.DataLayer.Recursos.ProcUpd">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcUpd.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcUpd.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcUpd.update_examen">
+            <summary>
+              Busca una cadena traducida similar a update_examen.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcUpd.update_ordenByEstado">
+            <summary>
+              Busca una cadena traducida similar a update_ordenByEstado.
+            </summary>
+        </member>
+        <member name="T:MinLab.Code.DataLayer.Recursos.ProcGet">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_all_plantilla">
+            <summary>
+              Busca una cadena traducida similar a get_all_plantilla.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_all_tipocampo">
+            <summary>
+              Busca una cadena traducida similar a get_all_tipocampo.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_all_tipoItem">
+            <summary>
+              Busca una cadena traducida similar a get_all_tipoItem.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_allItemsByPlantilla">
+            <summary>
+              Busca una cadena traducida similar a get_allItemsByPlantilla.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_codPlantillaByTarifa">
+            <summary>
+              Busca una cadena traducida similar a get_codPlantillaByTarifa.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_examenByOrdenDetalle">
+            <summary>
+              Busca una cadena traducida similar a get_examenByOrdenDetalle.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_examenDetalleByExamen">
+            <summary>
+              Busca una cadena traducida similar a get_examenDetalleByExamen.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_grupoByPlantilla">
+            <summary>
+              Busca una cadena traducida similar a get_grupoByPlantilla.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_itemByGrupo">
+            <summary>
+              Busca una cadena traducida similar a get_itemByGrupo.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_itemByPlantilla">
+            <summary>
+              Busca una cadena traducida similar a get_itemByPlantilla.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_listaByItem">
+            <summary>
+              Busca una cadena traducida similar a get_listaByItem.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_ordenByAreaByYearByMes">
+            <summary>
+              Busca una cadena traducida similar a get_ordenByAreaByYearByMes.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_ordenByPaciente">
+            <summary>
+              Busca una cadena traducida similar a get_ordenByPaciente.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_ordenDetalleByOrden">
+            <summary>
+              Busca una cadena traducida similar a get_ordenDetalleByOrden.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_ordenNoEmitida">
+            <summary>
+              Busca una cadena traducida similar a get_ordenNoEmitidas.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_ordenPendienteByPaciente">
+            <summary>
+              Busca una cadena traducida similar a get_ordenPendienteByPaciente.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_ordenTerminadas">
+            <summary>
+              Busca una cadena traducida similar a get_ordenTerminadas.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_pacienteByDni">
+            <summary>
+              Busca una cadena traducida similar a get_pacienteByDni.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_pacienteByHistoria">
+            <summary>
+              Busca una cadena traducida similar a get_pacienteByHistoria.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_pacienteById">
+            <summary>
+              Busca una cadena traducida similar a get_pacienteById.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_plantilla">
+            <summary>
+              Busca una cadena traducida similar a get_plantilla.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_reporteMes">
+            <summary>
+              Busca una cadena traducida similar a get_reporteMes.
+            </summary>
+        </member>
+        <member name="P:MinLab.Code.DataLayer.Recursos.ProcGet.get_tarifario">
+            <summary>
+              Busca una cadena traducida similar a get_tarifario.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIExamen.FormExamenGeneral.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIExamen.FormExamenGeneral.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIExamen.FormExamenGeneral.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIExamen.FormEmitirExamen.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIExamen.FormEmitirExamen.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIExamen.FormEmitirExamen.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIExamen.FormExamen.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIExamen.FormExamen.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIExamen.FormExamen.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIReporte.FormReporte.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIReporte.FormReporte.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIReporte.FormReporte.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.HistorialPrueba.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.HistorialPrueba.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.HistorialPrueba.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIOrden.FormOrden.tabla">
+            <summary>
+             
+            </summary>
+            
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIOrden.FormOrden.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIOrden.FormOrden.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIOrden.FormOrden.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIPaciente.FormRegistroPaciente.#ctor">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.GUIPaciente.FormRegistroPaciente.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIPaciente.FormRegistroPaciente.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.GUIPaciente.FormRegistroPaciente.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.InicioSesion.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.InicioSesion.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.InicioSesion.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.Principal.#ctor">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.Principal.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.Principal.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.Principal.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.Program.Main">
+            <summary>
+            Punto de entrada principal para la aplicación.
+            </summary>
+        </member>
+        <member name="F:MinLab.Code.PresentationLayer.RegistroUserForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.RegistroUserForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MinLab.Code.PresentationLayer.RegistroUserForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MinLab.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MinLab.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MinLab.Properties.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:MinLab.Properties.Resources.exit_small">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:MinLab.Properties.Resources.google_blog_search1600">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:MinLab.Properties.Resources.save">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
