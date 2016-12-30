@@ -1,6 +1,6 @@
-﻿using MinLab.Code.EntityLayer.FichaOrden;
-using MinLab.Code.EntityLayer.FichaExamen;
-using MinLab.Code.EntityLayer.FichaPlantilla;
+﻿using MinLab.Code.EntityLayer.EOrden;
+using MinLab.Code.EntityLayer.EExamen;
+using MinLab.Code.EntityLayer.EPlantilla;
 using MinLab.Code.LogicLayer.LogicaControl;
 using MinLab.Code.LogicLayer.LogicaExamen;
 using MinLab.Code.LogicLayer.LogicaTarifario;
@@ -12,12 +12,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using static MinLab.Code.EntityLayer.FichaExamen.Examen;
+using static MinLab.Code.EntityLayer.EExamen.Examen;
 using static MinLab.Code.PresentationLayer.ComponentesExamenEditor.ExamenEditorFila;
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
 using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
+using MinLab.Code.EntityLayer.EFicha;
 
 namespace MinLab.Code.PresentationLayer.ComponentesExamen
 {
@@ -36,8 +37,20 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             bindingSource = new BindingSource();
             InicializarComponentesTablaDGVExamen();
             LimpiarFormulario();
+            this.DoubleBuffered = true;
             this.FormClosing += FormExamenGeneral_FormClosing;
             this.ResumeLayout();
+        }
+
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         private void FormExamenGeneral_FormClosing(object sender, FormClosingEventArgs e)
@@ -69,7 +82,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 CampNombre.Text = paciente.Nombre+" "+paciente.PrimerApellido +" "+paciente.SegundoApellido;
                 CampDni.Text = paciente.Dni;
                 CampHistoria.Text = paciente.Historia;;
-                CampSexo.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(DiccionarioGeneral.GetInstance().TipoSexo[paciente.Genero]));
+                CampSexo.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(DiccionarioGeneral.GetInstance().TipoSexo[(int)paciente.Sexo]));
                 Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(paciente.FechaNacimiento);
                 if (tiempo.Año < 1)
                     CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
@@ -100,7 +113,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             foreach (Examen ex in examenes.Values)
             {
                 DataRow row = tabla.NewRow();
-                String nombrePaquete = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(Tarifario.GetInstance().GetPaqueteById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre));
+                String nombrePaquete = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre));
                 String nombrePlantilla = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre));
                 row[0] = (nombrePaquete == nombrePlantilla) ? nombrePaquete : (nombrePaquete + ":" + nombrePlantilla);
                 row[1] = DiccionarioGeneral.GetInstance().EstadoExamen[(int)ex.Estado];
@@ -453,7 +466,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
 
         private void BtnAutorizacion_Click(object sender, EventArgs e)
         {
-            BLControlSistema logicaSistema = new BLControlSistema();
+            LogicControlSistema logicaSistema = new LogicControlSistema();
             LogicaExamen enlaceExamen = new LogicaExamen();
             LogicaOrden enlaceOrden = new LogicaOrden();
             this.cargandoExamen = true;

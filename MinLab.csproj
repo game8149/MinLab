@@ -38,6 +38,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,6 +49,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\bin\MinLab.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>MinLab.Code.PresentationLayer.SistemaWinchanzao</StartupObject>
@@ -57,6 +59,10 @@
     <ApplicationIcon>microscope.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -72,6 +78,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalisisClinicoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalisisClinicoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\Consultorios.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Locaciones.cs" />
+    <Compile Include="Code\DataLayer\DataConsultorio.cs" />
+    <Compile Include="Code\DataLayer\DataMedico.cs" />
+    <Compile Include="Code\DataLayer\DataUbicacion.cs" />
+    <Compile Include="Code\DataLayer\Recursos\ProcDel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcDel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\EntityLayer\Consultorio.cs" />
+    <Compile Include="Code\EntityLayer\EFicha\FichaBasica.cs" />
+    <Compile Include="Code\EntityLayer\EFicha\Medico.cs" />
+    <Compile Include="Code\EntityLayer\ETarifario\Tarifario.cs" />
+    <Compile Include="Code\EntityLayer\ETarifario\TarifarioDetalle.cs" />
+    <Compile Include="Code\EntityLayer\EUbicacion\Distrito.cs" />
+    <Compile Include="Code\EntityLayer\EUbicacion\Sector.cs" />
     <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionCabecera.cs" />
     <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionPagina.cs" />
     <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionPaginaLinea.cs" />
@@ -82,7 +110,7 @@
     <Compile Include="Code\DataLayer\DataPaciente.cs" />
     <Compile Include="Code\DataLayer\DataPlantilla.cs" />
     <Compile Include="Code\DataLayer\DataOrden.cs" />
-    <Compile Include="Code\DataLayer\DataPaquete.cs" />
+    <Compile Include="Code\DataLayer\DataAnalisis.cs" />
     <Compile Include="Code\DataLayer\Recursos\MsgError.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,28 +136,70 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CuentaMaestra.resx</DependentUpon>
     </Compile>
-    <Compile Include="Code\EntityLayer\FichaOrden\Orden.cs" />
-    <Compile Include="Code\EntityLayer\FichaOrden\OrdenDetalle.cs" />
-    <Compile Include="Code\EntityLayer\FichaReporte\ReporteMensual.cs" />
-    <Compile Include="Code\EntityLayer\FichaReporte\ReporteMensualDetalle.cs" />
-    <Compile Include="Code\EntityLayer\Paquete.cs" />
-    <Compile Include="Code\ControlSistemaInterno\Tarifario.cs" />
-    <Compile Include="Code\EntityLayer\Paciente.cs" />
-    <Compile Include="Code\EntityLayer\Cuenta.cs" />
+    <Compile Include="Code\EntityLayer\EOrden\Orden.cs" />
+    <Compile Include="Code\EntityLayer\EOrden\OrdenDetalle.cs" />
+    <Compile Include="Code\EntityLayer\EReporte\ReporteMensual.cs" />
+    <Compile Include="Code\EntityLayer\EReporte\ReporteMensualDetalle.cs" />
+    <Compile Include="Code\EntityLayer\ETarifario\Paquete.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Analisis.cs" />
+    <Compile Include="Code\EntityLayer\EFicha\Paciente.cs" />
+    <Compile Include="Code\EntityLayer\EFicha\Cuenta.cs" />
     <Compile Include="Code\ControlSistemaInterno\Clasificador.cs" />
     <Compile Include="Code\ControlSistemaInterno\Sesion.cs" />
-    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaItem.cs" />
-    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaItemList.cs" />
-    <Compile Include="Code\EntityLayer\FichaPlantilla\Plantilla.cs" />
-    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaFila.cs" />
-    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaFilaGrupo.cs" />
-    <Compile Include="Code\EntityLayer\FichaPlantilla\PlantillaFilaSimple.cs" />
-    <Compile Include="Code\EntityLayer\FichaExamen\Examen.cs" />
-    <Compile Include="Code\EntityLayer\FichaExamen\ExamenDetalle.cs" />
+    <Compile Include="Code\EntityLayer\EPlantilla\PlantillaItem.cs" />
+    <Compile Include="Code\EntityLayer\EPlantilla\PlantillaItemList.cs" />
+    <Compile Include="Code\EntityLayer\EPlantilla\Plantilla.cs" />
+    <Compile Include="Code\EntityLayer\EPlantilla\PlantillaFila.cs" />
+    <Compile Include="Code\EntityLayer\EPlantilla\PlantillaFilaGrupo.cs" />
+    <Compile Include="Code\EntityLayer\EPlantilla\PlantillaFilaSimple.cs" />
+    <Compile Include="Code\EntityLayer\EExamen\Examen.cs" />
+    <Compile Include="Code\EntityLayer\EExamen\ExamenDetalle.cs" />
     <Compile Include="Code\ControlSistemaInterno\DiccionarioGeneral.cs" />
     <Compile Include="Code\ControlSistemaInterno\Plantillas.cs" />
+    <Compile Include="Code\LogicLayer\BLConsultorio.cs" />
+    <Compile Include="Code\LogicLayer\BLCuenta.cs" />
+    <Compile Include="Code\LogicLayer\BLMedico.cs" />
+    <Compile Include="Code\LogicLayer\BLReporte.cs" />
+    <Compile Include="Code\LogicLayer\BLUbicacion.cs" />
     <Compile Include="Code\LogicLayer\LogicaControl\BLControlSistema.cs" />
     <Compile Include="Code\ControlSistemaInterno\CargadorArchivos.cs" />
+    <Compile Include="Code\LogicLayer\LogicaTarifario\BLTarifario.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarCuenta.Designer.cs">
+      <DependentUpon>FormModificarCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarClave.Designer.cs">
+      <DependentUpon>FormModificarClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\FormBuscarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\FormBuscarMedico.Designer.cs">
+      <DependentUpon>FormBuscarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedico.Designer.cs">
+      <DependentUpon>PanelMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelModificarMedico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelModificarMedico.Designer.cs">
+      <DependentUpon>PanelModificarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelRegistrarMedico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelRegistrarMedico.Designer.cs">
+      <DependentUpon>PanelRegistrarMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,11 +243,29 @@
       <DependentUpon>PanelPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\ConstructorFormato.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.Designer.cs">
+      <DependentUpon>FormCopiarTarifario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCrearTarifario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCrearTarifario.Designer.cs">
+      <DependentUpon>FormCrearTarifario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlExamen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlExamen.Designer.cs">
       <DependentUpon>ControlExamen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlMedico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ControlMedico.Designer.cs">
+      <DependentUpon>ControlMedico.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlPaciente.cs">
       <SubType>UserControl</SubType>
@@ -202,6 +290,18 @@
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlOrden.Designer.cs">
       <DependentUpon>ControlOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.Designer.cs">
+      <DependentUpon>FormRegistrarProfesional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifario.Designer.cs">
+      <DependentUpon>FormTarifario.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\FormAcerca.cs">
       <SubType>Form</SubType>
@@ -306,14 +406,45 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CuentaMaestra.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\DataLayer\Recursos\ProcDel.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcDel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarCuenta.resx">
+      <DependentUpon>FormModificarCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarClave.resx">
+      <DependentUpon>FormModificarClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\FormBuscarMedico.resx">
+      <DependentUpon>FormBuscarMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedico.resx">
+      <DependentUpon>PanelMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelModificarMedico.resx">
+      <DependentUpon>PanelModificarMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelRegistrarMedico.resx">
+      <DependentUpon>PanelRegistrarMedico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.resx">
       <DependentUpon>FormModificarOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.resx">
       <DependentUpon>ModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.resx">
+      <DependentUpon>FormCopiarTarifario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCrearTarifario.resx">
+      <DependentUpon>FormCrearTarifario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlExamen.resx">
       <DependentUpon>ControlExamen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlMedico.resx">
+      <DependentUpon>ControlMedico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlPaciente.resx">
       <DependentUpon>ControlPaciente.cs</DependentUpon>
@@ -341,6 +472,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.resx">
       <DependentUpon>PanelPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.resx">
+      <DependentUpon>FormRegistrarProfesional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifario.resx">
+      <DependentUpon>FormTarifario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormAcerca.resx">
       <DependentUpon>FormAcerca.cs</DependentUpon>
@@ -374,6 +511,19 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="AnalisisClinicoDataSet.xsc">
+      <DependentUpon>AnalisisClinicoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AnalisisClinicoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AnalisisClinicoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AnalisisClinicoDataSet.xss">
+      <DependentUpon>AnalisisClinicoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSQL\DATOS.xlsx" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\MinLab.Code.EntityLayer.Coleccion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -407,9 +557,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Iconos\save.png" />
   </ItemGroup>
@@ -498,29 +646,56 @@
     <None Include="Iconos\microscope %283%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataSQL\ADD_PROC.sql" />
+    <Content Include="DataSQL\alter BD Ver 1.1.sql" />
+    <Content Include="DataSQL\cuenta.sql" />
+    <Content Include="DataSQL\DATOS.sql" />
+    <Content Include="DataSQL\DEL_PROC.sql" />
+    <Content Include="DataSQL\FUNC.sql" />
+    <Content Include="DataSQL\GET_PROC.sql" />
+    <Content Include="DataSQL\Relaciones.sql" />
+    <Content Include="DataSQL\script.sql" />
+    <Content Include="DataSQL\UPD_PROC.sql" />
+    <Content Include="DataSQL\winchanzao.sql" />
     <Content Include="Iconos\GRLL.png" />
     <Content Include="Iconos\microscopeTratado.png" />
     <Content Include="microscope.ico" />
+    <None Include="Resources\warning %281%29.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\open-folder-with-document.png" />
+    <None Include="Resources\close-folder.png" />
+    <None Include="Resources\add-new-document %281%29.png" />
+    <None Include="Resources\add-new-document.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close-button.png" />
+    <None Include="Resources\rubbish-bin.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\laboratorio-clinico.jpg" />
+    <None Include="Resources\exit %282%29.png" />
+    <None Include="Resources\exit %281%29.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\menu %283%29.png" />
+    <None Include="Resources\menu %282%29.png" />
+    <None Include="Resources\doctor.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\File-info-icon.png" />
+    <None Include="Resources\information-button.png" />
+    <None Include="Resources\comparative.png" />
+    <None Include="Resources\agenda.png" />
+    <None Include="Resources\id-card %281%29.png" />
+    <None Include="Resources\id-card.png" />
+    <None Include="Resources\boy.png" />
+    <None Include="Resources\man.png" />
+    <None Include="Resources\account.png" />
+    <None Include="Resources\user-account-box.png" />
+    <None Include="Resources\menu %281%29.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\menu-button-of-three-horizontal-lines %282%29.png" />
+    <None Include="Resources\menu-button-of-three-horizontal-lines.png" />
+    <None Include="Resources\menu-button-of-three-horizontal-lines %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>9</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>

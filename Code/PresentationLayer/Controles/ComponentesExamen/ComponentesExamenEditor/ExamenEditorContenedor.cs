@@ -18,29 +18,21 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamenEditor
         {            
             this.Width = Ancho;
             this.Height = Alto;
-
-            this.Scroll += new System.Windows.Forms.ScrollEventHandler(Scroll_Move);
-            //this.Click += new System.EventHandler(Scroll_Move);
+            
             DoubleBuffered = true;
         }
 
-        private void OnMouseWheel()
-        {
-            Invalidate(true);
-            //this.Refresh();
-            //this.Update();
-        }
 
-        //private void OnMouseClick()
-        //{
-        //    this.Refresh();
-        //}
-
-        private void Scroll_Move(object sender, EventArgs e)
+        protected override CreateParams CreateParams
         {
-            Invalidate(true);
-            //this.Update();
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
+        
 
         public List<ExamenEditorFila> Filas
         {

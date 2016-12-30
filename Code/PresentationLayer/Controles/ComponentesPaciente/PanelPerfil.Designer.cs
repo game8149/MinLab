@@ -60,6 +60,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.CampUbicacion = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).BeginInit();
             this.panel3.SuspendLayout();
@@ -298,22 +300,22 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(18, 201);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(193, 22);
+            this.label11.Size = new System.Drawing.Size(161, 19);
             this.label11.TabIndex = 81;
             this.label11.Text = "Historia de Examenes";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(17, 51);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(183, 22);
+            this.label12.Size = new System.Drawing.Size(128, 19);
             this.label12.TabIndex = 80;
-            this.label12.Text = "Datos de Personales";
+            this.label12.Text = "Perfil de Paciente";
             // 
             // label13
             // 
@@ -417,11 +419,33 @@
             this.BtnLimpiar.UseVisualStyleBackColor = false;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
+            // CampUbicacion
+            // 
+            this.CampUbicacion.AutoSize = true;
+            this.CampUbicacion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CampUbicacion.Location = new System.Drawing.Point(524, 168);
+            this.CampUbicacion.Name = "CampUbicacion";
+            this.CampUbicacion.Size = new System.Drawing.Size(40, 16);
+            this.CampUbicacion.TabIndex = 127;
+            this.CampUbicacion.Text = "Alexis";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(442, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.TabIndex = 126;
+            this.label5.Text = "Dist./Sector:";
+            // 
             // PanelPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.CampUbicacion);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.CampSexo);
@@ -485,5 +509,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnEliminar;
+        private System.Windows.Forms.Label CampUbicacion;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MinLab.Code.EntityLayer;
-using MinLab.Code.EntityLayer.FichaExamen;
+using MinLab.Code.EntityLayer.EExamen;
+using MinLab.Code.EntityLayer.EFicha;
 using System;
 using System.Globalization;
 using System.Text;
@@ -81,9 +82,9 @@ namespace MinLab.Code.ControlSistemaInterno
                     }
                     else if (tiempo.Año >= 11)
                     {
-                        switch (pac.Genero)
+                        switch (pac.Sexo)
                         {
-                            case 0://HOMBRE
+                            case Sexo.Hombre://HOMBRE
                                 if (value < 13)
                                     cad.Append(" (Bajo)");
                                 else if (value > 15.5)
@@ -91,7 +92,7 @@ namespace MinLab.Code.ControlSistemaInterno
                                 else
                                     cad.Append(" (Normal)");
                                 break;
-                            case 1://MUJER
+                            case Sexo.Mujer://MUJER
                                 //ES PROBABLE QUE DEBA SER CAMBIADO LA ORGANIZACION DE DOCUMENTOS//
                                 if(idTarifa==70)//SI ES PERFIL PRENATAL{
                                 {
@@ -138,9 +139,9 @@ namespace MinLab.Code.ControlSistemaInterno
                     }
                     else if (tiempo.Año >= 14)
                     {
-                        switch (pac.Genero)
+                        switch (pac.Sexo)
                         {
-                            case 0:
+                            case Sexo.Hombre:
                                 if (value < 40)
                                     cad.Append(" (Bajo)");
                                 else if (value > 50)
@@ -148,7 +149,7 @@ namespace MinLab.Code.ControlSistemaInterno
                                 else
                                     cad.Append(" (Normal)");
                                 break;
-                            case 1:
+                            case Sexo.Mujer:
                                 //ES PROBABLE QUE DEBA SER CAMBIADO LA ORGANIZACION DE DOCUMENTOS//
                                 if (idTarifa == 70)//SI ES PERFIL PRENATAL{
                                 {
@@ -306,9 +307,9 @@ namespace MinLab.Code.ControlSistemaInterno
                     break;//ALBUMINA
                 case 20:
 
-                    switch (pac.Genero)
+                    switch (pac.Sexo)
                     {
-                        case 0:
+                        case Sexo.Hombre:
                             if (value < 14)
                                 cad.Append(" (Bajo)");
                             else if (value > 26)
@@ -316,7 +317,7 @@ namespace MinLab.Code.ControlSistemaInterno
                             else
                                 cad.Append(" (Normal)");
                             break;
-                        case 1:
+                        case Sexo.Mujer:
                             if (value < 11)
                                 cad.Append(" (Bajo)");
                             else if (value > 20)
@@ -337,15 +338,15 @@ namespace MinLab.Code.ControlSistemaInterno
 
                     break;//CREATININA SERICA
                 case 22:
-                    switch (pac.Genero)
+                    switch (pac.Sexo)
                     {
-                        case 0:
+                        case Sexo.Hombre:
                             if (value >= 94 && value <= 140)
                                 cad.Append(" (Normal)");
                             else
                                 cad.Append(" (Patologico)");
                             break;
-                        case 1:
+                        case Sexo.Mujer:
                             if (value >= 72 && value <= 110)
                                 cad.Append(" (Normal)");
                             else
@@ -355,15 +356,15 @@ namespace MinLab.Code.ControlSistemaInterno
 
                     break;//DEPURACION DE CREATININA
                 case 23:
-                    switch (pac.Genero)
+                    switch (pac.Sexo)
                     {
-                        case 0:
+                        case Sexo.Hombre:
                             if (value >= 8 && value <= 46)
                                 cad.Append(" (Normal)");
                             else
                                 cad.Append(" (Patologico)");
                             break;
-                        case 1:
+                        case Sexo.Mujer:
                             if (value >= 7 && value <= 29)
                                 cad.Append(" (Normal)");
                             else

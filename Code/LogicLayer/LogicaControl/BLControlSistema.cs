@@ -2,6 +2,7 @@
 using MinLab.Code.DataLayer;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
 using System;
 using System.Text.RegularExpressions;
@@ -9,44 +10,18 @@ using static MinLab.Code.ControlSistemaInterno.Sesion;
 
 namespace MinLab.Code.LogicLayer.LogicaControl
 {
-    public class BLControlSistema
+    public class LogicControlSistema
     {
-        public bool CrearCuenta(Cuenta cuenta,string autorizacion)
-        {
-            DataCuenta enlaceCuenta = new DataCuenta();
 
-            if (!Regex.IsMatch(cuenta.Dni, "[0-9]+"))
-            {
-                throw new Exception(" Error en el dni");
-            }
-            if (!Regex.IsMatch(cuenta.Clave,"[A-Za-z0-9]+"))
-            {
-                throw new Exception("Error en clave");
-            }
-            if (!Regex.IsMatch(cuenta.Apellidos+cuenta.Nombre,"([A-Za-z]|' ')+"))
-            {
-                throw new Exception("Error en Apellidos y Nombre");
-            }
-
-            if(!autorizacion.Equals(CuentaMaestra.CodigoMaestro))
-            {
-                throw new Exception("No es el codigo");
-            }
-
-            if (enlaceCuenta.CheckExistCuenta(cuenta.Dni))
-            {
-                throw new Exception("Ya existe una cuenta para ese DNI");
-            }
-            enlaceCuenta.AddCuenta(cuenta);
-            return true;
-                
-        }
-        
         public Cuenta GetCuentaLogin()
         {
             return SistemaControl.GetInstance().Sesion.Cuenta;
         }
         
+        public void ActualizarCuentaLogin(Cuenta cuenta)
+        {
+            SistemaControl.GetInstance().Sesion.Cuenta = cuenta;
+        }
 
         public bool IniciarSesion(string dni,string clave)
         {

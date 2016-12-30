@@ -117,31 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="deleted_orden" xml:space="preserve">
-    <value>deleted_orden</value>
+  <data name="UPD_CONSULTORIO" xml:space="preserve">
+    <value>UPD_CONSULTORIO</value>
   </data>
-  <data name="deleted_ordenDetalle" xml:space="preserve">
-    <value>deleted_ordenDetalle</value>
+  <data name="UPD_CUENTA" xml:space="preserve">
+    <value>UPD_CUENTA</value>
   </data>
-  <data name="deleted_paciente" xml:space="preserve">
-    <value>deleted_paciente</value>
+  <data name="UPD_CUENTA_CLAVE" xml:space="preserve">
+    <value>UPD_CUENTA_CLAVE</value>
   </data>
-  <data name="update_examen" xml:space="preserve">
-    <value>update_examen</value>
+  <data name="UPD_EXAMEN" xml:space="preserve">
+    <value>UPD_EXAMEN</value>
   </data>
-  <data name="update_examen_single" xml:space="preserve">
-    <value>update_examen_single</value>
+  <data name="UPD_EXAMEN_SINGLE" xml:space="preserve">
+    <value>UPD_EXAMEN_SINGLE</value>
   </data>
-  <data name="update_ordenCabecera" xml:space="preserve">
-    <value>update_ordenCabecera</value>
+  <data name="UPD_MEDICO" xml:space="preserve">
+    <value>UPD_MEDICO</value>
   </data>
-  <data name="update_ordenDetalle" xml:space="preserve">
-    <value>update_ordenDetalle</value>
+  <data name="UPD_MEDICO_HABIL" xml:space="preserve">
+    <value>UPD_MEDICO_HABIL</value>
   </data>
-  <data name="update_paciente" xml:space="preserve">
-    <value>update_paciente</value>
+  <data name="UPD_ORDENCAB" xml:space="preserve">
+    <value>UPD_ORDENCAB</value>
   </data>
-  <data name="update_seguridad" xml:space="preserve">
-    <value>update_seguridad</value>
+  <data name="UPD_ORDENDET" xml:space="preserve">
+    <value>UPD_ORDENDET</value>
+  </data>
+  <data name="UPD_PACIENTE" xml:space="preserve">
+    <value>UPD_PACIENTE</value>
+  </data>
+  <data name="UPD_SEGURIDAD" xml:space="preserve">
+    <value>UPD_SEGURIDAD</value>
+  </data>
+  <data name="UPD_TARIFARIO" xml:space="preserve">
+    <value>UPD_TARIFARIO</value>
+  </data>
+  <data name="UPD_TARIFARIOCAB" xml:space="preserve">
+    <value>UPD_TARIFARIOCAB</value>
+  </data>
+  <data name="UPD_TARIFARIOCAB_VIGENTE" xml:space="preserve">
+    <value>UPD_TARIFARIOCAB_VIGENTE</value>
+  </data>
+  <data name="UPD_TARIFARIODET" xml:space="preserve">
+    <value>UPD_TARIFARIODET</value>
   </data>
 </root>

@@ -53,7 +53,7 @@ namespace MinLab.Code.PresentationLayer
         //LLAMA FUNCIONES DEL SISTEMA INTERNO
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            BLControlSistema enlaceControlSistema = new BLControlSistema();
+            LogicControlSistema enlaceControlSistema = new LogicControlSistema();
             try
             {
                 if(enlaceControlSistema.IniciarSesion(CampDni.Text, CampClave.Text.Trim(' ')))              

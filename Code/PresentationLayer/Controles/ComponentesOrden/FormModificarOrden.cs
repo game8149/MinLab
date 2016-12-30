@@ -1,4 +1,4 @@
-﻿using MinLab.Code.EntityLayer.FichaOrden;
+﻿using MinLab.Code.EntityLayer.EOrden;
 using MinLab.Code.LogicLayer.LogicaTarifario;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.LogicLayer;
 
 namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
 {
@@ -43,10 +45,26 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             InitializeComponent();
             this.SuspendLayout();
 
+            BLConsultorio enlaceConsultorio = new BLConsultorio();
+            BLMedico enlaceMedico = new BLMedico();
+
+            ComboExamen.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboExamen.DataSource = new BindingSource(ControlSistemaInterno.ListaAnalisis.GetInstance().Coleccion, null);
+            ComboExamen.DisplayMember = "Value";
+            ComboExamen.ValueMember = "Key";
+
+            ComboBoxConsultorio.DataSource = new BindingSource(enlaceConsultorio.ObtenerLista(), null);
+            ComboBoxConsultorio.DisplayMember = "Value";
+            ComboBoxConsultorio.ValueMember = "Key";
+
+            ComboBoxMedico.DataSource = new BindingSource(enlaceMedico.ObtenerListaHabil(), null);
+            ComboBoxMedico.DisplayMember = "Value";
+            ComboBoxMedico.ValueMember = "Key";
+
             tabla = new DataTable("Lista");
             //DeshabilitarFormulario();
             //Si existen tarifas en el Tarifario BD
-            if (Tarifario.GetInstance().Coleccion.Count > 0)
+            if (ControlSistemaInterno.ListaAnalisis.GetInstance().Coleccion.Count > 0)
                 InicializarTablaOrdenDetalle();
             DeshabilitarFormulario();
             //CampFecha.Text = DateTime.Now.ToShortDateString();
@@ -61,13 +79,21 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 CampDireccion.Text = perfil.Direccion;
                 CampDni.Text = perfil.Dni;
                 CampHistoria.Text = perfil.Historia;
+                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)Perfil.Sexo];
                 CampNombre.Text = perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido;
                 CampBoleta.Text = orden.Boleta;
+                ComboBoxConsultorio.SelectedValue = orden.IdConsultorio;
+                ComboBoxMedico.SelectedValue = orden.IdMedico;
+                if (Perfil.Sexo == Sexo.Mujer)
+                {
+                    CheckBoxGestante.Visible = false;
+                    CheckBoxGestante.Checked = orden.EnGestacion;
+                }
                 PickerTime.Text = orden.FechaRegistro.ToShortDateString();
                 tabla.Clear();
                 foreach (OrdenDetalle ordet in Orden.Detalle.Values)
                 {
-                    Paquete p = Tarifario.GetInstance().GetPaqueteById(ordet.IdDataPaquete);
+                    EntityLayer.Analisis p = ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(ordet.IdDataPaquete);
                     DataRow row = tabla.NewRow();
                     row[0] = ordet.IdDataPaquete;
                     row[1] = p.Codigo;
@@ -101,7 +127,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             BtnAgregar.Enabled = true;
 
             ComboExamen.AutoCompleteSource = AutoCompleteSource.ListItems;
-            ComboExamen.DataSource = new BindingSource(Tarifario.GetInstance().Coleccion, null);
+            ComboExamen.DataSource = new BindingSource(ControlSistemaInterno.ListaAnalisis.GetInstance().Coleccion, null);
             ComboExamen.DisplayMember = "Value";
             ComboExamen.ValueMember = "Key";
             
@@ -191,6 +217,8 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             CampDni.Text = "";
             CampBoleta.Text = "";
             CampDireccion.Text = "";
+            CampSexo.Text = "";
+            CheckBoxGestante.Checked = false;
         }
 
 
@@ -209,7 +237,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 if (ComboExamen.SelectedItem == null)
                     throw new Exception("Listado de Examen: No se ha seleccionado ningun examen.");
                 int id = ((KeyValuePair<int, string>)ComboExamen.SelectedItem).Key;
-                Paquete p = Tarifario.GetInstance().GetPaqueteById(id);
+                EntityLayer.Analisis p = ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(id);
                 this.SuspendLayout();
                 DataRow row = tabla.NewRow();
                 row[0] = p.IdData;
@@ -281,8 +309,16 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 ordenTemp.FechaRegistro = PickerTime.Value;
                 ordenTemp.IdPaciente = Perfil.IdData;
                 ordenTemp.UltimaModificacion = DateTime.Now;
-                ordenTemp.Detalle = orden.Detalle;
+                orden.IdConsultorio=(int)ComboBoxConsultorio.SelectedValue;
+                orden.IdMedico=(int)ComboBoxMedico.SelectedValue;
+                if (Perfil.Sexo == Sexo.Mujer)
+                {
+                    orden.EnGestacion = CheckBoxGestante.Checked;
+                }
 
+
+                ordenTemp.Detalle = orden.Detalle;
+                
                 OrdenDetalle detalle = null;
                 
                 //CREANDO DETALLE UPDATE

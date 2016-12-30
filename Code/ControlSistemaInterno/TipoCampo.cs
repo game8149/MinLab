@@ -41,4 +41,16 @@ namespace MinLab.Code.ControlSistemaInterno
         Compuesto = 1,
         Perfil = 2
     }
+
+    public enum PacienteEstado
+    {
+        Normal = 0,
+        Gestante =1
+    }
+
+    public enum Sexo
+    {
+        Hombre = 0,
+        Mujer = 1
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.LogicLayer.LogicaPaciente;
 using System;
 using System.Collections.Generic;

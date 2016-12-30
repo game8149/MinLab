@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CampBoleta = new System.Windows.Forms.TextBox();
@@ -43,7 +43,6 @@
             this.LabelNombreExamen = new System.Windows.Forms.Label();
             this.ComboExamen = new System.Windows.Forms.ComboBox();
             this.CampDireccion = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.CampHistoria = new System.Windows.Forms.Label();
             this.CampDni = new System.Windows.Forms.Label();
@@ -57,6 +56,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.CheckBoxGestante = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ComboBoxMedico = new System.Windows.Forms.ComboBox();
+            this.ComboBoxConsultorio = new System.Windows.Forms.ComboBox();
+            this.CampSexo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.PanelToolDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -64,18 +70,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 22);
+            this.label2.Size = new System.Drawing.Size(134, 19);
             this.label2.TabIndex = 180;
-            this.label2.Text = "Paciente";
+            this.label2.Text = "Orden de Ingreso";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(656, 178);
+            this.label3.Location = new System.Drawing.Point(15, 469);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 166;
@@ -84,7 +90,7 @@
             // CampBoleta
             // 
             this.CampBoleta.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampBoleta.Location = new System.Drawing.Point(84, 175);
+            this.CampBoleta.Location = new System.Drawing.Point(645, 174);
             this.CampBoleta.Name = "CampBoleta";
             this.CampBoleta.Size = new System.Drawing.Size(108, 23);
             this.CampBoleta.TabIndex = 168;
@@ -93,7 +99,7 @@
             // 
             this.PickerTime.CalendarFont = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerTime.Location = new System.Drawing.Point(725, 176);
+            this.PickerTime.Location = new System.Drawing.Point(84, 467);
             this.PickerTime.Name = "PickerTime";
             this.PickerTime.Size = new System.Drawing.Size(108, 20);
             this.PickerTime.TabIndex = 178;
@@ -102,7 +108,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 180);
+            this.label1.Location = new System.Drawing.Point(588, 175);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 169;
@@ -132,7 +138,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(198, 178);
+            this.label7.Location = new System.Drawing.Point(764, 175);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 176;
@@ -212,27 +218,17 @@
             // 
             this.CampDireccion.AutoSize = true;
             this.CampDireccion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDireccion.Location = new System.Drawing.Point(87, 107);
+            this.CampDireccion.Location = new System.Drawing.Point(87, 135);
             this.CampDireccion.Name = "CampDireccion";
             this.CampDireccion.Size = new System.Drawing.Size(27, 16);
             this.CampDireccion.TabIndex = 175;
             this.CampDireccion.Text = "asd";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 140);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 22);
-            this.label12.TabIndex = 167;
-            this.label12.Text = "Detalle";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 107);
+            this.label9.Location = new System.Drawing.Point(13, 135);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 16);
             this.label9.TabIndex = 174;
@@ -242,7 +238,7 @@
             // 
             this.CampHistoria.AutoSize = true;
             this.CampHistoria.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampHistoria.Location = new System.Drawing.Point(267, 81);
+            this.CampHistoria.Location = new System.Drawing.Point(267, 95);
             this.CampHistoria.Name = "CampHistoria";
             this.CampHistoria.Size = new System.Drawing.Size(51, 16);
             this.CampHistoria.TabIndex = 173;
@@ -252,7 +248,7 @@
             // 
             this.CampDni.AutoSize = true;
             this.CampDni.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDni.Location = new System.Drawing.Point(84, 81);
+            this.CampDni.Location = new System.Drawing.Point(84, 95);
             this.CampDni.Name = "CampDni";
             this.CampDni.Size = new System.Drawing.Size(43, 16);
             this.CampDni.TabIndex = 172;
@@ -276,14 +272,14 @@
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -293,14 +289,14 @@
             this.idUnique});
             this.dataGridView.Location = new System.Drawing.Point(11, 244);
             this.dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Size = new System.Drawing.Size(822, 201);
             this.dataGridView.TabIndex = 170;
             // 
@@ -338,7 +334,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(207, 81);
+            this.label10.Location = new System.Drawing.Point(207, 95);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 16);
             this.label10.TabIndex = 165;
@@ -348,7 +344,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 81);
+            this.label8.Location = new System.Drawing.Point(13, 95);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 16);
             this.label8.TabIndex = 164;
@@ -364,12 +360,92 @@
             this.label4.TabIndex = 163;
             this.label4.Text = "Nombre:";
             // 
+            // CheckBoxGestante
+            // 
+            this.CheckBoxGestante.AutoSize = true;
+            this.CheckBoxGestante.Font = new System.Drawing.Font("Futura Bk BT", 9.25F);
+            this.CheckBoxGestante.Location = new System.Drawing.Point(533, 93);
+            this.CheckBoxGestante.Name = "CheckBoxGestante";
+            this.CheckBoxGestante.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CheckBoxGestante.Size = new System.Drawing.Size(101, 20);
+            this.CheckBoxGestante.TabIndex = 181;
+            this.CheckBoxGestante.Text = ":En gestacion";
+            this.CheckBoxGestante.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CheckBoxGestante.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(269, 175);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 16);
+            this.label11.TabIndex = 185;
+            this.label11.Text = "Consultorio:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 175);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.TabIndex = 184;
+            this.label5.Text = "Medico:";
+            // 
+            // ComboBoxMedico
+            // 
+            this.ComboBoxMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxMedico.FormattingEnabled = true;
+            this.ComboBoxMedico.Location = new System.Drawing.Point(80, 173);
+            this.ComboBoxMedico.Name = "ComboBoxMedico";
+            this.ComboBoxMedico.Size = new System.Drawing.Size(178, 21);
+            this.ComboBoxMedico.TabIndex = 183;
+            // 
+            // ComboBoxConsultorio
+            // 
+            this.ComboBoxConsultorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxConsultorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxConsultorio.FormattingEnabled = true;
+            this.ComboBoxConsultorio.Location = new System.Drawing.Point(355, 173);
+            this.ComboBoxConsultorio.Name = "ComboBoxConsultorio";
+            this.ComboBoxConsultorio.Size = new System.Drawing.Size(222, 21);
+            this.ComboBoxConsultorio.TabIndex = 182;
+            // 
+            // CampSexo
+            // 
+            this.CampSexo.AutoSize = true;
+            this.CampSexo.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CampSexo.Location = new System.Drawing.Point(443, 95);
+            this.CampSexo.Name = "CampSexo";
+            this.CampSexo.Size = new System.Drawing.Size(51, 16);
+            this.CampSexo.TabIndex = 187;
+            this.CampSexo.Text = "label11";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(383, 95);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.TabIndex = 186;
+            this.label6.Text = "Sexo:";
+            // 
             // FormModificarOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(852, 512);
+            this.Controls.Add(this.CampSexo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ComboBoxMedico);
+            this.Controls.Add(this.ComboBoxConsultorio);
+            this.Controls.Add(this.CheckBoxGestante);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -379,7 +455,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.PanelToolDetalle);
             this.Controls.Add(this.CampDireccion);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.CampHistoria);
             this.Controls.Add(this.CampDni);
@@ -416,7 +491,6 @@
         private System.Windows.Forms.Label LabelNombreExamen;
         private System.Windows.Forms.ComboBox ComboExamen;
         private System.Windows.Forms.Label CampDireccion;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label CampHistoria;
         private System.Windows.Forms.Label CampDni;
@@ -430,5 +504,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox CheckBoxGestante;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox ComboBoxMedico;
+        private System.Windows.Forms.ComboBox ComboBoxConsultorio;
+        private System.Windows.Forms.Label CampSexo;
+        private System.Windows.Forms.Label label6;
     }
 }

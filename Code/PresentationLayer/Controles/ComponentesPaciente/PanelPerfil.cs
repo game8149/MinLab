@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MinLab.Code.LogicLayer.LogicaTarifario;
-using MinLab.Code.EntityLayer.FichaExamen;
-using MinLab.Code.EntityLayer.FichaOrden;
+using MinLab.Code.EntityLayer.EExamen;
+using MinLab.Code.EntityLayer.EOrden;
 using MinLab.Code.LogicLayer.LogicaExamen;
-using static MinLab.Code.EntityLayer.FichaOrden.Orden;
+using static MinLab.Code.EntityLayer.EOrden.Orden;
 using MinLab.Code.PresentationLayer.Controles.ComponentesPaciente;
 using MinLab.Code.LogicLayer.LogicaPaciente;
 
@@ -14,6 +14,7 @@ using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
 using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
 using MinLab.Code.ControlSistemaInterno.ControlImpresora;
+using MinLab.Code.EntityLayer.EFicha;
 
 namespace MinLab.Code.PresentationLayer.Controles
 {
@@ -35,12 +36,13 @@ namespace MinLab.Code.PresentationLayer.Controles
                 CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
                 CampDni.Text = perfil.Dni;
                 CampHistoria.Text = perfil.Historia;
-                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[perfil.Genero];
+                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
                 Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
-                if (tiempo.Año < 1)
+                if (tiempo.Año==0)
                     CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
                 CampEdad.Text = tiempo.Año + " años";
                 CampDireccion.Text = perfil.Direccion;
+                CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[Perfil.IdSector].Nombre;
                 RellenarExamenesEnTabla();
             }
         }
@@ -91,7 +93,7 @@ namespace MinLab.Code.PresentationLayer.Controles
                         DataRow row = tabla.NewRow();
                         row[0] = ex.IdOrdenDetalle; //Orden Detalle
                         row[1] = ex.IdData; //Examen
-                        String nombrePaquete = Tarifario.GetInstance().GetPaqueteById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre;
+                        String nombrePaquete = ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre;
                         String nombrePlantilla = Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre;
                         row[2] = (nombrePaquete == nombrePlantilla) ? nombrePaquete : (nombrePaquete + ":" + nombrePlantilla);
                         row[3] = ex.DniResponsable;
@@ -209,7 +211,9 @@ namespace MinLab.Code.PresentationLayer.Controles
             CampDni.Text = perfil.Dni;
             CampHistoria.Text = perfil.Historia;
             CampDireccion.Text = perfil.Direccion;
-            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[perfil.Genero];
+            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
+            CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[Perfil.IdSector].Nombre;
+
             Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
             if (tiempo.Año < 1)
                 CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";

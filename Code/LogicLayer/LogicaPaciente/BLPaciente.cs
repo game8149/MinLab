@@ -1,5 +1,7 @@
-﻿using MinLab.Code.DataLayer;
+﻿using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.DataLayer;
 using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -18,6 +20,10 @@ namespace MinLab.Code.LogicLayer.LogicaPaciente
             return DataPaciente.GetPacienteByHistoria(HC);
         }
 
+        public static string FormatearUbicacion(Paciente pac)
+        {
+            return pac.Direccion+" (" +Locaciones.GetInstance().GetDistrito(pac.IdDistrito).Sectores[pac.IdSector].Nombre+","+ Locaciones.GetInstance().GetDistrito(pac.IdDistrito).Nombre +")";
+        }
 
         public bool ActualizarPaciente(Paciente pac)
         {
@@ -50,22 +56,21 @@ namespace MinLab.Code.LogicLayer.LogicaPaciente
 
         private bool ValidarDatos(Paciente pac)
         {
+            if(pac.Dni.Replace(" ", string.Empty)== string.Empty)
+                throw new Exception("DNI: Es necesario especificarlo.");
             if (!Regex.IsMatch(pac.Dni, "[0-9]+"))
-            {
-                throw new Exception("Dni: Solo se aceptan numeros");
-            }
+                throw new Exception("DNI: Formato incorrecto.");
+            if (pac.PrimerApellido.Replace(" ",string.Empty) == string.Empty)
+                throw new Exception("Primer Apellido: Es necesario especificarlo.");
             if (!Regex.IsMatch(pac.PrimerApellido, "[A-Za-z]+"))
-            {
-                throw new Exception("Apellido Paterno: Solo se aceptan Letras");
-            }
+                throw new Exception("Primer Apellido: Formato incorrecto.");
+            if (pac.SegundoApellido.Replace(" ", string.Empty) == string.Empty)
+                throw new Exception("Primer Apellido: Es necesario especificarlo.");
             if (!Regex.IsMatch(pac.SegundoApellido, "[A-Za-z]+"))
-            {
-                throw new Exception("Apellido Materno: Solo se aceptan Letras");
-            }
-            if (!Regex.IsMatch(pac.Direccion, "[A-Za-z0-9]+"))
-            {
-                throw new Exception("Dirección: Solo se aceptan Letras y Numeros");
-            }
+                throw new Exception("Segundo Apellido: Formato incorrecto.");
+            if (pac.Direccion.Replace(" ", string.Empty)!= string.Empty)
+                if (!Regex.IsMatch(pac.Direccion, "[A-Za-z0-9]+"))
+                    throw new Exception("Dirección: Formato incorrecto.");
 
             return true;
         }

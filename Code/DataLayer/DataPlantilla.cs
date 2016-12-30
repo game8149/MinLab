@@ -1,6 +1,6 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.DataLayer.Recursos;
-using MinLab.Code.EntityLayer.FichaPlantilla;
+using MinLab.Code.EntityLayer.EPlantilla;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +24,7 @@ namespace MinLab.Code.DataLayer
             comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_all_plantilla;
+            comando.CommandText = ProcGet.GET_PLANTILLA_ALL;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Connection.Open();
             resultado = comando.ExecuteReader();
@@ -74,7 +74,7 @@ namespace MinLab.Code.DataLayer
             comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_plantilla;
+            comando.CommandText = ProcGet.GET_PLANTILLA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@codigo", codigo);
 
@@ -126,7 +126,7 @@ namespace MinLab.Code.DataLayer
             comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_allItemsByPlantilla;
+            comando.CommandText = ProcGet.GET_ITEM_ALL_BYPLANTILLA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idPlantilla", IdPlantilla);
 
@@ -155,7 +155,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_grupoByPlantilla;
+            comando.CommandText = ProcGet.GET_GRUPO_BYPLANTILLA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idPlantilla", idData);
             comando.Connection.Open();
@@ -190,7 +190,7 @@ namespace MinLab.Code.DataLayer
 
             int indiceItem = 0, idPlantilla = idData;
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_itemByPlantilla;
+            comando.CommandText = ProcGet.GET_ITEM_BYPLANTILLA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idPlantilla", idData);
             comando.Connection.Open();
@@ -245,7 +245,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_itemByGrupo;
+            comando.CommandText = ProcGet.GET_ITEM_BYGRUPO;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idGrupo", idData);
             int indiceItem = 0, idGrupo = idData;
@@ -287,7 +287,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_listaByItem;
+            comando.CommandText = ProcGet.GET_LISTA_BYITEM;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idItem", idData);
 

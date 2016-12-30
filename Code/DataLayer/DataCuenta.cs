@@ -1,6 +1,7 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,10 +19,13 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             
             comando.Connection = conexion;
-            comando.CommandText = ProcAdd.add_cuenta;
+            comando.CommandText = ProcAdd.ADD_CUENTA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@nombre", cuenta.Nombre);
-            comando.Parameters.AddWithValue("@apellidos", cuenta.Apellidos);
+            comando.Parameters.AddWithValue("@primerApellido", cuenta.PrimerApellido);
+            comando.Parameters.AddWithValue("@segundoApellido", cuenta.SegundoApellido);
+            comando.Parameters.AddWithValue("@especialidad", cuenta.Especialidad);
+            comando.Parameters.AddWithValue("@codigo", cuenta.CodigoPro);
             comando.Parameters.AddWithValue("@dni", cuenta.Dni);
             comando.Parameters.AddWithValue("@clave", cuenta.Clave);
             comando.Parameters.AddWithValue("@nivel", cuenta.Nivel);
@@ -32,6 +36,45 @@ namespace MinLab.Code.DataLayer
             comando.Dispose();
         }
 
+        public void UpdCuenta(Cuenta cuenta)
+        {
+            SqlConnection conexion = new SqlConnection();
+            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            SqlCommand comando = new SqlCommand();
+
+            comando.Connection = conexion;
+            comando.CommandText = ProcUpd.UPD_CUENTA;
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idCuenta", cuenta.IdData);
+            comando.Parameters.AddWithValue("@nombre", cuenta.Nombre);
+            comando.Parameters.AddWithValue("@primerApellido", cuenta.PrimerApellido);
+            comando.Parameters.AddWithValue("@segundoApellido", cuenta.SegundoApellido);
+            comando.Parameters.AddWithValue("@especialidad", cuenta.Especialidad);
+            comando.Parameters.AddWithValue("@codigo", cuenta.CodigoPro);
+            comando.Parameters.AddWithValue("@dni", cuenta.Dni);
+            comando.Connection.Open();
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            comando.Dispose();
+        }
+
+        public void UpdClave(Cuenta cuenta)
+        {
+            SqlConnection conexion = new SqlConnection();
+            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            SqlCommand comando = new SqlCommand();
+
+            comando.Connection = conexion;
+            comando.CommandText = ProcUpd.UPD_CUENTA_CLAVE;
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idCuenta", cuenta.IdData);
+            comando.Parameters.AddWithValue("@clave", cuenta.Clave);
+
+            comando.Connection.Open();
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            comando.Dispose();
+        }
 
         public Cuenta GetCuentaByDni(string dni)
         {
@@ -41,7 +84,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_cuenta;
+            comando.CommandText = ProcGet.GET_CUENTA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@dni", dni);
 
@@ -52,7 +95,10 @@ namespace MinLab.Code.DataLayer
                 cuenta = new Cuenta();
                 cuenta.IdData = Convert.ToInt32(resultado["id"]);
                 cuenta.Nombre = resultado["nombre"].ToString();
-                cuenta.Apellidos = resultado["apellidos"].ToString();
+                cuenta.PrimerApellido = resultado["primerApellido"].ToString();
+                cuenta.SegundoApellido = resultado["segundoApellido"].ToString();
+                cuenta.Especialidad = resultado["especialidad"].ToString();
+                cuenta.CodigoPro = resultado["codigo"].ToString();
                 cuenta.Dni = dni;
                 cuenta.Clave = resultado["clave"].ToString();
                 cuenta.Nivel = (SesionNivel)Convert.ToInt32((resultado["nivel"].ToString()));
@@ -72,7 +118,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_seguridad;
+            comando.CommandText = ProcGet.GET_SEGURIDAD;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idCuenta", cuenta.IdData);
 
@@ -96,7 +142,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcUpd.update_seguridad;
+            comando.CommandText = ProcUpd.UPD_SEGURIDAD;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idCuenta", cuenta.IdData);
             comando.Parameters.AddWithValue("@codigo",code);
@@ -120,7 +166,7 @@ namespace MinLab.Code.DataLayer
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = conexion;
-                comando.CommandText = ProcGet.get_exist;
+                comando.CommandText = ProcGet.GET_CUENTA_EXISTE;
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@dni", dni);
 
@@ -149,7 +195,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcAdd.add_seguridad;
+            comando.CommandText = ProcAdd.ADD_SEGURIDAD;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idCuenta", cuenta.IdData);
             comando.Parameters.AddWithValue("@codigo", code);

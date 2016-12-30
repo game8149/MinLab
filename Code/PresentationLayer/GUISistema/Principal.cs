@@ -1,5 +1,6 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
 using MinLab.Code.LogicLayer.LogicaControl;
 using MinLab.Code.PresentationLayer.Controles;
@@ -30,6 +31,16 @@ namespace MinLab.Code.PresentationLayer.GUISistema
         /// </summary>
         /// 
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         public Principal()
         {
             InitializeComponent();
@@ -38,8 +49,9 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             IniciarInterfaz();
             this.KeyPress += Principal_KeyPress;
             this.Focus();
+            SplitCont.VerticalScroll.Enabled = false;
         }
-
+        
         private void Principal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
@@ -68,24 +80,26 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             ControlOrden orden = new ControlOrden();
             ControlExamen examen = new ControlExamen();
             ControlReporte reporte = new ControlReporte();
+            ControlMedico medico = new ControlMedico();
 
             controles.Add(1, bienvenida);
             controles.Add(2, paciente);
             controles.Add(3, orden);
             controles.Add(4, examen);
             controles.Add(5, reporte);
+            controles.Add(6,medico);
 
             botones.Add(1, BtnInicio);
             botones.Add(2, BtnPaciente);
             botones.Add(3, BtnOrden);
             botones.Add(4, BtnExamen);
             botones.Add(5, BtnReporte);
+            botones.Add(6, BtnMedico);
             panelPrincipal.Controls.Add(controles[idControlActual]);
             
             RelocalizarUI();
-            BLControlSistema enlaceControlSistema = new BLControlSistema();
+            LogicControlSistema enlaceControlSistema = new LogicControlSistema();
             Cuenta cuenta = enlaceControlSistema.GetCuentaLogin();
-            campUser.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cuenta.Nombre + " " + cuenta.Apellidos);
             this.Show();
         }
         
@@ -115,8 +129,7 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             this.panelBar.Width = this.Width;
             this.panelBar.Height = 44;
 
-            this.BtnLogout.Location = new Point(this.Width - (this.BtnLogout.Width + 30), this.BtnLogout.Location.Y);
-            this.campUser.Location = new Point(this.Width - (this.BtnLogout.Width + this.campUser.Width + 30), this.campUser.Location.Y);
+            //this.BtnLogout.Location = new Point(this.Width - (this.BtnLogout.Width + 30), this.BtnLogout.Location.Y);
             
             this.ResumeLayout(false);
 
@@ -162,13 +175,15 @@ namespace MinLab.Code.PresentationLayer.GUISistema
         
         public void removeControl(int id)
         {
-            setBotonColorOriginal(id);
+            if(id!=1)
+                setBotonColorOriginal(id);
             panelPrincipal.Controls.Remove(controles[id]);
         }
 
         public void addControl(int id)
         {
-            setBotonColorSelect(idControlActual);
+            if(id!=1)
+                setBotonColorSelect(idControlActual);
 
             panelPrincipal.SuspendLayout();
             controles[id].SuspendLayout();
@@ -194,8 +209,36 @@ namespace MinLab.Code.PresentationLayer.GUISistema
         {
             formaAcerca.ShowDialog();
         }
+        
 
-        private void Principal_Load(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+            panelPrincipal.SuspendLayout();
+
+            if (CheckBoxMenu.Checked)
+                SplitCont.SplitterDistance = 146;
+            else
+                SplitCont.SplitterDistance = 40;
+            panelPrincipal.ResumeLayout();
+            panelPrincipal.Update();
+            SplitCont.Update();
+            this.ResumeLayout();
+        }
+
+        private void BtnMedico_Click(object sender, EventArgs e)
+        {
+            removeControl(idControlActual);
+            idControlActual = 6;
+            addControl(idControlActual);
+        }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -2,10 +2,13 @@
 using System.Data;
 using System.Windows.Forms;
 using MinLab.Code.LogicLayer.LogicaTarifario;
-using MinLab.Code.EntityLayer.FichaOrden;
+using MinLab.Code.EntityLayer.EOrden;
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.LogicLayer;
+using MinLab.Code.LogicLayer.LogicaPaciente;
 
 namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
 {
@@ -42,17 +45,33 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             
         }
         
-        public void InicializarDatosFormulario()
+        public void CargarDatos()
         {
-            CampDireccion.Text = perfil.Direccion;
+            BLMedico bl = new BLMedico();
+            Medico medico = bl.ObtenerMedico(orden.IdMedico);
+            CampUbicacion.Text = BLPaciente.FormatearUbicacion(perfil);
             CampDni.Text = perfil.Dni;
             CampHistoria.Text = perfil.Historia;
             CampNombre.Text = perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido;
             CampBoleta.Text = orden.Boleta;
+            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
+            CampMedico.Text = medico.Nombre + " " + medico.PrimerApellido + " " + medico.SegundoApellido;
+            CampConsultorio.Text = Consultorios.GetInstance().GetConsultorio(orden.IdConsultorio).Nombre;
+            if (perfil.Sexo==Sexo.Mujer)
+            {
+                LabelGestacion.Visible = true;
+                CampGestacion.Visible = true;
+                CampGestacion.Text = orden.EnGestacion ? "Si" : "No";
+            }
+            else
+            {
+                LabelGestacion.Visible = false;
+                CampGestacion.Visible = false;
+            }
             PickerTime.Text = orden.FechaRegistro.ToShortDateString();
             tabla.Clear();
             foreach (OrdenDetalle ord in orden.Detalle.Values) {
-                Paquete p = Tarifario.GetInstance().GetPaqueteById(ord.IdDataPaquete);
+                EntityLayer.Analisis p = ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(ord.IdDataPaquete);
                 this.SuspendLayout();
                 DataRow row = tabla.NewRow();
                 row[0] = p.IdData;
@@ -117,7 +136,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
         {
             LogicaOrden enlaceLogicaOrden = new LogicaOrden();
             enlaceLogicaOrden.EliminarOrden(orden);
-
+            ((ControlOrden)this.Parent).ModeBtnFuncion(true);
             this.Dispose();
         }
 
@@ -130,7 +149,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             formModificarOrden.ShowDialog();
             LogicaOrden enlaceOrden = new LogicaOrden();
             Orden = enlaceOrden.ObtenerOrden(orden.IdData);
-            InicializarDatosFormulario();
+            CargarDatos();
         }
         
         

@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>En este apartado podras obtener informaci'on acerca del funcionamiento del sistema, pero primero te mencionamos algunas recomendaciones a considerar: 
+
+- Si notas algun posible error extraño no pierdas la calma, consulta    a servicio tecnico.
+- Si no sabes que hacer podrias comenzar por recurrir al manual      de ayuda.
+- Toda informacion registrada aqui es de indole confidencial.
+- Recuerda lo mas importante: !El paciente es nuestro cliente, da un   buen trato!</value>
+  </data>
 </root>

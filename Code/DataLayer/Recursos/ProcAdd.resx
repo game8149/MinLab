@@ -117,46 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="add_grupo" xml:space="preserve">
-    <value>add_grupo</value>
+  <data name="ADD_GRUPO" xml:space="preserve">
+    <value>ADD_GRUPO</value>
   </data>
-  <data name="add_grupo_item" xml:space="preserve">
-    <value>add_grupo_item</value>
+  <data name="ADD_GRUPO_ITEM" xml:space="preserve">
+    <value>ADD_GRUPO_ITEM</value>
   </data>
-  <data name="add_item" xml:space="preserve">
-    <value>add_item</value>
+  <data name="ADD_ITEM" xml:space="preserve">
+    <value>ADD_ITEM</value>
   </data>
-  <data name="add_listaItem" xml:space="preserve">
-    <value>add_listaItem</value>
+  <data name="ADD_LISTAITEM" xml:space="preserve">
+    <value>ADD_LISTAITEM</value>
   </data>
-  <data name="add_plantilla" xml:space="preserve">
-    <value>add_plantilla</value>
+  <data name="ADD_PLANTILLA" xml:space="preserve">
+    <value>ADD_PLANTILLA</value>
   </data>
-  <data name="add_plantilla_item" xml:space="preserve">
-    <value>add_plantilla_item</value>
+  <data name="ADD_PLANTILLA_ITEM" xml:space="preserve">
+    <value>ADD_PLANTILLA_ITEM</value>
   </data>
-  <data name="add_tipocampo" xml:space="preserve">
-    <value>add_tipocampo</value>
+  <data name="ADD_PACIENTE" xml:space="preserve">
+    <value>ADD_PACIENTE</value>
   </data>
-  <data name="add_tipoitem" xml:space="preserve">
-    <value>add_tipoitem</value>
+  <data name="ADD_ORDENCAB" xml:space="preserve">
+    <value>ADD_ORDENCAB</value>
   </data>
-  <data name="add_paciente" xml:space="preserve">
-    <value>add_paciente</value>
+  <data name="ADD_EXAMEN" xml:space="preserve">
+    <value>ADD_EXAMEN</value>
   </data>
-  <data name="add_orden" xml:space="preserve">
-    <value>add_orden</value>
+  <data name="ADD_CUENTA" xml:space="preserve">
+    <value>ADD_CUENTA</value>
   </data>
-  <data name="add_examen" xml:space="preserve">
-    <value>add_examen</value>
+  <data name="ADD_SEGURIDAD" xml:space="preserve">
+    <value>ADD_SEGURIDAD</value>
   </data>
-  <data name="add_cuenta" xml:space="preserve">
-    <value>add_cuenta</value>
+  <data name="ADD_ORDENDET" xml:space="preserve">
+    <value>ADD_ORDENDET</value>
   </data>
-  <data name="add_seguridad" xml:space="preserve">
-    <value>add_seguridad</value>
+  <data name="ADD_DISTRITO" xml:space="preserve">
+    <value>ADD_DISTRITO</value>
   </data>
-  <data name="insert_ordenDetalle" xml:space="preserve">
-    <value>insert_ordenDetalle</value>
+  <data name="ADD_MEDICO" xml:space="preserve">
+    <value>ADD_MEDICO</value>
+  </data>
+  <data name="ADD_SECTOR" xml:space="preserve">
+    <value>ADD_SECTOR</value>
+  </data>
+  <data name="ADD_TARIFARIOCAB" xml:space="preserve">
+    <value>ADD_TARIFARIOCAB</value>
+  </data>
+  <data name="ADD_CONSULTORIO" xml:space="preserve">
+    <value>ADD_CONSULTORIO</value>
+  </data>
+  <data name="ADD_TARIFARIODET" xml:space="preserve">
+    <value>ADD_TARIFARIODET</value>
   </data>
 </root>

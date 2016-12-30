@@ -1,6 +1,6 @@
-﻿using MinLab.Code.EntityLayer.FichaOrden;
-using MinLab.Code.EntityLayer.FichaExamen;
-using MinLab.Code.EntityLayer.FichaPlantilla;
+﻿using MinLab.Code.EntityLayer.EOrden;
+using MinLab.Code.EntityLayer.EExamen;
+using MinLab.Code.EntityLayer.EPlantilla;
 using MinLab.Code.LogicLayer.BLPrueba;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace MinLab.Code.LogicLayer.LogicaExamen
             foreach (OrdenDetalle detalleOrden in orden.Detalle.Values)
             {
                 if (!DataExamen.ExistenExamenes(detalleOrden)) {
-                    foreach (int idPlantilla in Tarifario.GetInstance().GetPaqueteById(detalleOrden.IdDataPaquete).PlantillasId)
+                    foreach (int idPlantilla in ListaAnalisis.GetInstance().GetAnalisisById(detalleOrden.IdDataPaquete).PlantillasId)
                     {
                         //Obteniendo Items de Plantilla Id
                         Dictionary<int, PlantillaItem> items = BLPlantilla.GetAllItemsByPlantilla(idPlantilla);

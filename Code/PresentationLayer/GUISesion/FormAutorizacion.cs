@@ -28,7 +28,7 @@ namespace MinLab.Code.PresentationLayer.GUISesion
 
         private void BtnInicia_Click(object sender, EventArgs e)
         {
-            BLControlSistema enlace = new BLControlSistema();
+            LogicControlSistema enlace = new LogicControlSistema();
             try
             {
                 enlace.AperturaAutorizacion(CampDni.Text, CampClave.Text);
@@ -41,5 +41,9 @@ namespace MinLab.Code.PresentationLayer.GUISesion
             
         }
 
+        private void FormAutorizacion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

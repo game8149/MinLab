@@ -1,4 +1,4 @@
-﻿using MinLab.Code.EntityLayer.FichaExamen;
+﻿using MinLab.Code.EntityLayer.EExamen;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,11 +14,23 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamenEditor
         
         private List<ExamenEditorItem> items;
 
+
+
         public ExamenEditorGrupo(int Ancho, int Alto)
         {
             this.Height = Alto;
             this.Width = Ancho;
             DoubleBuffered = true;
+        }
+        
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         public List<ExamenEditorItem> Items

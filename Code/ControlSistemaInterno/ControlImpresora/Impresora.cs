@@ -1,4 +1,5 @@
-﻿using MinLab.Code.EntityLayer.FichaOrden;
+﻿using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.EntityLayer.EOrden;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
 using MinLab.Code.LogicLayer.LogicaExamen;
 using MinLab.Code.LogicLayer.LogicaPaciente;
@@ -356,10 +357,11 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
 
             grafico.DrawImage(imgMR, ((actual.X + limit.X ) - imgMR.Size.Width) / 2, ((actual.Y + lineaPag) + limit.Y - imgMR.Size.Height) /2);
 
-            grafico.DrawLine(pen, new Point(0, limit.Y - 35), new Point(limit.X - margen -10, limit.Y - 35));
-            stringSize = grafico.MeasureString("Gracias por su preferencia.", fontFechaSub);
-            grafico.DrawString("Gracias por su preferencia.", fontFechaSub, Brushes.Black, (actual.X + limit.X) / 2 - stringSize.Width / 2, limit.Y-30);
+            Cuenta cu=SistemaControl.GetInstance().Sesion.Cuenta;
+            grafico.DrawString("Responsable: " + cu.Nombre + " " + cu.PrimerApellido + " " + cu.SegundoApellido + " - " + cu.Especialidad, fontFechaSub, Brushes.Black, actual.X+5, limit.Y - 33);
 
+            grafico.DrawLine(pen, new Point(actual.X, limit.Y - 35), new Point(limit.X - margen -10, limit.Y - 35));
+            stringSize = grafico.MeasureString("Gracias por su preferencia.", fontFechaSub);
             
 
             return lineaPag+actual.Y;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MinLab.Code.EntityLayer.EUbicacion;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,15 +18,16 @@ namespace MinLab.Code.ControlSistemaInterno
 
         private static DiccionarioGeneral coleccion = null;
 
-        private Dictionary<int, string> diccionarioRegex = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioRegex = new Dictionary<int, string>();
         private  Dictionary<int, string> diccionarioSexo = new Dictionary<int, string>();
-        private Dictionary<int, string> diccionarioEstadoOrden = new Dictionary<int, string>();
-        private  Dictionary<int , string> diccionarioDoc = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioEstadoOrden = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioDoc = new Dictionary<int, string>();
         private  Dictionary<int, string> diccionarioCobertura = new Dictionary<int, string>();
         private  Dictionary<int, string> diccionarioAño= new Dictionary<int, string>();
         private  Dictionary<int, string> diccionarioMes = new Dictionary<int, string>();
         private  Dictionary<int, string> diccionarioArea = new Dictionary<int, string>();
-        private Dictionary<int, string> diccionarioEstadoExamen = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioEstadoExamen = new Dictionary<int, string>();
+        private Dictionary<int, Distrito> diccionarioUbicacion = new Dictionary<int, Distrito>();
         
         public static DiccionarioGeneral GetInstance()
         {
@@ -39,8 +41,8 @@ namespace MinLab.Code.ControlSistemaInterno
         public void Load()
         {
 
-            diccionarioSexo.Add(0, "HOMBRE");
-            diccionarioSexo.Add(1, "MUJER");
+            diccionarioSexo.Add((int)Sexo.Hombre, "HOMBRE");
+            diccionarioSexo.Add((int)Sexo.Mujer, "MUJER");
 
             diccionarioDoc.Add(0, "DNI");
             diccionarioDoc.Add(1, "HC");
@@ -79,6 +81,7 @@ namespace MinLab.Code.ControlSistemaInterno
             
             diccionarioRegex.Add(2, @"(\b[0-9]+$)");
             diccionarioRegex.Add(3, @"(\b[0-9]+$|(\b[0-9]+.[0-9]+$))");
+            
         }
 
         public  Dictionary<int,string> TipoSexo

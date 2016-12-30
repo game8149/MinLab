@@ -1,12 +1,13 @@
-﻿using MinLab.Code.EntityLayer.FichaOrden;
-using MinLab.Code.EntityLayer.FichaExamen;
+﻿using MinLab.Code.EntityLayer.EOrden;
+using MinLab.Code.EntityLayer.EExamen;
 using System;
 using System.Collections.Generic;
-using static MinLab.Code.EntityLayer.FichaOrden.Orden;
+using static MinLab.Code.EntityLayer.EOrden.Orden;
 using MinLab.Code.DataLayer;
 using MinLab.Code.EntityLayer;
-using MinLab.Code.EntityLayer.FichaReporte;
+using MinLab.Code.EntityLayer.EReporte;
 using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.EntityLayer.EFicha;
 
 namespace MinLab.Code.LogicLayer.LogicaTarifario
 {
@@ -35,7 +36,7 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
         }
 
 
-        public Dictionary<int, Dictionary<int, int>> ObtenerReporteAcumuladoMensual(int idArea, int año, int mes)
+        public Dictionary<int, Dictionary<int, int>> ObtenerReporteAcumuladoMensual(int año, int mes)
         {
             DataOrden enlaceOrden = new DataOrden();
             /// 3 diccionarios INDEXDOS por cada cobertura
@@ -43,13 +44,13 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
 
             foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
             {
-                porCobertura.Add(cobertura, enlaceOrden.GetReporteAcumuladoFromDB(cobertura, idArea, año, mes));
+                porCobertura.Add(cobertura, enlaceOrden.GetReporteAcumuladoFromDB(cobertura, año, mes));
             }
 
             return porCobertura;
         }
 
-        public Dictionary<int, Dictionary<int, int>> ObtenerReporteCantidadMensual(int idArea, int año, int mes)
+        public Dictionary<int, Dictionary<int, int>> ObtenerReporteCantidadMensual(int año, int mes)
         {
             DataOrden enlaceOrden = new DataOrden();
             /// 3 diccionarios INDEXDOS por cada cobertura
@@ -57,23 +58,62 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
 
             foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
             {
-                porCobertura.Add(cobertura, enlaceOrden.GetReporteCantidadFromDB(cobertura, idArea, año, mes));
+                porCobertura.Add(cobertura, enlaceOrden.GetReporteCantidadFromDB(cobertura, año, mes));
             }
 
             return porCobertura;
         }
 
-        public List<int[]> ObtenerReporteEdad(int cobertura, int idArea, int año, int mes)
+
+
+        public Dictionary<int, Dictionary<int, int>> ObtenerReporteAcumuladoMensual(int año, int mes, int idMedico)
         {
             DataOrden enlaceOrden = new DataOrden();
-            return enlaceOrden.GetReporteEdadFromDB(cobertura, idArea, año, mes);
+            /// 3 diccionarios INDEXDOS por cada cobertura
+            Dictionary<int, Dictionary<int, int>> porCobertura = new Dictionary<int, Dictionary<int, int>>();
+
+            foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+            {
+                porCobertura.Add(cobertura, enlaceOrden.GetReporteAcumuladoFromDB(cobertura, año, mes,idMedico));
+            }
+
+            return porCobertura;
+        }
+
+        public Dictionary<int, Dictionary<int, int>> ObtenerReporteCantidadMensual(int año, int mes,int idMedico)
+        {
+            DataOrden enlaceOrden = new DataOrden();
+            /// 3 diccionarios INDEXDOS por cada cobertura
+            Dictionary<int, Dictionary<int, int>> porCobertura = new Dictionary<int, Dictionary<int, int>>();
+
+            foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+            {
+                porCobertura.Add(cobertura, enlaceOrden.GetReporteCantidadFromDB(cobertura, año, mes,idMedico));
+            }
+
+            return porCobertura;
+        }
+
+
+
+        public List<int[]> ObtenerReporteEdad(int cobertura, int año, int mes)
+        {
+            DataOrden enlaceOrden = new DataOrden();
+            return enlaceOrden.GetReporteEdadFromDB(cobertura, año, mes);
+        }
+
+        public List<object[]> ObtenerReporteResultado(int año, int mes)
+        {
+
+            DataOrden enlaceOrden = new DataOrden();
+            return enlaceOrden.GetReporteResultadoFromDB(año,mes);
         }
 
         public string ObtenerDescripcion(Orden orden)
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
             foreach (OrdenDetalle det in orden.Detalle.Values)
-                builder.Append("- ").Append(Tarifario.GetInstance().Paquetes[det.IdDataPaquete].Nombre).Append("\n ");
+                builder.Append("- ").Append(ControlSistemaInterno.ListaAnalisis.GetInstance().Analisis[det.IdDataPaquete].Nombre).Append("\n ");
             return builder.ToString();
         }
 

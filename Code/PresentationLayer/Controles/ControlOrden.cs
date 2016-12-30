@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using MinLab.Code.PresentationLayer.Controles.ComponentesOrden;
+using MinLab.Code.EntityLayer.EOrden;
+using MinLab.Code.EntityLayer.EFicha;
 
 namespace MinLab.Code.PresentationLayer.Controles
 {
     public partial class ControlOrden : UserControl
     {
 
-        private Dictionary<int, UserControl> controlesPanel;
-        private int IdPanelActual=0;
+        UserControl control;
+        
 
         public ControlOrden()
         {
             InitializeComponent();
-            PanelFichaOrden panelOrden = new PanelFichaOrden();
-            PanelNuevaOrden panelNuevaOrden = new PanelNuevaOrden();
-            panelOrden.Location = new Point(0,0);
-            panelNuevaOrden.Location = new Point(0,0);
-            
-            controlesPanel = new Dictionary<int, UserControl>();
-            controlesPanel.Add(1,panelNuevaOrden);
-            controlesPanel.Add(2,panelOrden);
             this.KeyPress += ControlOrden_KeyPress;
+            ModeBtnFuncion(true);
         }
 
         private void ControlOrden_KeyPress(object sender, KeyPressEventArgs e)
@@ -46,54 +41,53 @@ namespace MinLab.Code.PresentationLayer.Controles
             }
         }
 
-        private void ControlOrden_Load(object sender, EventArgs e)
+        public void ModeBtnFuncion(bool mode)
         {
-
+            BtnAbrir.Visible = mode;
+            BtnCerrar.Visible = !mode;
+            BtnNuevo.Visible = mode;
         }
 
-        private void BtnCrearOrden_Click(object sender, EventArgs e)
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            IdPanelActual = 1;
-            this.PanelTrabajo.Controls.Add(controlesPanel[IdPanelActual]);
-            this.ActivarHojaTrabajo();
+            control = new PanelNuevaOrden();
+            ModeBtnFuncion(false);
+            control.Parent = this;
+            PanelTrabajo.Controls.Add(control);
+            control.Show();
         }
 
-        private void BtnBuscarPaciente_Click(object sender, EventArgs e)
+        private void BtnAbrir_Click(object sender, EventArgs e)
         {
-            FormBuscarOrden formOrden = new FormBuscarOrden();
-            formOrden.ShowDialog();
-            if (formOrden.Perfil!=null&&formOrden.Orden != null)
+            Orden orden = null;
+            Paciente perfil = null;
+
+            FormBuscarOrden form = new FormBuscarOrden();
+            form.ShowDialog();
+            orden = form.Orden;
+            perfil = form.Perfil;
+            if (orden != null && perfil!=null)
             {
-                IdPanelActual = 2;
-                (controlesPanel[IdPanelActual]) = new PanelFichaOrden();
-                ((PanelFichaOrden)controlesPanel[IdPanelActual]).Orden = formOrden.Orden;
-                ((PanelFichaOrden)controlesPanel[IdPanelActual]).Perfil = formOrden.Perfil;
-                this.PanelTrabajo.Controls.Add(controlesPanel[IdPanelActual]);
-                ((PanelFichaOrden)controlesPanel[IdPanelActual]).InicializarDatosFormulario();
-                ActivarHojaTrabajo();
+                control = new PanelFichaOrden();
+                control.Parent = this;
+                ((PanelFichaOrden)control).Perfil = perfil;
+                ((PanelFichaOrden)control).Orden = orden;
+                ModeBtnFuncion(false);
+                PanelTrabajo.Controls.Add(control);
+                ((PanelFichaOrden)control).CargarDatos();
+                control.Show();
             }
-            formOrden.Dispose();
+            form.Dispose();
         }
 
-        private void BtnClose_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            this.PanelTrabajo.Controls.Remove(controlesPanel[IdPanelActual]);
-            this.DesactivarHojaTrabajo();
-            IdPanelActual = 0;
+            control.Dispose();
+            ModeBtnFuncion(true);
         }
+        
 
-
-        private void ActivarHojaTrabajo()
-        {
-            BtnClose.Visible = true;
-            PanelAcciones.Enabled = false;
-        }
-
-        private void DesactivarHojaTrabajo()
-        {
-            BtnClose.Visible = false;
-            PanelAcciones.Enabled = true;
-        }
-
+        
     }
 }

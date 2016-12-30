@@ -37,7 +37,7 @@
             this.LabelNombreExamen = new System.Windows.Forms.Label();
             this.ComboExamen = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.CampDireccion = new System.Windows.Forms.Label();
+            this.CampUbicacion = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.CampHistoria = new System.Windows.Forms.Label();
             this.CampDni = new System.Windows.Forms.Label();
@@ -54,22 +54,25 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnRegistrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnBuscarPaciente = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.CheckBoxGestante = new System.Windows.Forms.CheckBox();
+            this.CampSexo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ComboBoxConsultorio = new System.Windows.Forms.ComboBox();
+            this.ComboBoxMedico = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PickerTime
             // 
             this.PickerTime.CalendarFont = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerTime.Location = new System.Drawing.Point(732, 210);
+            this.PickerTime.Location = new System.Drawing.Point(934, 187);
             this.PickerTime.Name = "PickerTime";
             this.PickerTime.Size = new System.Drawing.Size(108, 20);
             this.PickerTime.TabIndex = 96;
@@ -81,9 +84,9 @@
             this.panel1.Controls.Add(this.BtnAgregar);
             this.panel1.Controls.Add(this.LabelNombreExamen);
             this.panel1.Controls.Add(this.ComboExamen);
-            this.panel1.Location = new System.Drawing.Point(18, 247);
+            this.panel1.Location = new System.Drawing.Point(27, 222);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(822, 32);
+            this.panel1.Size = new System.Drawing.Size(1015, 32);
             this.panel1.TabIndex = 95;
             // 
             // BtnEliminar
@@ -95,7 +98,7 @@
             this.BtnEliminar.ForeColor = System.Drawing.SystemColors.Info;
             this.BtnEliminar.Image = global::MinLab.Properties.Resources.delete__1_;
             this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEliminar.Location = new System.Drawing.Point(736, 0);
+            this.BtnEliminar.Location = new System.Drawing.Point(926, 0);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(86, 32);
             this.BtnEliminar.TabIndex = 71;
@@ -137,6 +140,7 @@
             // 
             this.ComboExamen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ComboExamen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ComboExamen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ComboExamen.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboExamen.FormattingEnabled = true;
             this.ComboExamen.Location = new System.Drawing.Point(88, 4);
@@ -148,37 +152,37 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(205, 212);
+            this.label7.Location = new System.Drawing.Point(801, 189);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 16);
+            this.label7.Size = new System.Drawing.Size(44, 16);
             this.label7.TabIndex = 94;
-            this.label7.Text = "(Opcional)";
+            this.label7.Text = "(Opc.)";
             // 
-            // CampDireccion
+            // CampUbicacion
             // 
-            this.CampDireccion.AutoSize = true;
-            this.CampDireccion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDireccion.Location = new System.Drawing.Point(94, 141);
-            this.CampDireccion.Name = "CampDireccion";
-            this.CampDireccion.Size = new System.Drawing.Size(27, 16);
-            this.CampDireccion.TabIndex = 93;
-            this.CampDireccion.Text = "asd";
+            this.CampUbicacion.AutoSize = true;
+            this.CampUbicacion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CampUbicacion.Location = new System.Drawing.Point(93, 148);
+            this.CampUbicacion.Name = "CampUbicacion";
+            this.CampUbicacion.Size = new System.Drawing.Size(27, 16);
+            this.CampUbicacion.TabIndex = 93;
+            this.CampUbicacion.Text = "asd";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 141);
+            this.label9.Location = new System.Drawing.Point(24, 148);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 16);
+            this.label9.Size = new System.Drawing.Size(67, 16);
             this.label9.TabIndex = 92;
-            this.label9.Text = "Dirección:";
+            this.label9.Text = "Ubicacion:";
             // 
             // CampHistoria
             // 
             this.CampHistoria.AutoSize = true;
             this.CampHistoria.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampHistoria.Location = new System.Drawing.Point(274, 115);
+            this.CampHistoria.Location = new System.Drawing.Point(276, 107);
             this.CampHistoria.Name = "CampHistoria";
             this.CampHistoria.Size = new System.Drawing.Size(51, 16);
             this.CampHistoria.TabIndex = 90;
@@ -188,7 +192,7 @@
             // 
             this.CampDni.AutoSize = true;
             this.CampDni.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDni.Location = new System.Drawing.Point(91, 115);
+            this.CampDni.Location = new System.Drawing.Point(93, 107);
             this.CampDni.Name = "CampDni";
             this.CampDni.Size = new System.Drawing.Size(43, 16);
             this.CampDni.TabIndex = 89;
@@ -198,7 +202,7 @@
             // 
             this.CampNombre.AutoSize = true;
             this.CampNombre.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampNombre.Location = new System.Drawing.Point(91, 89);
+            this.CampNombre.Location = new System.Drawing.Point(93, 66);
             this.CampNombre.Name = "CampNombre";
             this.CampNombre.Size = new System.Drawing.Size(43, 16);
             this.CampNombre.TabIndex = 88;
@@ -227,7 +231,7 @@
             this.nombre,
             this.cobertura,
             this.idUnique});
-            this.dataGridView.Location = new System.Drawing.Point(18, 278);
+            this.dataGridView.Location = new System.Drawing.Point(27, 253);
             this.dataGridView.Name = "dataGridView";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -237,7 +241,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Size = new System.Drawing.Size(822, 209);
+            this.dataGridView.Size = new System.Drawing.Size(1015, 238);
             this.dataGridView.TabIndex = 87;
             // 
             // id
@@ -274,7 +278,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 214);
+            this.label1.Location = new System.Drawing.Point(612, 189);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 85;
@@ -283,7 +287,7 @@
             // CampBoleta
             // 
             this.CampBoleta.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampBoleta.Location = new System.Drawing.Point(91, 209);
+            this.CampBoleta.Location = new System.Drawing.Point(674, 186);
             this.CampBoleta.Name = "CampBoleta";
             this.CampBoleta.Size = new System.Drawing.Size(108, 23);
             this.CampBoleta.TabIndex = 84;
@@ -291,18 +295,18 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(19, 174);
+            this.label12.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(23, 24);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(148, 22);
+            this.label12.Size = new System.Drawing.Size(170, 19);
             this.label12.TabIndex = 83;
-            this.label12.Text = "Datos de Orden";
+            this.label12.Text = "Formulario de Registro";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(214, 115);
+            this.label10.Location = new System.Drawing.Point(216, 107);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 16);
             this.label10.TabIndex = 77;
@@ -312,7 +316,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 115);
+            this.label8.Location = new System.Drawing.Point(24, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 16);
             this.label8.TabIndex = 76;
@@ -322,28 +326,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 89);
+            this.label4.Location = new System.Drawing.Point(24, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 16);
             this.label4.TabIndex = 75;
             this.label4.Text = "Nombre:";
-            // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.FlatAppearance.BorderSize = 0;
-            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLimpiar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
-            this.BtnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnLimpiar.Image = global::MinLab.Properties.Resources.cleaner;
-            this.BtnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLimpiar.Location = new System.Drawing.Point(744, 0);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(111, 32);
-            this.BtnLimpiar.TabIndex = 81;
-            this.BtnLimpiar.Text = "Limpiar Orden";
-            this.BtnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnLimpiar.UseVisualStyleBackColor = false;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnRegistrar
             // 
@@ -355,9 +342,9 @@
             this.BtnRegistrar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnRegistrar.Image = global::MinLab.Properties.Resources.search_engine__1_;
-            this.BtnRegistrar.Location = new System.Drawing.Point(722, 505);
+            this.BtnRegistrar.Location = new System.Drawing.Point(915, 505);
             this.BtnRegistrar.Name = "BtnRegistrar";
-            this.BtnRegistrar.Size = new System.Drawing.Size(118, 35);
+            this.BtnRegistrar.Size = new System.Drawing.Size(127, 32);
             this.BtnRegistrar.TabIndex = 98;
             this.BtnRegistrar.Text = "Registrar";
             this.BtnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -369,7 +356,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(663, 212);
+            this.label3.Location = new System.Drawing.Point(864, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 79;
@@ -377,6 +364,7 @@
             // 
             // BtnBuscarPaciente
             // 
+            this.BtnBuscarPaciente.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BtnBuscarPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnBuscarPaciente.FlatAppearance.BorderSize = 0;
             this.BtnBuscarPaciente.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
@@ -385,7 +373,7 @@
             this.BtnBuscarPaciente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnBuscarPaciente.Image = global::MinLab.Properties.Resources.user__2_;
             this.BtnBuscarPaciente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscarPaciente.Location = new System.Drawing.Point(0, 0);
+            this.BtnBuscarPaciente.Location = new System.Drawing.Point(915, 59);
             this.BtnBuscarPaciente.Name = "BtnBuscarPaciente";
             this.BtnBuscarPaciente.Size = new System.Drawing.Size(127, 32);
             this.BtnBuscarPaciente.TabIndex = 82;
@@ -394,41 +382,100 @@
             this.BtnBuscarPaciente.UseVisualStyleBackColor = false;
             this.BtnBuscarPaciente.Click += new System.EventHandler(this.BtnBuscarPaciente_Click);
             // 
-            // panel2
+            // CheckBoxGestante
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Controls.Add(this.BtnBuscarPaciente);
-            this.panel2.Controls.Add(this.BtnLimpiar);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(858, 32);
-            this.panel2.TabIndex = 97;
+            this.CheckBoxGestante.AutoSize = true;
+            this.CheckBoxGestante.Font = new System.Drawing.Font("Futura Bk BT", 9.25F);
+            this.CheckBoxGestante.Location = new System.Drawing.Point(581, 105);
+            this.CheckBoxGestante.Name = "CheckBoxGestante";
+            this.CheckBoxGestante.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CheckBoxGestante.Size = new System.Drawing.Size(112, 20);
+            this.CheckBoxGestante.TabIndex = 147;
+            this.CheckBoxGestante.Text = ":En Gestancion";
+            this.CheckBoxGestante.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CheckBoxGestante.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // CampSexo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Futura Bk BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 22);
-            this.label2.TabIndex = 100;
-            this.label2.Text = "Datos de Paciente";
+            this.CampSexo.AutoSize = true;
+            this.CampSexo.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CampSexo.Location = new System.Drawing.Point(464, 107);
+            this.CampSexo.Name = "CampSexo";
+            this.CampSexo.Size = new System.Drawing.Size(51, 16);
+            this.CampSexo.TabIndex = 149;
+            this.CampSexo.Text = "label11";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(404, 107);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.TabIndex = 148;
+            this.label6.Text = "Sexo:";
+            // 
+            // ComboBoxConsultorio
+            // 
+            this.ComboBoxConsultorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxConsultorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxConsultorio.FormattingEnabled = true;
+            this.ComboBoxConsultorio.Location = new System.Drawing.Point(374, 187);
+            this.ComboBoxConsultorio.Name = "ComboBoxConsultorio";
+            this.ComboBoxConsultorio.Size = new System.Drawing.Size(222, 21);
+            this.ComboBoxConsultorio.TabIndex = 150;
+            // 
+            // ComboBoxMedico
+            // 
+            this.ComboBoxMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxMedico.FormattingEnabled = true;
+            this.ComboBoxMedico.Location = new System.Drawing.Point(96, 187);
+            this.ComboBoxMedico.Name = "ComboBoxMedico";
+            this.ComboBoxMedico.Size = new System.Drawing.Size(171, 21);
+            this.ComboBoxMedico.TabIndex = 151;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(24, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.TabIndex = 152;
+            this.label5.Text = "Medico:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(283, 189);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 16);
+            this.label11.TabIndex = 153;
+            this.label11.Text = "Consultorio:";
             // 
             // PanelNuevaOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BtnBuscarPaciente);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ComboBoxMedico);
+            this.Controls.Add(this.ComboBoxConsultorio);
+            this.Controls.Add(this.CampSexo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.CheckBoxGestante);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CampBoleta);
             this.Controls.Add(this.PickerTime);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnRegistrar);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.CampDireccion);
+            this.Controls.Add(this.CampUbicacion);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.CampHistoria);
@@ -439,11 +486,10 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Name = "PanelNuevaOrden";
-            this.Size = new System.Drawing.Size(858, 554);
+            this.Size = new System.Drawing.Size(1072, 563);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,7 +504,7 @@
         private System.Windows.Forms.Label LabelNombreExamen;
         private System.Windows.Forms.ComboBox ComboExamen;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label CampDireccion;
+        private System.Windows.Forms.Label CampUbicacion;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label CampHistoria;
         private System.Windows.Forms.Label CampDni;
@@ -470,16 +516,20 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnRegistrar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnBuscarPaciente;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewComboBoxColumn cobertura;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUnique;
+        private System.Windows.Forms.CheckBox CheckBoxGestante;
+        private System.Windows.Forms.Label CampSexo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox ComboBoxConsultorio;
+        private System.Windows.Forms.ComboBox ComboBoxMedico;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,16 +19,18 @@ namespace MinLab.Code.DataLayer
 
 
             comando.Connection = conexion;
-            comando.CommandText = ProcAdd.add_paciente;
+            comando.CommandText = ProcAdd.ADD_PACIENTE;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@hc", paciente.Historia);
             comando.Parameters.AddWithValue("@nombre", paciente.Nombre);
             comando.Parameters.AddWithValue("@apellidoP", paciente.PrimerApellido);
             comando.Parameters.AddWithValue("@apellidoM", paciente.SegundoApellido);
             comando.Parameters.AddWithValue("@direccion", paciente.Direccion);
-            comando.Parameters.AddWithValue("@sexo", paciente.Genero);
+            comando.Parameters.AddWithValue("@sexo", paciente.Sexo);
             comando.Parameters.AddWithValue("@fechaNac", paciente.FechaNacimiento);
             comando.Parameters.AddWithValue("@dni", paciente.Dni);
+            comando.Parameters.AddWithValue("@idDistrito", paciente.IdDistrito);
+            comando.Parameters.AddWithValue("@idSector", paciente.IdSector);
             comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
             
             comando.Connection.Open();
@@ -44,7 +47,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             
             comando.Connection = conexion;
-            comando.CommandText = ProcUpd.update_paciente;
+            comando.CommandText = ProcUpd.UPD_PACIENTE;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id", paciente.IdData);
             comando.Parameters.AddWithValue("@hc", paciente.Historia);
@@ -52,9 +55,11 @@ namespace MinLab.Code.DataLayer
             comando.Parameters.AddWithValue("@apellidoP", paciente.PrimerApellido);
             comando.Parameters.AddWithValue("@apellidoM", paciente.SegundoApellido);
             comando.Parameters.AddWithValue("@direccion", paciente.Direccion);
-            comando.Parameters.AddWithValue("@sexo", paciente.Genero);
+            comando.Parameters.AddWithValue("@sexo", paciente.Sexo);
             comando.Parameters.AddWithValue("@fechaNac", paciente.FechaNacimiento);
             comando.Parameters.AddWithValue("@dni", paciente.Dni);
+            comando.Parameters.AddWithValue("@idDistrito", paciente.IdDistrito);
+            comando.Parameters.AddWithValue("@idSector", paciente.IdSector);
 
             comando.Connection.Open();
             comando.ExecuteNonQuery();
@@ -73,7 +78,7 @@ namespace MinLab.Code.DataLayer
 
             comando.Connection = conexion;
             comando.CommandText = 
-                "select id,hclinica,nombre,apellido2,apellido1,Paciente.direccion,Paciente.fechaNacimiento,dni,Paciente.sexo "+
+                "select id,hclinica,nombre,apellido2,apellido1,Paciente.direccion,Paciente.fechaNacimiento,dni,Paciente.sexo,Paciente.idDistrito,Paciente.idSector "+
                 "from Paciente where " +
                 "hclinica like '"+historia+"%' and "+
                 "dni like '"+ dni+"%' and "+
@@ -95,8 +100,10 @@ namespace MinLab.Code.DataLayer
                 paciente.Direccion = resultado["direccion"].ToString();
                 paciente.Historia = resultado["hclinica"].ToString();
                 paciente.Dni = resultado["dni"].ToString();
-                paciente.Genero = Convert.ToInt32(resultado["sexo"]);
+                paciente.Sexo = (Sexo)Convert.ToInt32(resultado["sexo"]);
                 paciente.FechaNacimiento = Convert.ToDateTime(resultado["fechaNacimiento"]);
+                paciente.IdDistrito= Convert.ToInt32(resultado["idDistrito"]);
+                paciente.IdSector = Convert.ToInt32(resultado["idSector"]);
 
                 diccionario.Add(paciente.IdData,paciente);
 
@@ -117,7 +124,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_pacienteByHistoria;
+            comando.CommandText = ProcGet.GET_PACIENTE_BYHISTORIA;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@historia", historia);
 
@@ -133,9 +140,11 @@ namespace MinLab.Code.DataLayer
                 paciente.Direccion = resultado["direccion"].ToString();
                 paciente.Historia = resultado["hclinica"].ToString();
                 paciente.Dni = resultado["dni"].ToString();
-                paciente.Genero =Convert.ToInt32(resultado["sexo"]);
+                paciente.Sexo =(Sexo) Convert.ToInt32(resultado["sexo"]);
                 paciente.FechaNacimiento = Convert.ToDateTime(resultado["fechaNacimiento"]);
-                
+                paciente.IdDistrito = Convert.ToInt32(resultado["idDistrito"]);
+                paciente.IdSector = Convert.ToInt32(resultado["idSector"]);
+
             }
             resultado.Close();
             conexion.Close();
@@ -153,7 +162,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_pacienteByDni;
+            comando.CommandText = ProcGet.GET_PACIENTE_BYDNI;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Dni", Dni);
 
@@ -169,8 +178,10 @@ namespace MinLab.Code.DataLayer
                 paciente.Direccion = resultado["direccion"].ToString();
                 paciente.Historia = resultado["hclinica"].ToString();
                 paciente.Dni = resultado["dni"].ToString();
-                paciente.Genero = Convert.ToInt32(resultado["sexo"]);
+                paciente.Sexo = (Sexo)Convert.ToInt32(resultado["sexo"]);
                 paciente.FechaNacimiento = Convert.ToDateTime(resultado["fechaNacimiento"]);
+                paciente.IdDistrito = Convert.ToInt32(resultado["idDistrito"]);
+                paciente.IdSector = Convert.ToInt32(resultado["idSector"]);
             }
             resultado.Close();
             conexion.Close();
@@ -189,7 +200,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_pacienteById;
+            comando.CommandText = ProcGet.GET_PACIENTE_BYID;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idPaciente", idData);
 
@@ -205,8 +216,10 @@ namespace MinLab.Code.DataLayer
                 paciente.Direccion = resultado["direccion"].ToString();
                 paciente.Historia = resultado["hclinica"].ToString();
                 paciente.Dni = resultado["dni"].ToString();
-                paciente.Genero = Convert.ToInt32(resultado["sexo"]);
+                paciente.Sexo = (Sexo)Convert.ToInt32(resultado["sexo"]);
                 paciente.FechaNacimiento = Convert.ToDateTime(resultado["fechaNacimiento"]);
+                paciente.IdDistrito = Convert.ToInt32(resultado["idDistrito"]);
+                paciente.IdSector = Convert.ToInt32(resultado["idSector"]);
 
             }
             resultado.Close();
@@ -224,7 +237,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcUpd.deleted_paciente;
+            comando.CommandText = ProcDel.DEL_PACIENTE;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idPaciente", idData);
 

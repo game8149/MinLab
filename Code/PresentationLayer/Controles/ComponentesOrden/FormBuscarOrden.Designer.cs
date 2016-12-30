@@ -77,7 +77,7 @@
             // 
             // BtnCargar
             // 
-            this.BtnCargar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCargar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCargar.Location = new System.Drawing.Point(642, 515);
             this.BtnCargar.Name = "BtnCargar";
             this.BtnCargar.Size = new System.Drawing.Size(87, 31);
@@ -91,7 +91,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(7, 157);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.Size = new System.Drawing.Size(96, 16);
             this.label10.TabIndex = 18;
             this.label10.Text = "Historia Clinica:";
             // 
@@ -100,7 +100,7 @@
             this.CampHistoria.Location = new System.Drawing.Point(143, 153);
             this.CampHistoria.MaxLength = 15;
             this.CampHistoria.Name = "CampHistoria";
-            this.CampHistoria.Size = new System.Drawing.Size(187, 20);
+            this.CampHistoria.Size = new System.Drawing.Size(187, 23);
             this.CampHistoria.TabIndex = 5;
             // 
             // label9
@@ -108,7 +108,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(7, 125);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.Size = new System.Drawing.Size(34, 16);
             this.label9.TabIndex = 15;
             this.label9.Text = "DNI:";
             // 
@@ -117,7 +117,7 @@
             this.CampDni.Location = new System.Drawing.Point(143, 121);
             this.CampDni.MaxLength = 8;
             this.CampDni.Name = "CampDni";
-            this.CampDni.Size = new System.Drawing.Size(187, 20);
+            this.CampDni.Size = new System.Drawing.Size(187, 23);
             this.CampDni.TabIndex = 4;
             // 
             // label1
@@ -125,7 +125,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
@@ -134,7 +134,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 13);
+            this.label3.Size = new System.Drawing.Size(108, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Apellido Materno:";
             // 
@@ -143,7 +143,7 @@
             this.CampNombre.Location = new System.Drawing.Point(143, 27);
             this.CampNombre.MaxLength = 99;
             this.CampNombre.Name = "CampNombre";
-            this.CampNombre.Size = new System.Drawing.Size(187, 20);
+            this.CampNombre.Size = new System.Drawing.Size(187, 23);
             this.CampNombre.TabIndex = 1;
             // 
             // label2
@@ -151,7 +151,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(104, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Apellido Paterno:";
             // 
@@ -160,7 +160,7 @@
             this.Campapellido2erno.Location = new System.Drawing.Point(143, 91);
             this.Campapellido2erno.MaxLength = 99;
             this.Campapellido2erno.Name = "Campapellido2erno";
-            this.Campapellido2erno.Size = new System.Drawing.Size(187, 20);
+            this.Campapellido2erno.Size = new System.Drawing.Size(187, 23);
             this.Campapellido2erno.TabIndex = 3;
             // 
             // Campapellido1erno
@@ -168,7 +168,7 @@
             this.Campapellido1erno.Location = new System.Drawing.Point(143, 59);
             this.Campapellido1erno.MaxLength = 99;
             this.Campapellido1erno.Name = "Campapellido1erno";
-            this.Campapellido1erno.Size = new System.Drawing.Size(187, 20);
+            this.Campapellido1erno.Size = new System.Drawing.Size(187, 23);
             this.Campapellido1erno.TabIndex = 2;
             // 
             // DGVPaciente
@@ -234,6 +234,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.CampDni);
+            this.groupBox1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 48);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(347, 444);
@@ -244,10 +245,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(13, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 20);
+            this.label11.Size = new System.Drawing.Size(140, 19);
             this.label11.TabIndex = 40;
             this.label11.Text = "Filtro de Busqueda";
             // 
@@ -260,6 +261,7 @@
             this.groupBox2.Controls.Add(this.PickerInit);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(401, 48);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(328, 444);
@@ -376,6 +378,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(376, 48);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";

@@ -1,5 +1,5 @@
 ﻿using MinLab.Code.DataLayer;
-using MinLab.Code.EntityLayer.FichaPlantilla;
+using MinLab.Code.EntityLayer.EPlantilla;
 using System.Collections.Generic;
 using System.Windows.Forms;
 

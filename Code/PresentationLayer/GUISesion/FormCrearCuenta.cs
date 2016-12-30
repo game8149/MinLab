@@ -1,4 +1,6 @@
 ﻿using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.LogicLayer;
 using MinLab.Code.LogicLayer.LogicaControl;
 using System;
 using System.Collections.Generic;
@@ -24,23 +26,29 @@ namespace MinLab.Code.PresentationLayer.GUISesion
         {
             this.Close();
         }
+        
 
         private void BtnRegistra_Click(object sender, EventArgs e)
         {
-            BLControlSistema logica = new BLControlSistema();
+            LogicaCuenta oLCuenta = new LogicaCuenta();
             Cuenta cuenta = new Cuenta();
             cuenta.Nombre = CampNombre.Text;
-            cuenta.Apellidos = CampApellidos.Text;
+            cuenta.PrimerApellido = CampPrimerApellido.Text;
+            cuenta.SegundoApellido = CampSegundoApellido.Text;
             cuenta.Clave = CampClave.Text.Trim(' ');
             cuenta.Dni = CampDni.Text;
+            cuenta.Especialidad = CampEspecialidad.Text;
+            cuenta.CodigoPro = CampCodigo.Text;
             try
             {
-                if (logica.CrearCuenta(cuenta, CampAutorizacion.Text))
+                if (oLCuenta.CrearCuenta(cuenta, CampAutorizacion.Text))
                 {
-                    MessageBox.Show("Registro Finalizado","Mensaje");
+                    MessageBox.Show("Registro Finalizado", "Mensaje");
                     this.Close();
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "Advertencia");
             }
         }

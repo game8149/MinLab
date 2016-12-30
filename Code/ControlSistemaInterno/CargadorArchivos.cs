@@ -1,5 +1,6 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
 using System;
+using System.Data.SqlClient;
 
 namespace MinLab.Code.ControlSistemaInterno
 {
@@ -16,15 +17,15 @@ namespace MinLab.Code.ControlSistemaInterno
         {
             try
             {
-                System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection();
-                con.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
-                con.Open();
-                Tarifario.GetInstance().LoadTarifario();
+                ListaAnalisis.GetInstance().LoadAnalisis();
+                Locaciones.GetInstance().LoadLocaciones();
+                Consultorios.GetInstance().LoadConsultorio();
                 Plantillas.GetInstance().LoadPlantillas();
                 DiccionarioGeneral.GetInstance().Load();
+
                 SistemaControl.GetInstance();
             }
-            catch (Exception s)
+            catch (SqlException s)
             {
                 throw new Exception("No se puede conectar con el servidor. Consulta con soporte tecnico \n :). Error: "+s.Message);
             }

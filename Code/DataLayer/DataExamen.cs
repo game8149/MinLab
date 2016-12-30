@@ -1,11 +1,11 @@
 ﻿using MinLab.Code.DataLayer.Recursos;
-using MinLab.Code.EntityLayer.FichaOrden;
-using MinLab.Code.EntityLayer.FichaExamen;
+using MinLab.Code.EntityLayer.EOrden;
+using MinLab.Code.EntityLayer.EExamen;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using static MinLab.Code.EntityLayer.FichaExamen.Examen;
+using static MinLab.Code.EntityLayer.EExamen.Examen;
 using System.Windows.Forms;
 using MinLab.Code.ControlSistemaInterno;
 
@@ -63,7 +63,7 @@ namespace MinLab.Code.DataLayer
 
 
                 comando.Connection = conexion;
-                comando.CommandText = ProcAdd.add_examen;
+                comando.CommandText = ProcAdd.ADD_EXAMEN;
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@examenes", tablaExamen).SqlDbType = SqlDbType.Structured;
                 comando.Parameters.AddWithValue("@detalles", tablaExamenDetalle).SqlDbType = SqlDbType.Structured;
@@ -91,7 +91,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_examenByOrdenDetalle;
+            comando.CommandText = ProcGet.GET_EXAMENCAB_BYORDENDET;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idOrden", ordenDetalle.IdData);
 
@@ -124,7 +124,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.existen_examen;
+            comando.CommandText = ProcGet.GET_EXAMENCAB_EXISTE;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idOrdenDetalle", ordenDetalle.IdData);
 
@@ -153,7 +153,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
-            comando.CommandText = ProcGet.get_examenDetalleByExamen;
+            comando.CommandText = ProcGet.GET_EXAMENDET_BYEXAMENCAB;
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idExamen", examen.IdData);
 
@@ -221,7 +221,7 @@ namespace MinLab.Code.DataLayer
 
 
                 comando.Connection = conexion;
-                comando.CommandText = ProcUpd.update_examen;
+                comando.CommandText = ProcUpd.UPD_EXAMEN;
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@idOrden",orden.IdData);
                 comando.Parameters.AddWithValue("@estado", orden.Estado);
@@ -284,7 +284,7 @@ namespace MinLab.Code.DataLayer
                 tablaExamen.Rows.Add(row);
                 
                 comando.Connection = conexion;
-                comando.CommandText = ProcUpd.update_examen_single;
+                comando.CommandText = ProcUpd.UPD_EXAMEN_SINGLE;
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@examenes", tablaExamen).SqlDbType = SqlDbType.Structured;
                 comando.Parameters.AddWithValue("@detalles", tablaExamenDetalle).SqlDbType = SqlDbType.Structured;

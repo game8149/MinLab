@@ -1,4 +1,5 @@
 ﻿using MinLab.Code.EntityLayer;
+using MinLab.Code.EntityLayer.EFicha;
 using System;
 using System.Collections.Generic;
 using System.Linq;

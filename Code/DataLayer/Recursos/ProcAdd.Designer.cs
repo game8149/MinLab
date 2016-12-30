@@ -61,128 +61,164 @@ namespace MinLab.Code.DataLayer.Recursos {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_cuenta.
+        ///   Busca una cadena traducida similar a ADD_CONSULTORIO.
         /// </summary>
-        internal static string add_cuenta {
+        internal static string ADD_CONSULTORIO {
             get {
-                return ResourceManager.GetString("add_cuenta", resourceCulture);
+                return ResourceManager.GetString("ADD_CONSULTORIO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_examen.
+        ///   Busca una cadena traducida similar a ADD_CUENTA.
         /// </summary>
-        internal static string add_examen {
+        internal static string ADD_CUENTA {
             get {
-                return ResourceManager.GetString("add_examen", resourceCulture);
+                return ResourceManager.GetString("ADD_CUENTA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_grupo.
+        ///   Busca una cadena traducida similar a ADD_DISTRITO.
         /// </summary>
-        internal static string add_grupo {
+        internal static string ADD_DISTRITO {
             get {
-                return ResourceManager.GetString("add_grupo", resourceCulture);
+                return ResourceManager.GetString("ADD_DISTRITO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_grupo_item.
+        ///   Busca una cadena traducida similar a ADD_EXAMEN.
         /// </summary>
-        internal static string add_grupo_item {
+        internal static string ADD_EXAMEN {
             get {
-                return ResourceManager.GetString("add_grupo_item", resourceCulture);
+                return ResourceManager.GetString("ADD_EXAMEN", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_item.
+        ///   Busca una cadena traducida similar a ADD_GRUPO.
         /// </summary>
-        internal static string add_item {
+        internal static string ADD_GRUPO {
             get {
-                return ResourceManager.GetString("add_item", resourceCulture);
+                return ResourceManager.GetString("ADD_GRUPO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_listaItem.
+        ///   Busca una cadena traducida similar a ADD_GRUPO_ITEM.
         /// </summary>
-        internal static string add_listaItem {
+        internal static string ADD_GRUPO_ITEM {
             get {
-                return ResourceManager.GetString("add_listaItem", resourceCulture);
+                return ResourceManager.GetString("ADD_GRUPO_ITEM", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_orden.
+        ///   Busca una cadena traducida similar a ADD_ITEM.
         /// </summary>
-        internal static string add_orden {
+        internal static string ADD_ITEM {
             get {
-                return ResourceManager.GetString("add_orden", resourceCulture);
+                return ResourceManager.GetString("ADD_ITEM", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_paciente.
+        ///   Busca una cadena traducida similar a ADD_LISTAITEM.
         /// </summary>
-        internal static string add_paciente {
+        internal static string ADD_LISTAITEM {
             get {
-                return ResourceManager.GetString("add_paciente", resourceCulture);
+                return ResourceManager.GetString("ADD_LISTAITEM", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_plantilla.
+        ///   Busca una cadena traducida similar a ADD_MEDICO.
         /// </summary>
-        internal static string add_plantilla {
+        internal static string ADD_MEDICO {
             get {
-                return ResourceManager.GetString("add_plantilla", resourceCulture);
+                return ResourceManager.GetString("ADD_MEDICO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_plantilla_item.
+        ///   Busca una cadena traducida similar a ADD_ORDENCAB.
         /// </summary>
-        internal static string add_plantilla_item {
+        internal static string ADD_ORDENCAB {
             get {
-                return ResourceManager.GetString("add_plantilla_item", resourceCulture);
+                return ResourceManager.GetString("ADD_ORDENCAB", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_seguridad.
+        ///   Busca una cadena traducida similar a ADD_ORDENDET.
         /// </summary>
-        internal static string add_seguridad {
+        internal static string ADD_ORDENDET {
             get {
-                return ResourceManager.GetString("add_seguridad", resourceCulture);
+                return ResourceManager.GetString("ADD_ORDENDET", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_tipocampo.
+        ///   Busca una cadena traducida similar a ADD_PACIENTE.
         /// </summary>
-        internal static string add_tipocampo {
+        internal static string ADD_PACIENTE {
             get {
-                return ResourceManager.GetString("add_tipocampo", resourceCulture);
+                return ResourceManager.GetString("ADD_PACIENTE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a add_tipoitem.
+        ///   Busca una cadena traducida similar a ADD_PLANTILLA.
         /// </summary>
-        internal static string add_tipoitem {
+        internal static string ADD_PLANTILLA {
             get {
-                return ResourceManager.GetString("add_tipoitem", resourceCulture);
+                return ResourceManager.GetString("ADD_PLANTILLA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a insert_ordenDetalle.
+        ///   Busca una cadena traducida similar a ADD_PLANTILLA_ITEM.
         /// </summary>
-        internal static string insert_ordenDetalle {
+        internal static string ADD_PLANTILLA_ITEM {
             get {
-                return ResourceManager.GetString("insert_ordenDetalle", resourceCulture);
+                return ResourceManager.GetString("ADD_PLANTILLA_ITEM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ADD_SECTOR.
+        /// </summary>
+        internal static string ADD_SECTOR {
+            get {
+                return ResourceManager.GetString("ADD_SECTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ADD_SEGURIDAD.
+        /// </summary>
+        internal static string ADD_SEGURIDAD {
+            get {
+                return ResourceManager.GetString("ADD_SEGURIDAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ADD_TARIFARIOCAB.
+        /// </summary>
+        internal static string ADD_TARIFARIOCAB {
+            get {
+                return ResourceManager.GetString("ADD_TARIFARIOCAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ADD_TARIFARIODET.
+        /// </summary>
+        internal static string ADD_TARIFARIODET {
+            get {
+                return ResourceManager.GetString("ADD_TARIFARIODET", resourceCulture);
             }
         }
     }

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MinLab.Code.PresentationLayer.ComponentesExamen;
-using MinLab.Code.EntityLayer.FichaOrden;
+using MinLab.Code.EntityLayer.EOrden;
 using MinLab.Code.LogicLayer.LogicaTarifario;
-using static MinLab.Code.EntityLayer.FichaOrden.Orden;
+using static MinLab.Code.EntityLayer.EOrden.Orden;
 using MinLab.Code.LogicLayer.LogicaPaciente;
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.ControlSistemaInterno.ControlImpresora;
+using MinLab.Code.EntityLayer.EFicha;
 
 namespace MinLab.Code.PresentationLayer.Controles
 {

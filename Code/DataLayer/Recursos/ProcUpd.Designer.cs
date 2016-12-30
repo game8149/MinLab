@@ -61,83 +61,137 @@ namespace MinLab.Code.DataLayer.Recursos {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a deleted_orden.
+        ///   Busca una cadena traducida similar a UPD_CONSULTORIO.
         /// </summary>
-        internal static string deleted_orden {
+        internal static string UPD_CONSULTORIO {
             get {
-                return ResourceManager.GetString("deleted_orden", resourceCulture);
+                return ResourceManager.GetString("UPD_CONSULTORIO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a deleted_ordenDetalle.
+        ///   Busca una cadena traducida similar a UPD_CUENTA.
         /// </summary>
-        internal static string deleted_ordenDetalle {
+        internal static string UPD_CUENTA {
             get {
-                return ResourceManager.GetString("deleted_ordenDetalle", resourceCulture);
+                return ResourceManager.GetString("UPD_CUENTA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a deleted_paciente.
+        ///   Busca una cadena traducida similar a UPD_CUENTA_CLAVE.
         /// </summary>
-        internal static string deleted_paciente {
+        internal static string UPD_CUENTA_CLAVE {
             get {
-                return ResourceManager.GetString("deleted_paciente", resourceCulture);
+                return ResourceManager.GetString("UPD_CUENTA_CLAVE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a update_examen.
+        ///   Busca una cadena traducida similar a UPD_EXAMEN.
         /// </summary>
-        internal static string update_examen {
+        internal static string UPD_EXAMEN {
             get {
-                return ResourceManager.GetString("update_examen", resourceCulture);
+                return ResourceManager.GetString("UPD_EXAMEN", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a update_examen_single.
+        ///   Busca una cadena traducida similar a UPD_EXAMEN_SINGLE.
         /// </summary>
-        internal static string update_examen_single {
+        internal static string UPD_EXAMEN_SINGLE {
             get {
-                return ResourceManager.GetString("update_examen_single", resourceCulture);
+                return ResourceManager.GetString("UPD_EXAMEN_SINGLE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a update_ordenCabecera.
+        ///   Busca una cadena traducida similar a UPD_MEDICO.
         /// </summary>
-        internal static string update_ordenCabecera {
+        internal static string UPD_MEDICO {
             get {
-                return ResourceManager.GetString("update_ordenCabecera", resourceCulture);
+                return ResourceManager.GetString("UPD_MEDICO", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a update_ordenDetalle.
+        ///   Busca una cadena traducida similar a UPD_MEDICO_HABIL.
         /// </summary>
-        internal static string update_ordenDetalle {
+        internal static string UPD_MEDICO_HABIL {
             get {
-                return ResourceManager.GetString("update_ordenDetalle", resourceCulture);
+                return ResourceManager.GetString("UPD_MEDICO_HABIL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a update_paciente.
+        ///   Busca una cadena traducida similar a UPD_ORDENCAB.
         /// </summary>
-        internal static string update_paciente {
+        internal static string UPD_ORDENCAB {
             get {
-                return ResourceManager.GetString("update_paciente", resourceCulture);
+                return ResourceManager.GetString("UPD_ORDENCAB", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a update_seguridad.
+        ///   Busca una cadena traducida similar a UPD_ORDENDET.
         /// </summary>
-        internal static string update_seguridad {
+        internal static string UPD_ORDENDET {
             get {
-                return ResourceManager.GetString("update_seguridad", resourceCulture);
+                return ResourceManager.GetString("UPD_ORDENDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPD_PACIENTE.
+        /// </summary>
+        internal static string UPD_PACIENTE {
+            get {
+                return ResourceManager.GetString("UPD_PACIENTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPD_SEGURIDAD.
+        /// </summary>
+        internal static string UPD_SEGURIDAD {
+            get {
+                return ResourceManager.GetString("UPD_SEGURIDAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPD_TARIFARIO.
+        /// </summary>
+        internal static string UPD_TARIFARIO {
+            get {
+                return ResourceManager.GetString("UPD_TARIFARIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPD_TARIFARIOCAB.
+        /// </summary>
+        internal static string UPD_TARIFARIOCAB {
+            get {
+                return ResourceManager.GetString("UPD_TARIFARIOCAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPD_TARIFARIOCAB_VIGENTE.
+        /// </summary>
+        internal static string UPD_TARIFARIOCAB_VIGENTE {
+            get {
+                return ResourceManager.GetString("UPD_TARIFARIOCAB_VIGENTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPD_TARIFARIODET.
+        /// </summary>
+        internal static string UPD_TARIFARIODET {
+            get {
+                return ResourceManager.GetString("UPD_TARIFARIODET", resourceCulture);
             }
         }
     }

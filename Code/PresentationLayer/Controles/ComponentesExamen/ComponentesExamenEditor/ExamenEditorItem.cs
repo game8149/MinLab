@@ -54,12 +54,23 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamenEditor
                 this.ancho_campo = (Ancho / 2)- margeDer;
                 this.ancho_etiqueta = (Ancho / 2);
             }
-            DoubleBuffered = true;
             InicializarComponentes();
+            DoubleBuffered = true;
 
             comboList.SelectedIndexChanged += ComboList_SelectedIndexChanged;
             texBoxInput.KeyPress += TexBoxInput_KeyPress;
             texBoxTexto.KeyPress += TexBoxTexto_KeyPress;
+        }
+
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         private void TexBoxTexto_KeyPress(object sender, KeyPressEventArgs e)

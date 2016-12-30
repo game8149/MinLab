@@ -1,7 +1,8 @@
 ﻿using MinLab.Code.EntityLayer;
-using MinLab.Code.EntityLayer.FichaExamen;
-using MinLab.Code.EntityLayer.FichaOrden;
-using MinLab.Code.EntityLayer.FichaPlantilla;
+using MinLab.Code.EntityLayer.EExamen;
+using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.EntityLayer.EOrden;
+using MinLab.Code.EntityLayer.EPlantilla;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
 using MinLab.Code.LogicLayer.LogicaPaciente;
 using System;
@@ -102,8 +103,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                 Area area = (Area)Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Area;
                 repositorio[area].Add(ex.IdData);
             }
-
-            Console.WriteLine("Ya pase 1");
+            
             //CONSTRUCCION DE CABECERA 
             formato = new FormatoImpresion();
             FormatoImpresionCabecera cab = new FormatoImpresionCabecera();

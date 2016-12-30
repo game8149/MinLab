@@ -1,6 +1,6 @@
 ﻿
 using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.EntityLayer.FichaPlantilla;
+using MinLab.Code.EntityLayer.EPlantilla;
 using System.Collections.Generic;
 
 namespace MinLab.Code.LogicLayer.BLPrueba
