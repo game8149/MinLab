@@ -69,7 +69,7 @@
             this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistrar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnRegistrar.Location = new System.Drawing.Point(913, 483);
+            this.BtnRegistrar.Location = new System.Drawing.Point(916, 490);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(126, 42);
             this.BtnRegistrar.TabIndex = 146;
@@ -234,7 +234,7 @@
             this.Controls.Add(this.CampSegundoApellido);
             this.Controls.Add(this.CampPrimerApellido);
             this.Name = "PanelRegistrarMedico";
-            this.Size = new System.Drawing.Size(1066, 560);
+            this.Size = new System.Drawing.Size(1072, 563);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

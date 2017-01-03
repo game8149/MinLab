@@ -109,7 +109,7 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnGuardar.Location = new System.Drawing.Point(936, 494);
+            this.BtnGuardar.Location = new System.Drawing.Point(948, 499);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(105, 43);
             this.BtnGuardar.TabIndex = 156;
@@ -123,7 +123,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(794, 26);
+            this.panel1.Location = new System.Drawing.Point(806, 26);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(247, 400);
             this.panel1.TabIndex = 166;
@@ -322,7 +322,7 @@
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCancelar.Location = new System.Drawing.Point(814, 494);
+            this.BtnCancelar.Location = new System.Drawing.Point(826, 499);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(105, 43);
             this.BtnCancelar.TabIndex = 171;
@@ -361,7 +361,7 @@
             this.Controls.Add(this.Campapellido2erno);
             this.Controls.Add(this.Campapellido1erno);
             this.Name = "PanelModificarPaciente";
-            this.Size = new System.Drawing.Size(1066, 560);
+            this.Size = new System.Drawing.Size(1072, 563);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

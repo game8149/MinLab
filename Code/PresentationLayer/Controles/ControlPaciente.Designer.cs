@@ -42,9 +42,9 @@
             // PanelTrabajo
             // 
             this.PanelTrabajo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelTrabajo.Location = new System.Drawing.Point(0, 57);
+            this.PanelTrabajo.Location = new System.Drawing.Point(0, 60);
             this.PanelTrabajo.Name = "PanelTrabajo";
-            this.PanelTrabajo.Size = new System.Drawing.Size(1066, 560);
+            this.PanelTrabajo.Size = new System.Drawing.Size(1072, 563);
             this.PanelTrabajo.TabIndex = 96;
             // 
             // panel1
@@ -136,7 +136,7 @@
             this.Controls.Add(this.PanelTrabajo);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ControlPaciente";
-            this.Size = new System.Drawing.Size(1066, 617);
+            this.Size = new System.Drawing.Size(1072, 623);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
