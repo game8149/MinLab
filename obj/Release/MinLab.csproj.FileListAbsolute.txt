@@ -28,7 +28,6 @@ C:\Users\gavid\Documents\Visual Studio 2015\Projects\MinLab\obj\Release\MinLab.C
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\MinLab.exe.config
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\MinLab.pdb
-C:\Users\gavid\Documents\Repo\MinLab\bin\Release\MinLab.XML
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\EPPlus.dll
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\EPPlus.xml
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csproj.ResolveComReference.cache
@@ -59,6 +58,7 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.C
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesOrden.PanelNuevaOrden.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.PanelCrearPaciente.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.PanelPerfil.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.GUISesion.FormConfigServer.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.GUISistema.FormRegistrarProfesional.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesReporte.FormTarifario.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.GUISistema.FormAcerca.resources
@@ -74,3 +74,5 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Properties.Resources.res
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csproj.GenerateResource.Cache
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.pdb
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csprojResolveAssemblyReference.cache
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesPaciente.PanelModificarPaciente.resources

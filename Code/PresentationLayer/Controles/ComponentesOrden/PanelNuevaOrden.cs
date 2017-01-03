@@ -179,11 +179,9 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
         {
             FormBuscarPaciente formBuscarPaciente = new FormBuscarPaciente();
             formBuscarPaciente.ShowDialog();
-            this.Perfil = formBuscarPaciente.Perfil;
-            formBuscarPaciente.Dispose();
-
-            if (Perfil != null)
+            if (formBuscarPaciente.Perfil != null)
             {
+                this.Perfil = formBuscarPaciente.Perfil;
                 CampDni.Text = Perfil.Dni;
                 CampHistoria.Text = Perfil.Historia;
                 CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Perfil.Nombre + " " + Perfil.PrimerApellido + " " + Perfil.SegundoApellido);
@@ -197,6 +195,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 }
 
             }
+            formBuscarPaciente.Dispose();
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -294,6 +293,10 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
         {
             this.DeshabilitarFormulario();
         }
-        
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -36,6 +36,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DGVExamen = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idExamen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -58,9 +61,6 @@
             this.CampEdad = new System.Windows.Forms.Label();
             this.CampHistoria = new System.Windows.Forms.Label();
             this.CampSexo = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idExamen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -156,6 +156,30 @@
             this.DGVExamen.ReadOnly = true;
             this.DGVExamen.Size = new System.Drawing.Size(366, 399);
             this.DGVExamen.TabIndex = 70;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Nombre.ToolTipText = "Nombre de Examen";
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // idExamen
+            // 
+            this.idExamen.HeaderText = "Column1";
+            this.idExamen.Name = "idExamen";
+            this.idExamen.ReadOnly = true;
+            this.idExamen.Visible = false;
             // 
             // label9
             // 
@@ -303,9 +327,9 @@
             this.BtnAutorizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAutorizacion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAutorizacion.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.BtnAutorizacion.Location = new System.Drawing.Point(129, 118);
+            this.BtnAutorizacion.Location = new System.Drawing.Point(117, 118);
             this.BtnAutorizacion.Name = "BtnAutorizacion";
-            this.BtnAutorizacion.Size = new System.Drawing.Size(75, 30);
+            this.BtnAutorizacion.Size = new System.Drawing.Size(102, 41);
             this.BtnAutorizacion.TabIndex = 73;
             this.BtnAutorizacion.Text = "Solicitar";
             this.BtnAutorizacion.UseVisualStyleBackColor = false;
@@ -315,7 +339,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(97, 33);
+            this.label4.Location = new System.Drawing.Point(98, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 19);
             this.label4.TabIndex = 72;
@@ -409,30 +433,6 @@
             this.CampSexo.Size = new System.Drawing.Size(51, 16);
             this.CampSexo.TabIndex = 99;
             this.CampSexo.Text = "label15";
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Nombre.ToolTipText = "Nombre de Examen";
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // idExamen
-            // 
-            this.idExamen.HeaderText = "Column1";
-            this.idExamen.Name = "idExamen";
-            this.idExamen.ReadOnly = true;
-            this.idExamen.Visible = false;
             // 
             // FormExamenEditor
             // 

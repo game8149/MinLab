@@ -17,7 +17,7 @@ namespace MinLab.Code.DataLayer
             Distrito distrito = null;
             Dictionary<int, Distrito> temp = new Dictionary<int, Distrito>();
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -45,7 +45,7 @@ namespace MinLab.Code.DataLayer
             Sector sector = null;
             Dictionary<int, Sector> temp = new Dictionary<int, Sector>();
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;

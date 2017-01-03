@@ -23,7 +23,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_PAQUETE_ALL;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -60,7 +60,7 @@ namespace MinLab.Code.DataLayer
         {
             List<int> cods = new List<int>();
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             try
@@ -117,7 +117,7 @@ namespace MinLab.Code.DataLayer
                 }
 
 
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcAdd.ADD_TARIFARIOCAB;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -148,7 +148,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
 
                 comando.CommandText = ProcGet.GET_TARIFARIOCAB_BYID;
@@ -193,7 +193,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
 
                 comando.CommandText = ProcUpd.UPD_TARIFARIO;
@@ -244,7 +244,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
 
                 comando.CommandText = ProcUpd.UPD_TARIFARIOCAB_VIGENTE;
@@ -274,7 +274,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_TARIFARIOCAB_ALL;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -314,7 +314,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_TARIFARIOCAB_BYANO;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -352,7 +352,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_TARIFARIOCAB_HABIL;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -391,7 +391,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_TARIFARIOCAB_CHECK_BYYEAR;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -425,7 +425,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_TARIFARIODET_BYTARIFARIOCAB;
                 comando.CommandType = CommandType.StoredProcedure;

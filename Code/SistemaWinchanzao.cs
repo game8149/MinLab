@@ -26,7 +26,7 @@ namespace MinLab.Code.PresentationLayer
             {
                 //test conexion
                 System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection();
-                con.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                con.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 con.Open();
                 con.Close();
                 TestPass = true;

@@ -38,7 +38,6 @@
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.PanelToolDetalle = new System.Windows.Forms.Panel();
-            this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.LabelNombreExamen = new System.Windows.Forms.Label();
             this.ComboExamen = new System.Windows.Forms.ComboBox();
@@ -63,6 +62,7 @@
             this.ComboBoxConsultorio = new System.Windows.Forms.ComboBox();
             this.CampSexo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.BtnEliminar = new System.Windows.Forms.Button();
             this.PanelToolDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -121,15 +121,13 @@
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnGuardar.Image = global::MinLab.Properties.Resources.diskette;
-            this.BtnGuardar.Location = new System.Drawing.Point(718, 461);
+            this.BtnGuardar.Location = new System.Drawing.Point(718, 451);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(115, 39);
             this.BtnGuardar.TabIndex = 143;
             this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -156,24 +154,6 @@
             this.PanelToolDetalle.Size = new System.Drawing.Size(822, 32);
             this.PanelToolDetalle.TabIndex = 177;
             // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.FlatAppearance.BorderSize = 0;
-            this.BtnEliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.SystemColors.Info;
-            this.BtnEliminar.Image = global::MinLab.Properties.Resources.delete__1_;
-            this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEliminar.Location = new System.Drawing.Point(736, 0);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(86, 31);
-            this.BtnEliminar.TabIndex = 71;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
-            // 
             // BtnAgregar
             // 
             this.BtnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
@@ -181,7 +161,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnAgregar.Image = global::MinLab.Properties.Resources.file;
+            this.BtnAgregar.Image = global::MinLab.Properties.Resources.bag;
             this.BtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnAgregar.Location = new System.Drawing.Point(408, 0);
             this.BtnAgregar.Name = "BtnAgregar";
@@ -297,7 +277,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Size = new System.Drawing.Size(822, 201);
+            this.dataGridView.Size = new System.Drawing.Size(822, 189);
             this.dataGridView.TabIndex = 170;
             // 
             // id
@@ -432,6 +412,24 @@
             this.label6.Size = new System.Drawing.Size(39, 16);
             this.label6.TabIndex = 186;
             this.label6.Text = "Sexo:";
+            // 
+            // BtnEliminar
+            // 
+            this.BtnEliminar.FlatAppearance.BorderSize = 0;
+            this.BtnEliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminar.ForeColor = System.Drawing.SystemColors.Info;
+            this.BtnEliminar.Image = global::MinLab.Properties.Resources.delete;
+            this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEliminar.Location = new System.Drawing.Point(736, 0);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(86, 31);
+            this.BtnEliminar.TabIndex = 71;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // FormModificarOrden
             // 

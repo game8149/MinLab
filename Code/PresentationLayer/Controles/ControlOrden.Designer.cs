@@ -84,9 +84,9 @@
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
             this.BtnCerrar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnCerrar.Image = global::MinLab.Properties.Resources.close_folder;
+            this.BtnCerrar.Image = global::MinLab.Properties.Resources.closefolder;
             this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCerrar.Location = new System.Drawing.Point(1, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(0, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(87, 32);
             this.BtnCerrar.TabIndex = 130;
@@ -100,7 +100,7 @@
             this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNuevo.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
             this.BtnNuevo.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnNuevo.Image = global::MinLab.Properties.Resources.add_new_document__1_;
+            this.BtnNuevo.Image = global::MinLab.Properties.Resources.newdocument;
             this.BtnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnNuevo.Location = new System.Drawing.Point(87, 0);
             this.BtnNuevo.Name = "BtnNuevo";
@@ -116,7 +116,7 @@
             this.BtnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAbrir.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
             this.BtnAbrir.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnAbrir.Image = global::MinLab.Properties.Resources.open_folder_with_document;
+            this.BtnAbrir.Image = global::MinLab.Properties.Resources.opendocument;
             this.BtnAbrir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnAbrir.Location = new System.Drawing.Point(1, 0);
             this.BtnAbrir.Name = "BtnAbrir";

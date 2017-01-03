@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using MinLab.Code.PresentationLayer.Controles.ComponentesBienvenida;
 using MinLab.Code.LogicLayer.LogicaControl;
 using MinLab.Code.EntityLayer.EFicha;
+using System.IO;
+using System.Diagnostics;
 
 namespace MinLab.Code.PresentationLayer
 {
@@ -48,6 +50,19 @@ namespace MinLab.Code.PresentationLayer
             FormModificarClave form = new FormModificarClave();
             form.Cuenta = enlace.GetCuentaLogin();
             form.ShowDialog();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                string pdfPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase)+ "\\Docs\\Manual.pdf";
+                Process.Start(pdfPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Reinstale el Programa: "+ex.Message,"Advertencia");
+            }
         }
     }
 }

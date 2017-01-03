@@ -146,6 +146,9 @@
             // 
             // ComboSexo
             // 
+            this.ComboSexo.BackColor = System.Drawing.SystemColors.Window;
+            this.ComboSexo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ComboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboSexo.Font = new System.Drawing.Font("Futura Bk BT", 9.75F);
             this.ComboSexo.FormattingEnabled = true;
             this.ComboSexo.Location = new System.Drawing.Point(174, 305);
@@ -258,13 +261,11 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnGuardar.Image = global::MinLab.Properties.Resources.diskette;
-            this.BtnGuardar.Location = new System.Drawing.Point(726, 452);
+            this.BtnGuardar.Location = new System.Drawing.Point(726, 459);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(105, 43);
+            this.BtnGuardar.Size = new System.Drawing.Size(105, 36);
             this.BtnGuardar.TabIndex = 9;
             this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -281,6 +282,8 @@
             // 
             // ComboBoxSector
             // 
+            this.ComboBoxSector.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ComboBoxSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxSector.Font = new System.Drawing.Font("Futura Bk BT", 9.75F);
             this.ComboBoxSector.FormattingEnabled = true;
             this.ComboBoxSector.Location = new System.Drawing.Point(371, 345);
@@ -290,6 +293,8 @@
             // 
             // ComboBoxDistrito
             // 
+            this.ComboBoxDistrito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ComboBoxDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxDistrito.Font = new System.Drawing.Font("Futura Bk BT", 9.75F);
             this.ComboBoxDistrito.FormattingEnabled = true;
             this.ComboBoxDistrito.Location = new System.Drawing.Point(174, 345);

@@ -24,28 +24,41 @@ namespace MinLab.Code.PresentationLayer.Controles
         private bool isLoadingUI = false;
         private DataTable tabla;
         private BindingSource bindingSource;
-        Dictionary<int, Examen> examenesGeneral;
-        Dictionary<int, Orden> ordenes;
+        private Dictionary<int, Examen> examenesGeneral;
+        private Dictionary<int, Orden> ordenes;
+
+
         private Paciente perfil;
 
-        public Paciente Perfil {
-            get { return this.perfil; }
-            set {
-                this.perfil=value;
-
-                CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
-                CampDni.Text = perfil.Dni;
-                CampHistoria.Text = perfil.Historia;
-                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
-                Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
-                if (tiempo.Año==0)
-                    CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
-                CampEdad.Text = tiempo.Año + " años";
-                CampDireccion.Text = perfil.Direccion;
-                CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[Perfil.IdSector].Nombre;
-                RellenarExamenesEnTabla();
+        public Paciente Perfil
+        {
+            get
+            {
+                return this.perfil;
+            }
+            set
+            {
+                this.perfil = value;
+                CargarDatos();
             }
         }
+
+        public void CargarDatos()
+        {
+
+            CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
+            CampDni.Text = perfil.Dni;
+            CampHistoria.Text = perfil.Historia;
+            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
+            Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
+            if (tiempo.Año == 0)
+                CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
+            CampEdad.Text = tiempo.Año + " años";
+            CampDireccion.Text = perfil.Direccion;
+            CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[perfil.IdSector].Nombre;
+            RellenarExamenesEnTabla();
+        }
+
 
         public PanelPerfil()
         {
@@ -78,7 +91,7 @@ namespace MinLab.Code.PresentationLayer.Controles
             tabla.Clear();
 
 
-            ordenes = enlaceOrden.ObtenerOrdenesByPacienteByFechaByEstado(Perfil, PickerInit.Value, PickerEnd.Value, (EstadoOrden)ComboEstado.SelectedIndex);
+            ordenes = enlaceOrden.ObtenerOrdenesByPacienteByFechaByEstado(perfil, PickerInit.Value, PickerEnd.Value, (EstadoOrden)ComboEstado.SelectedIndex);
 
             examenesGeneral = new Dictionary<int, Examen>();
             foreach (Orden orden in ordenes.Values)
@@ -212,7 +225,7 @@ namespace MinLab.Code.PresentationLayer.Controles
             CampHistoria.Text = perfil.Historia;
             CampDireccion.Text = perfil.Direccion;
             CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
-            CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[Perfil.IdSector].Nombre;
+            CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[perfil.IdSector].Nombre;
 
             Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
             if (tiempo.Año < 1)

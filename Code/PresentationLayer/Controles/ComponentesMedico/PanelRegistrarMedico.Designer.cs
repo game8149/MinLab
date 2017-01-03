@@ -67,15 +67,13 @@
             this.BtnRegistrar.FlatAppearance.BorderSize = 0;
             this.BtnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
             this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegistrar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnRegistrar.Image = global::MinLab.Properties.Resources.search_engine__1_;
             this.BtnRegistrar.Location = new System.Drawing.Point(913, 483);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(126, 42);
             this.BtnRegistrar.TabIndex = 146;
             this.BtnRegistrar.Text = "Registrar";
-            this.BtnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnRegistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnRegistrar.UseVisualStyleBackColor = false;
             this.BtnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);

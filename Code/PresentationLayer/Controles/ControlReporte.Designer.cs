@@ -37,6 +37,7 @@
             this.ComboBoxMesEcono = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.NumericUDEcono = new System.Windows.Forms.NumericUpDown();
+            this.BtnExportEcono = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.ComboBoxResult = new System.Windows.Forms.ComboBox();
+            this.BtnExportResult = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.NumericUDResult = new System.Windows.Forms.NumericUpDown();
@@ -52,8 +54,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.ComboBoxMesResult = new System.Windows.Forms.ComboBox();
             this.DialogFolderBuscar = new System.Windows.Forms.FolderBrowserDialog();
-            this.BtnExportEcono = new System.Windows.Forms.Button();
-            this.BtnExportResult = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -170,6 +170,26 @@
             0,
             0});
             // 
+            // BtnExportEcono
+            // 
+            this.BtnExportEcono.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnExportEcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnExportEcono.FlatAppearance.BorderSize = 0;
+            this.BtnExportEcono.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.BtnExportEcono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExportEcono.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExportEcono.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnExportEcono.Image = global::MinLab.Properties.Resources.export;
+            this.BtnExportEcono.Location = new System.Drawing.Point(146, 490);
+            this.BtnExportEcono.Name = "BtnExportEcono";
+            this.BtnExportEcono.Size = new System.Drawing.Size(113, 37);
+            this.BtnExportEcono.TabIndex = 137;
+            this.BtnExportEcono.Text = "Exportar";
+            this.BtnExportEcono.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnExportEcono.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnExportEcono.UseVisualStyleBackColor = false;
+            this.BtnExportEcono.Click += new System.EventHandler(this.BtnExportEcono_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -264,6 +284,26 @@
             this.ComboBoxResult.Size = new System.Drawing.Size(147, 21);
             this.ComboBoxResult.TabIndex = 159;
             // 
+            // BtnExportResult
+            // 
+            this.BtnExportResult.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnExportResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnExportResult.FlatAppearance.BorderSize = 0;
+            this.BtnExportResult.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.BtnExportResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExportResult.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExportResult.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnExportResult.Image = global::MinLab.Properties.Resources.export;
+            this.BtnExportResult.Location = new System.Drawing.Point(148, 489);
+            this.BtnExportResult.Name = "BtnExportResult";
+            this.BtnExportResult.Size = new System.Drawing.Size(113, 37);
+            this.BtnExportResult.TabIndex = 149;
+            this.BtnExportResult.Text = "Exportar";
+            this.BtnExportResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnExportResult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnExportResult.UseVisualStyleBackColor = false;
+            this.BtnExportResult.Click += new System.EventHandler(this.BtnExportResult_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -341,46 +381,6 @@
             this.ComboBoxMesResult.Name = "ComboBoxMesResult";
             this.ComboBoxMesResult.Size = new System.Drawing.Size(147, 24);
             this.ComboBoxMesResult.TabIndex = 152;
-            // 
-            // BtnExportEcono
-            // 
-            this.BtnExportEcono.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnExportEcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnExportEcono.FlatAppearance.BorderSize = 0;
-            this.BtnExportEcono.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.BtnExportEcono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExportEcono.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExportEcono.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnExportEcono.Image = global::MinLab.Properties.Resources.export;
-            this.BtnExportEcono.Location = new System.Drawing.Point(165, 490);
-            this.BtnExportEcono.Name = "BtnExportEcono";
-            this.BtnExportEcono.Size = new System.Drawing.Size(94, 37);
-            this.BtnExportEcono.TabIndex = 137;
-            this.BtnExportEcono.Text = "Exportar";
-            this.BtnExportEcono.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnExportEcono.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnExportEcono.UseVisualStyleBackColor = false;
-            this.BtnExportEcono.Click += new System.EventHandler(this.BtnExportEcono_Click);
-            // 
-            // BtnExportResult
-            // 
-            this.BtnExportResult.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnExportResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnExportResult.FlatAppearance.BorderSize = 0;
-            this.BtnExportResult.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.BtnExportResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExportResult.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExportResult.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnExportResult.Image = global::MinLab.Properties.Resources.export;
-            this.BtnExportResult.Location = new System.Drawing.Point(167, 489);
-            this.BtnExportResult.Name = "BtnExportResult";
-            this.BtnExportResult.Size = new System.Drawing.Size(94, 37);
-            this.BtnExportResult.TabIndex = 149;
-            this.BtnExportResult.Text = "Exportar";
-            this.BtnExportResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnExportResult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnExportResult.UseVisualStyleBackColor = false;
-            this.BtnExportResult.Click += new System.EventHandler(this.BtnExportResult_Click);
             // 
             // ControlReporte
             // 

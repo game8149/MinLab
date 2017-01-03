@@ -44,7 +44,7 @@
             // CampDni
             // 
             this.CampDni.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDni.Location = new System.Drawing.Point(86, 161);
+            this.CampDni.Location = new System.Drawing.Point(81, 172);
             this.CampDni.MaxLength = 8;
             this.CampDni.Name = "CampDni";
             this.CampDni.Size = new System.Drawing.Size(168, 23);
@@ -61,7 +61,7 @@
             this.BtnInicia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInicia.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnInicia.ForeColor = System.Drawing.SystemColors.Info;
-            this.BtnInicia.Location = new System.Drawing.Point(113, 307);
+            this.BtnInicia.Location = new System.Drawing.Point(108, 302);
             this.BtnInicia.Name = "BtnInicia";
             this.BtnInicia.Size = new System.Drawing.Size(115, 32);
             this.BtnInicia.TabIndex = 3;
@@ -72,7 +72,7 @@
             // CampClave
             // 
             this.CampClave.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampClave.Location = new System.Drawing.Point(86, 238);
+            this.CampClave.Location = new System.Drawing.Point(81, 240);
             this.CampClave.MaxLength = 16;
             this.CampClave.Name = "CampClave";
             this.CampClave.PasswordChar = '+';
@@ -84,28 +84,28 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Futura Bk BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(91, 127);
+            this.label3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(148, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 18);
+            this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 28;
-            this.label3.Text = "Codigo de Empleado:";
+            this.label3.Text = "DNI:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Futura Bk BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(125, 204);
+            this.label4.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(143, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 18);
+            this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 22;
-            this.label4.Text = "Contraseña:";
+            this.label4.Text = "Clave:";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(108, 352);
+            this.linkLabel1.Location = new System.Drawing.Point(103, 347);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(125, 14);
             this.linkLabel1.TabIndex = 4;
@@ -118,28 +118,29 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Futura Md BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(85, 57);
+            this.label2.Location = new System.Drawing.Point(49, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 18);
+            this.label2.Size = new System.Drawing.Size(223, 18);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Sistema de Laboratorio";
+            this.label2.Text = "Sistema de Laboratorio Clinico";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 89);
+            this.panel1.Size = new System.Drawing.Size(367, 101);
             this.panel1.TabIndex = 30;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Futura Md BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(81, 22);
+            this.label1.Location = new System.Drawing.Point(71, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 35);
             this.label1.TabIndex = 30;
@@ -150,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(341, 393);
+            this.ClientSize = new System.Drawing.Size(323, 420);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.CampDni);

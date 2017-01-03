@@ -83,3 +83,5 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Debug\MinLab.Properties.Resources.resou
 C:\Users\gavid\Documents\Repo\MinLab\obj\Debug\MinLab.csproj.GenerateResource.Cache
 C:\Users\gavid\Documents\Repo\MinLab\obj\Debug\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\obj\Debug\MinLab.pdb
+C:\Users\gavid\Documents\Repo\MinLab\obj\Debug\MinLab.Code.PresentationLayer.GUISesion.FormConfigServer.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Debug\MinLab.Code.PresentationLayer.Controles.ComponentesPaciente.PanelModificarPaciente.resources

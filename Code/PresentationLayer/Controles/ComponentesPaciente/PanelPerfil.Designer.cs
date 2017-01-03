@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ComboEstado = new System.Windows.Forms.ComboBox();
             this.BtnPrint = new System.Windows.Forms.Button();
@@ -57,14 +60,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.CampUbicacion = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,7 +80,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(21, 236);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(811, 34);
+            this.panel1.Size = new System.Drawing.Size(1018, 34);
             this.panel1.TabIndex = 89;
             // 
             // ComboEstado
@@ -104,7 +105,7 @@
             this.BtnPrint.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPrint.ForeColor = System.Drawing.SystemColors.Info;
             this.BtnPrint.Image = global::MinLab.Properties.Resources.printer;
-            this.BtnPrint.Location = new System.Drawing.Point(768, 7);
+            this.BtnPrint.Location = new System.Drawing.Point(985, 6);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(22, 22);
             this.BtnPrint.TabIndex = 71;
@@ -172,7 +173,7 @@
             // 
             this.CampSexo.AutoSize = true;
             this.CampSexo.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampSexo.Location = new System.Drawing.Point(702, 130);
+            this.CampSexo.Location = new System.Drawing.Point(712, 118);
             this.CampSexo.Name = "CampSexo";
             this.CampSexo.Size = new System.Drawing.Size(40, 16);
             this.CampSexo.TabIndex = 88;
@@ -182,7 +183,7 @@
             // 
             this.CampHistoria.AutoSize = true;
             this.CampHistoria.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampHistoria.Location = new System.Drawing.Point(311, 130);
+            this.CampHistoria.Location = new System.Drawing.Point(321, 118);
             this.CampHistoria.Name = "CampHistoria";
             this.CampHistoria.Size = new System.Drawing.Size(40, 16);
             this.CampHistoria.TabIndex = 87;
@@ -192,7 +193,7 @@
             // 
             this.CampDireccion.AutoSize = true;
             this.CampDireccion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDireccion.Location = new System.Drawing.Point(85, 168);
+            this.CampDireccion.Location = new System.Drawing.Point(95, 161);
             this.CampDireccion.Name = "CampDireccion";
             this.CampDireccion.Size = new System.Drawing.Size(40, 16);
             this.CampDireccion.TabIndex = 86;
@@ -202,7 +203,7 @@
             // 
             this.CampEdad.AutoSize = true;
             this.CampEdad.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampEdad.Location = new System.Drawing.Point(524, 130);
+            this.CampEdad.Location = new System.Drawing.Point(534, 118);
             this.CampEdad.Name = "CampEdad";
             this.CampEdad.Size = new System.Drawing.Size(40, 16);
             this.CampEdad.TabIndex = 85;
@@ -212,7 +213,7 @@
             // 
             this.CampDni.AutoSize = true;
             this.CampDni.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampDni.Location = new System.Drawing.Point(85, 130);
+            this.CampDni.Location = new System.Drawing.Point(95, 118);
             this.CampDni.Name = "CampDni";
             this.CampDni.Size = new System.Drawing.Size(40, 16);
             this.CampDni.TabIndex = 84;
@@ -222,7 +223,7 @@
             // 
             this.CampNombre.AutoSize = true;
             this.CampNombre.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampNombre.Location = new System.Drawing.Point(85, 92);
+            this.CampNombre.Location = new System.Drawing.Point(95, 75);
             this.CampNombre.Name = "CampNombre";
             this.CampNombre.Size = new System.Drawing.Size(40, 16);
             this.CampNombre.TabIndex = 83;
@@ -234,6 +235,14 @@
             this.DGVExamen.AllowUserToDeleteRows = false;
             this.DGVExamen.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.DGVExamen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVExamen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVExamen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVExamen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -242,10 +251,26 @@
             this.dataGridViewComboBoxColumn1,
             this.lastModif,
             this.IdOrden});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVExamen.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVExamen.Location = new System.Drawing.Point(21, 271);
             this.DGVExamen.Name = "DGVExamen";
             this.DGVExamen.ReadOnly = true;
-            this.DGVExamen.Size = new System.Drawing.Size(811, 264);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVExamen.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DGVExamen.Size = new System.Drawing.Size(1018, 266);
             this.DGVExamen.TabIndex = 82;
             // 
             // Id
@@ -311,7 +336,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(17, 51);
+            this.label12.Location = new System.Drawing.Point(20, 26);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(128, 19);
             this.label12.TabIndex = 80;
@@ -321,7 +346,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(657, 130);
+            this.label13.Location = new System.Drawing.Point(667, 118);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 16);
             this.label13.TabIndex = 79;
@@ -331,7 +356,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(478, 130);
+            this.label14.Location = new System.Drawing.Point(488, 118);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 16);
             this.label14.TabIndex = 78;
@@ -341,7 +366,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(209, 130);
+            this.label15.Location = new System.Drawing.Point(219, 118);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 16);
             this.label15.TabIndex = 77;
@@ -351,7 +376,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(20, 130);
+            this.label16.Location = new System.Drawing.Point(20, 118);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(34, 16);
             this.label16.TabIndex = 76;
@@ -361,7 +386,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(20, 168);
+            this.label17.Location = new System.Drawing.Point(20, 161);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 16);
             this.label17.TabIndex = 75;
@@ -371,33 +396,23 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(19, 92);
+            this.label18.Location = new System.Drawing.Point(20, 75);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(59, 16);
             this.label18.TabIndex = 74;
             this.label18.Text = "Nombre:";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Controls.Add(this.BtnEliminar);
-            this.panel3.Controls.Add(this.BtnLimpiar);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(858, 32);
-            this.panel3.TabIndex = 125;
-            // 
             // BtnEliminar
             // 
+            this.BtnEliminar.BackColor = System.Drawing.Color.Crimson;
             this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnEliminar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnEliminar.Image = global::MinLab.Properties.Resources.cancel;
             this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEliminar.Location = new System.Drawing.Point(755, 0);
+            this.BtnEliminar.Location = new System.Drawing.Point(926, 75);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(103, 32);
+            this.BtnEliminar.Size = new System.Drawing.Size(113, 40);
             this.BtnEliminar.TabIndex = 82;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
@@ -405,15 +420,15 @@
             // 
             // BtnLimpiar
             // 
+            this.BtnLimpiar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLimpiar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnLimpiar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnLimpiar.Image = global::MinLab.Properties.Resources.cleaner;
             this.BtnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLimpiar.Location = new System.Drawing.Point(652, 0);
+            this.BtnLimpiar.Location = new System.Drawing.Point(926, 26);
             this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(103, 32);
+            this.BtnLimpiar.Size = new System.Drawing.Size(113, 40);
             this.BtnLimpiar.TabIndex = 81;
             this.BtnLimpiar.Text = "Editar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
@@ -423,7 +438,7 @@
             // 
             this.CampUbicacion.AutoSize = true;
             this.CampUbicacion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampUbicacion.Location = new System.Drawing.Point(524, 168);
+            this.CampUbicacion.Location = new System.Drawing.Point(534, 161);
             this.CampUbicacion.Name = "CampUbicacion";
             this.CampUbicacion.Size = new System.Drawing.Size(40, 16);
             this.CampUbicacion.TabIndex = 127;
@@ -433,7 +448,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(442, 168);
+            this.label5.Location = new System.Drawing.Point(452, 161);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 126;
@@ -444,9 +459,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.CampUbicacion);
+            this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.CampSexo);
             this.Controls.Add(this.CampHistoria);
@@ -464,12 +480,12 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Name = "PanelPerfil";
-            this.Size = new System.Drawing.Size(858, 554);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Size = new System.Drawing.Size(1072, 563);
             this.Load += new System.EventHandler(this.PanelPerfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,7 +522,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Label CampUbicacion;

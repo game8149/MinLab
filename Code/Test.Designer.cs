@@ -43,6 +43,7 @@
             // 
             // button1
             // 
+            this.button1.Image = global::MinLab.Properties.Resources.Tratado2;
             this.button1.Location = new System.Drawing.Point(148, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);

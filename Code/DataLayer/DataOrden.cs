@@ -23,7 +23,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 DataTable tabla = new DataTable();
                 tabla.Columns.Add("idTemp", typeof(int));
                 tabla.Columns.Add("idPaquete", typeof(int));
@@ -76,7 +76,7 @@ namespace MinLab.Code.DataLayer
 
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcUpd.UPD_ORDENCAB;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -113,7 +113,7 @@ namespace MinLab.Code.DataLayer
 
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcUpd.UPD_ORDENCAB;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -148,7 +148,7 @@ namespace MinLab.Code.DataLayer
 
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_ORDENDET_BYORDENCAB;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -201,7 +201,7 @@ namespace MinLab.Code.DataLayer
 
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcDel.DEL_ORDENDET;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -243,7 +243,7 @@ namespace MinLab.Code.DataLayer
 
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcUpd.UPD_ORDENDET;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -285,7 +285,7 @@ namespace MinLab.Code.DataLayer
 
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcAdd.ADD_ORDENDET;
                 comando.CommandType = CommandType.StoredProcedure;
@@ -317,7 +317,7 @@ namespace MinLab.Code.DataLayer
             Orden orden = null;
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_ORDENCAB_BYID;
 
@@ -363,7 +363,7 @@ namespace MinLab.Code.DataLayer
             Orden orden = null;
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_ORDENCAB_ALL_BYFECHA_BYESTADO;
                 comando.Parameters.AddWithValue("@estado", (int)estado);
@@ -410,7 +410,7 @@ namespace MinLab.Code.DataLayer
             Orden orden = null;
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_ORDENCAB_ALL_BYPACIENTE_BYFECHA_BYESTADO;
 
@@ -458,7 +458,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_REPORTE_ACUMULADOMES;
                 comando.Parameters.AddWithValue("@cobertura", cobertura);
@@ -494,7 +494,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_REPORTE_CANTIDADMES;
                 comando.Parameters.AddWithValue("@cobertura", cobertura);
@@ -530,7 +530,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_REPORTE_MEDICO_ACUMULADOMES;
                 comando.Parameters.AddWithValue("@idMedico", idMedico);
@@ -567,7 +567,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_REPORTE_MEDICO_CANTIDADMES;
                 comando.Parameters.AddWithValue("@idMedico", idMedico);
@@ -604,7 +604,7 @@ namespace MinLab.Code.DataLayer
             List<int[]> general=new List<int[]>();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_REPORTE_EDAD;
                 comando.Parameters.AddWithValue("@cobertura", cobertura);
@@ -651,7 +651,7 @@ namespace MinLab.Code.DataLayer
             List<object[]> general = new List<object[]>();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
                 comando.CommandText = ProcGet.GET_REPORTE_RESULTADO;
                 comando.Parameters.AddWithValue("@ano", año);

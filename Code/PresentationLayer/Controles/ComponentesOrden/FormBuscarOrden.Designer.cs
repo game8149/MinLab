@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnCargar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.CampHistoria = new System.Windows.Forms.TextBox();
@@ -65,25 +64,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVOrden)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnLimpiar
-            // 
-            this.BtnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiar.Location = new System.Drawing.Point(149, 195);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(88, 31);
-            this.BtnLimpiar.TabIndex = 9;
-            this.BtnLimpiar.Text = "Limpiar";
-            this.BtnLimpiar.UseVisualStyleBackColor = true;
-            // 
             // BtnCargar
             // 
+            this.BtnCargar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnCargar.FlatAppearance.BorderSize = 0;
+            this.BtnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCargar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCargar.Location = new System.Drawing.Point(642, 515);
+            this.BtnCargar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnCargar.Location = new System.Drawing.Point(636, 513);
             this.BtnCargar.Name = "BtnCargar";
-            this.BtnCargar.Size = new System.Drawing.Size(87, 31);
+            this.BtnCargar.Size = new System.Drawing.Size(93, 33);
             this.BtnCargar.TabIndex = 8;
             this.BtnCargar.Text = "Cargar";
-            this.BtnCargar.UseVisualStyleBackColor = true;
+            this.BtnCargar.UseVisualStyleBackColor = false;
             this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
             // 
             // label10
@@ -210,13 +203,17 @@
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(243, 195);
+            this.BtnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnBuscar.Location = new System.Drawing.Point(237, 193);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(87, 31);
+            this.BtnBuscar.Size = new System.Drawing.Size(93, 33);
             this.BtnBuscar.TabIndex = 6;
             this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // groupBox1
@@ -225,7 +222,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Campapellido2erno);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.BtnLimpiar);
             this.groupBox1.Controls.Add(this.BtnBuscar);
             this.groupBox1.Controls.Add(this.Campapellido1erno);
             this.groupBox1.Controls.Add(this.label10);
@@ -414,8 +410,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnCargar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox CampHistoria;

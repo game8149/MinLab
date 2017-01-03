@@ -20,7 +20,7 @@ namespace MinLab.Code.DataLayer
             try
             {
 
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 DataTable tablaExamen = new DataTable();
                 DataTable tablaExamenDetalle = new DataTable();
 
@@ -87,7 +87,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int,Examen> examenes = new Dictionary<int,Examen>();
             Examen examen = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -120,7 +120,7 @@ namespace MinLab.Code.DataLayer
         public static bool ExistenExamenes(OrdenDetalle ordenDetalle)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -149,7 +149,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int, ExamenDetalle> examenDetallesIndexByItem = new Dictionary<int, ExamenDetalle>();
             ExamenDetalle detalle = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -180,7 +180,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 DataTable tablaExamen = new DataTable();
                 DataTable tablaExamenDetalle = new DataTable();
 
@@ -247,7 +247,7 @@ namespace MinLab.Code.DataLayer
             SqlCommand comando = new SqlCommand();
             try
             {
-                conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 DataTable tablaExamen = new DataTable();
                 DataTable tablaExamenDetalle = new DataTable();
 

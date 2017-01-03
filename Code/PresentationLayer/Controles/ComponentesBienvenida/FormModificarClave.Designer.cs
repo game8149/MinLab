@@ -47,9 +47,9 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.Info;
-            this.BtnGuardar.Location = new System.Drawing.Point(273, 184);
+            this.BtnGuardar.Location = new System.Drawing.Point(273, 176);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(107, 32);
+            this.BtnGuardar.Size = new System.Drawing.Size(107, 39);
             this.BtnGuardar.TabIndex = 6;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;

@@ -7,28 +7,27 @@ namespace MinLab.Code.ControlSistemaInterno
     /// </summary>
     public class ConfiguracionDataAccess
     {
-        private static string DbConexionConfig;
-        private static string DbProveedorConfig;
-        
-        static ConfiguracionDataAccess()
-        {
-            DbConexionConfig = ConfigurationManager.ConnectionStrings["MinLab"].ConnectionString;
-            DbProveedorConfig = ConfigurationManager.ConnectionStrings["MinLab"].ProviderName;
-        }
-        /// <summary>
-        /// Descripción breve de Configuracion
-        /// </summary>
-        public static string CadenaConexion
-        {
-            get { return DbConexionConfig; }
-        }
 
+        private static ConfiguracionDataAccess oConfig;
+
+
+        public static ConfiguracionDataAccess GetInstance(){
+ 
+            if (oConfig == null)
+                oConfig = new ConfiguracionDataAccess();
+
+            return oConfig;
+        }
+        
         /// <summary>
         /// Descripción breve de Configuracion
         /// </summary>
-        public static string CadenaProveedor
+        public string CadenaConexion
         {
-            get { return DbProveedorConfig; }
+            get { return ConfigurationManager.ConnectionStrings["Server"].ConnectionString; }
+
+            set { ConfigurationManager.ConnectionStrings["Server"].ConnectionString=value; }
         }
+        
     }
 }

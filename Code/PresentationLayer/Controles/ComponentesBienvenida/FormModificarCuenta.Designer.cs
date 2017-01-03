@@ -56,9 +56,9 @@
             this.BtnRegistra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistra.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistra.ForeColor = System.Drawing.SystemColors.Info;
-            this.BtnRegistra.Location = new System.Drawing.Point(281, 381);
+            this.BtnRegistra.Location = new System.Drawing.Point(281, 377);
             this.BtnRegistra.Name = "BtnRegistra";
-            this.BtnRegistra.Size = new System.Drawing.Size(107, 32);
+            this.BtnRegistra.Size = new System.Drawing.Size(107, 42);
             this.BtnRegistra.TabIndex = 6;
             this.BtnRegistra.Text = "Guardar";
             this.BtnRegistra.UseVisualStyleBackColor = false;
@@ -151,7 +151,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Futura Bk BT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 321);
+            this.label4.Location = new System.Drawing.Point(29, 322);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(296, 15);
             this.label4.TabIndex = 59;

@@ -14,14 +14,24 @@ namespace MinLab.Code.PresentationLayer.GUISistema
 {
     public partial class Principal : Form
     {
+        public enum Vista{
+            Cuenta,
+            Paciente,
+            Medico,
+            Orden,
+            Examen,
+            Reporte
+        }
+
         //Objetos Principales
-        
+        private bool modeLogout = false;
 
         //Objetos de Interfaz
-        private Dictionary<int,UserControl> controles = new Dictionary<int, UserControl>();
-        private Dictionary<int, Button> botones = new Dictionary<int, Button>();
-        private int idControlActual;
+
+        private Dictionary<Vista, Button> botones = new Dictionary<Vista, Button>();
+        private Vista VistaActual;
         private FormAcerca formaAcerca = new FormAcerca();
+        private UserControl ControlActual;
 
 
         //Constantes
@@ -63,48 +73,33 @@ namespace MinLab.Code.PresentationLayer.GUISistema
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var window = MessageBox.Show("Está seguro que desear cerrar la aplicación?","Advertencia",MessageBoxButtons.YesNo);
-            if (window == DialogResult.No) e.Cancel = true;
-            else e.Cancel = false;
+            if (!modeLogout)
+            {
+                var window = MessageBox.Show("Está seguro que desear cerrar la aplicación?", "Advertencia", MessageBoxButtons.YesNo);
+                if (window == DialogResult.No) e.Cancel = true;
+                else e.Cancel = false;
+            }
         }
         
         public void IniciarInterfaz()
         {
-            controles.Clear();
-            botones.Clear();
+            VistaActual = Vista.Cuenta;
+            ControlActual = new ControlBienvenida();
+            panelPrincipal.Controls.Add(ControlActual);
 
-            idControlActual = 1;
-
-            ControlBienvenida bienvenida = new ControlBienvenida();
-            ControlPaciente paciente = new ControlPaciente();
-            ControlOrden orden = new ControlOrden();
-            ControlExamen examen = new ControlExamen();
-            ControlReporte reporte = new ControlReporte();
-            ControlMedico medico = new ControlMedico();
-
-            controles.Add(1, bienvenida);
-            controles.Add(2, paciente);
-            controles.Add(3, orden);
-            controles.Add(4, examen);
-            controles.Add(5, reporte);
-            controles.Add(6,medico);
-
-            botones.Add(1, BtnInicio);
-            botones.Add(2, BtnPaciente);
-            botones.Add(3, BtnOrden);
-            botones.Add(4, BtnExamen);
-            botones.Add(5, BtnReporte);
-            botones.Add(6, BtnMedico);
-            panelPrincipal.Controls.Add(controles[idControlActual]);
+            botones.Add(Vista.Paciente, BtnPaciente);
+            botones.Add(Vista.Orden, BtnOrden);
+            botones.Add(Vista.Examen, BtnExamen);
+            botones.Add(Vista.Reporte, BtnReporte);
+            botones.Add(Vista.Medico, BtnMedico);
             
             RelocalizarUI();
-            LogicControlSistema enlaceControlSistema = new LogicControlSistema();
-            Cuenta cuenta = enlaceControlSistema.GetCuentaLogin();
+
             this.Show();
         }
         
         //Cambia el Color a los botones
-        public void setBotonColorSelect(int id)
+        public void setBotonColorSelect(Vista id)
         {
             botones[id].BackColor = PaletaColor.BtnSelectBack;
             botones[id].FlatAppearance.BorderColor=PaletaColor.BtnSelectBorder;
@@ -112,7 +107,7 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             botones[id].FlatAppearance.MouseOverBackColor = PaletaColor.BtnSelectOver;
         }
 
-        public void setBotonColorOriginal(int id)
+        public void setBotonColorOriginal(Vista id)
         {
             botones[id].BackColor = PaletaColor.BtnOriginalBack;
             botones[id].FlatAppearance.BorderColor = PaletaColor.BtnOriginalBorder;
@@ -137,72 +132,70 @@ namespace MinLab.Code.PresentationLayer.GUISistema
 
         private void BtnPaciente_Click(object sender, EventArgs e)
         {
-            //ID: 2
-            removeControl(idControlActual);
-            idControlActual = 2;
-            addControl(idControlActual);            
+            MostrarVista(Vista.Paciente);
         }
         
         private void BtnOrden_Click(object sender, EventArgs e)
         {
-            //ID: 3
-            removeControl(idControlActual);
-            idControlActual = 3;
-            addControl(idControlActual);
+            MostrarVista(Vista.Orden);
         }
 
         private void BtnReportes_Click(object sender, EventArgs e)
         {
-            removeControl(idControlActual);
-            idControlActual = 5;
-            addControl(idControlActual);
+            MostrarVista(Vista.Reporte);
         }
         
         
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            //ID: 1
-            removeControl(idControlActual);
-            idControlActual = 1;
-            addControl(idControlActual);
-
+            MostrarVista(Vista.Cuenta);
         }
         
-        private void BtnLogout_Click(object sender, EventArgs e)
+        private void MostrarVista(Vista vista)
         {
-            this.Visible = false;
+            if (VistaActual != vista)
+            {
+                if(VistaActual != Vista.Cuenta)
+                    setBotonColorOriginal(VistaActual);
+                
+                panelPrincipal.Controls.Remove(ControlActual);
+                ControlActual.Dispose();
+
+                VistaActual = vista;
+
+                switch (VistaActual)
+                {
+                    case Vista.Cuenta:
+                        ControlActual = new ControlBienvenida();
+                        break;
+                    case Vista.Paciente:
+                        ControlActual = new ControlPaciente();
+                        break;
+                    case Vista.Medico:
+                        ControlActual = new ControlMedico();
+                        break;
+                    case Vista.Orden:
+                        ControlActual = new ControlOrden();
+                        break;
+                    case Vista.Examen:
+                        ControlActual = new ControlExamen();
+                        break;
+                    case Vista.Reporte:
+                        ControlActual = new ControlReporte();
+                        break;
+                }
+
+                if(VistaActual!=Vista.Cuenta)
+                    setBotonColorSelect(VistaActual);
+
+                panelPrincipal.Controls.Add(ControlActual);
+            }
         }
-        
-        public void removeControl(int id)
-        {
-            if(id!=1)
-                setBotonColorOriginal(id);
-            panelPrincipal.Controls.Remove(controles[id]);
-        }
 
-        public void addControl(int id)
-        {
-            if(id!=1)
-                setBotonColorSelect(idControlActual);
-
-            panelPrincipal.SuspendLayout();
-            controles[id].SuspendLayout();
-
-            panelPrincipal.Controls.Add(controles[id]);
-
-            controles[id].Size = panelPrincipal.Size;
-
-            controles[id].ResumeLayout();
-            controles[id].PerformLayout();
-            panelPrincipal.ResumeLayout();
-            panelPrincipal.PerformLayout();
-        }
 
         private void BtnExamen_Click(object sender, EventArgs e)
         {
-            removeControl(idControlActual);
-            idControlActual = 4;
-            addControl(idControlActual);
+            MostrarVista(Vista.Examen);
         }
 
         private void BtnAcerca_Click(object sender, EventArgs e)
@@ -233,14 +226,18 @@ namespace MinLab.Code.PresentationLayer.GUISistema
 
         private void BtnMedico_Click(object sender, EventArgs e)
         {
-            removeControl(idControlActual);
-            idControlActual = 6;
-            addControl(idControlActual);
+            MostrarVista(Vista.Medico);
         }
 
         private void panelPrincipal_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            modeLogout = true;
+            this.Close();
         }
     }
 }

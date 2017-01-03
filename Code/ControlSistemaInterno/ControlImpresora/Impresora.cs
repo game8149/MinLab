@@ -121,7 +121,6 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
         private int indexFila = 0;
         private int indexPagActual = 0;
         private bool ficheroActualFinalizado = true;
-        private bool pagActualFinalizado = true;
         private int countPages = 0;
 
 
@@ -263,7 +262,6 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                     }
                     else
                     {
-                        pagActualFinalizado = true;
                         indexPagActual++;
                         parteEsLlenable = false;
                         if (existenPagRestantesEnFichActual()) // Si no existe paginas restantes en fich actual
@@ -314,14 +312,14 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
         private int PaintCabecera(FormatoImpresionCabecera cabecera, Graphics grafico, Point actual, Point limit)
         {
 
-            Image imgGR= ScaleImage(global::MinLab.Properties.Resources.GRLL,50,50);
-            Image imgMR = ScaleImage(global::MinLab.Properties.Resources.microscopeTratado,200,200);
+            //Image imgGR= ScaleImage(global::MinLab.Properties.Resources.GRLL,75,50);
+            Image imgMR = ScaleImage(global::MinLab.Properties.Resources.Tratado2,200,200);
 
             int lineaPag = 0;
             
             FormatoImpresion format = getFicheroActual();
             
-            grafico.DrawImage(imgGR, (limit.X -25-imgGR.Width)  , actual.Y );
+            //grafico.DrawImage(imgGR, (limit.X -25-imgGR.Width)  , actual.Y );
             
 
 

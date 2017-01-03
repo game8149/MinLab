@@ -30,11 +30,11 @@
         {
             this.PanelTrabajo = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnAbrir = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,54 @@
             this.panel3.Size = new System.Drawing.Size(1072, 32);
             this.panel3.TabIndex = 126;
             // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnCerrar.ForeColor = System.Drawing.SystemColors.Window;
+            this.BtnCerrar.Image = global::MinLab.Properties.Resources.closefolder;
+            this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCerrar.Location = new System.Drawing.Point(0, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(87, 32);
+            this.BtnCerrar.TabIndex = 130;
+            this.BtnCerrar.Text = "Cerrar";
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // BtnNuevo
+            // 
+            this.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNuevo.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnNuevo.ForeColor = System.Drawing.SystemColors.Window;
+            this.BtnNuevo.Image = global::MinLab.Properties.Resources.newdocument;
+            this.BtnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNuevo.Location = new System.Drawing.Point(88, 0);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(93, 32);
+            this.BtnNuevo.TabIndex = 129;
+            this.BtnNuevo.Text = "Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = false;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            // 
+            // BtnAbrir
+            // 
+            this.BtnAbrir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAbrir.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnAbrir.ForeColor = System.Drawing.SystemColors.Window;
+            this.BtnAbrir.Image = global::MinLab.Properties.Resources.opendocument;
+            this.BtnAbrir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAbrir.Location = new System.Drawing.Point(1, 0);
+            this.BtnAbrir.Name = "BtnAbrir";
+            this.BtnAbrir.Size = new System.Drawing.Size(87, 32);
+            this.BtnAbrir.TabIndex = 128;
+            this.BtnAbrir.Text = "Abrir";
+            this.BtnAbrir.UseVisualStyleBackColor = false;
+            this.BtnAbrir.Click += new System.EventHandler(this.BtnAbrir_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -78,54 +126,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Medico";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
-            this.BtnCerrar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnCerrar.Image = global::MinLab.Properties.Resources.close_folder;
-            this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCerrar.Location = new System.Drawing.Point(1, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(87, 32);
-            this.BtnCerrar.TabIndex = 130;
-            this.BtnCerrar.Text = "Cerrar";
-            this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // BtnNuevo
-            // 
-            this.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnNuevo.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
-            this.BtnNuevo.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnNuevo.Image = global::MinLab.Properties.Resources.add_new_document__1_;
-            this.BtnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNuevo.Location = new System.Drawing.Point(88, 0);
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(93, 32);
-            this.BtnNuevo.TabIndex = 129;
-            this.BtnNuevo.Text = "Nuevo";
-            this.BtnNuevo.UseVisualStyleBackColor = false;
-            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
-            // 
-            // BtnAbrir
-            // 
-            this.BtnAbrir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAbrir.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
-            this.BtnAbrir.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnAbrir.Image = global::MinLab.Properties.Resources.open_folder_with_document;
-            this.BtnAbrir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAbrir.Location = new System.Drawing.Point(1, 0);
-            this.BtnAbrir.Name = "BtnAbrir";
-            this.BtnAbrir.Size = new System.Drawing.Size(87, 32);
-            this.BtnAbrir.TabIndex = 128;
-            this.BtnAbrir.Text = "Abrir";
-            this.BtnAbrir.UseVisualStyleBackColor = false;
-            this.BtnAbrir.Click += new System.EventHandler(this.BtnAbrir_Click);
             // 
             // ControlMedico
             // 

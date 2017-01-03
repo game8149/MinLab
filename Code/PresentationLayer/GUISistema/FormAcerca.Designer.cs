@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAcerca));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -51,6 +51,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(331, 225);
             this.panel1.TabIndex = 37;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.linkLabel1.Location = new System.Drawing.Point(54, 187);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(106, 16);
+            this.linkLabel1.TabIndex = 35;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Notas de Versi\'on";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label4
             // 
@@ -70,10 +84,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label1.Location = new System.Drawing.Point(54, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 64);
+            this.label1.Size = new System.Drawing.Size(213, 48);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Version 1.0.0\r\nPropietario: Posta de Salud Wichanzao\r\nAutor: Alexis Gavidia Meza\r" +
-    "\nContacto: gavidia.alex@outlook.com\r\n";
+            this.label1.Text = "Version 1.0.1\r\nAutor: Alexis Gavidia Meza\r\nContacto: gavidia.alex@outlook.com\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -81,7 +94,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Futura Md BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(107, 27);
+            this.label2.Location = new System.Drawing.Point(50, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(198, 39);
             this.label2.TabIndex = 34;
@@ -92,20 +105,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(111, 66);
+            this.label3.Location = new System.Drawing.Point(54, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 16);
+            this.label3.Size = new System.Drawing.Size(179, 16);
             this.label3.TabIndex = 33;
-            this.label3.Text = "Sistema de Laboratorio";
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::MinLab.Properties.Resources.microscope__1_;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(25, 15);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(76, 78);
-            this.panel2.TabIndex = 35;
+            this.label3.Text = "Sistema de Laboratorio Clinico";
             // 
             // FormAcerca
             // 
@@ -132,8 +136,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

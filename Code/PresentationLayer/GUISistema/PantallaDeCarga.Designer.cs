@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.campPoint = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(574, 301);
             this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::MinLab.Properties.Resources.microscope;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Location = new System.Drawing.Point(58, 77);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(147, 132);
+            this.panel2.TabIndex = 33;
             // 
             // label2
             // 
@@ -71,9 +80,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(228, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(207, 22);
+            this.label3.Size = new System.Drawing.Size(273, 22);
             this.label3.TabIndex = 31;
-            this.label3.Text = "Sistema de Laboratorio";
+            this.label3.Text = "Sistema de Laboratorio Clinico";
             // 
             // campPoint
             // 
@@ -96,15 +105,6 @@
             this.label1.Size = new System.Drawing.Size(77, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cargando";
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::MinLab.Properties.Resources.microscope1;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(58, 77);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(147, 132);
-            this.panel2.TabIndex = 33;
             // 
             // PantallaDeCarga
             // 

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ComboEstado = new System.Windows.Forms.ComboBox();
             this.BtnPrint = new System.Windows.Forms.Button();
@@ -200,6 +203,14 @@
             this.DGVExamen.AllowUserToDeleteRows = false;
             this.DGVExamen.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.DGVExamen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVExamen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DGVExamen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVExamen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -208,10 +219,26 @@
             this.dataGridViewComboBoxColumn1,
             this.lastModif,
             this.IdOrden});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVExamen.DefaultCellStyle = dataGridViewCellStyle8;
             this.DGVExamen.Enabled = false;
             this.DGVExamen.Location = new System.Drawing.Point(21, 271);
             this.DGVExamen.Name = "DGVExamen";
             this.DGVExamen.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVExamen.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DGVExamen.Size = new System.Drawing.Size(1018, 264);
             this.DGVExamen.TabIndex = 82;
             // 
@@ -336,16 +363,15 @@
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BtnEliminar.BackColor = System.Drawing.Color.Crimson;
             this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnEliminar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnEliminar.Image = global::MinLab.Properties.Resources.cancel;
             this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEliminar.Location = new System.Drawing.Point(936, 75);
+            this.BtnEliminar.Location = new System.Drawing.Point(926, 75);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(103, 32);
+            this.BtnEliminar.Size = new System.Drawing.Size(113, 40);
             this.BtnEliminar.TabIndex = 129;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
@@ -356,13 +382,12 @@
             this.BtnModificar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BtnModificar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F);
+            this.BtnModificar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.ForeColor = System.Drawing.SystemColors.Window;
-            this.BtnModificar.Image = global::MinLab.Properties.Resources.cleaner;
             this.BtnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnModificar.Location = new System.Drawing.Point(936, 26);
+            this.BtnModificar.Location = new System.Drawing.Point(926, 26);
             this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(103, 32);
+            this.BtnModificar.Size = new System.Drawing.Size(113, 40);
             this.BtnModificar.TabIndex = 128;
             this.BtnModificar.Text = "Editar";
             this.BtnModificar.UseVisualStyleBackColor = false;
@@ -388,7 +413,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label18);
             this.Name = "PanelMedico";
-            this.Size = new System.Drawing.Size(1066, 560);
+            this.Size = new System.Drawing.Size(1072, 563);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).EndInit();

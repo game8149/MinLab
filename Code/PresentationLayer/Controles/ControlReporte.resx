@@ -117,16 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label11.Text" xml:space="preserve">
-    <value>Descripci'on:
-
-1) General: 
- - Provee un reporte general de resultados de examenes de pacientes.
-
-
-Nota: Los examenes aplicables son aquellos que posean un unico valor clasificable (Solo valores decimales, 
-         enteros).</value>
-  </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Descripci'on:
 
@@ -140,6 +130,16 @@ Nota: Los examenes aplicables son aquellos que posean un unico valor clasificabl
  - Provee un reporte economico en base a la cantidad de examenes realizado por medicos.
 
 Nota: El monto subtotal calculado por examen se realiza en base al tarifario anual establecido.</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Descripci'on:
+
+1) General: 
+ - Provee un reporte general de resultados de examenes de pacientes.
+
+
+Nota: Los examenes aplicables son aquellos que posean un unico valor clasificable (Solo valores decimales, 
+         enteros).</value>
   </data>
   <metadata name="DialogFolderBuscar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

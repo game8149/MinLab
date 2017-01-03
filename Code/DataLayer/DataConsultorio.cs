@@ -16,7 +16,7 @@ namespace MinLab.Code.DataLayer
         public static Dictionary<int, Consultorio> GetConsultorioAll()
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
             Dictionary<int, Consultorio> temp = new Dictionary<int, Consultorio>();
             Consultorio tempConsul;

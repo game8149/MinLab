@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("MinLab")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Winchanzao: Sistema de Laboratorio Clinico")]
+[assembly: AssemblyDescription("Un producto de Alexis Gavidia Meza")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Alexis Gavidia Meza")]
 [assembly: AssemblyProduct("MinLab")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión 
 // mediante el carácter '*', como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.0.1")]
-[assembly: AssemblyFileVersion("0.0.0.1")]
+[assembly: AssemblyVersion("1.0.1.1001")]
+[assembly: AssemblyFileVersion("1.0.1.1001")]
 [assembly: NeutralResourcesLanguage("es-PE")]
 

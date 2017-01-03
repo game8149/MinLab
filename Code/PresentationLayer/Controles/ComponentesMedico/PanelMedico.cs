@@ -25,8 +25,6 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
         private bool isLoadingUI = false;
         private DataTable tabla;
         private BindingSource bindingSource;
-        Dictionary<int, Examen> examenesGeneral;
-        Dictionary<int, Orden> ordenes;
         private Medico perfil;
         public UserControl controlSecondActive;
 
@@ -179,15 +177,6 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            LogicaOrden enlace = new LogicaOrden();
-            Dictionary<int, Orden> temp = new Dictionary<int, Orden>();
-            Dictionary<int, Examen> examenes = new Dictionary<int, Examen>();
-            foreach (DataGridViewRow r in DGVExamen.SelectedRows)
-            {
-                temp.Add((int)r.Cells[5].Value, ordenes[(int)r.Cells[5].Value]);
-            }
-            Impresora printer = new Impresora();
-            //printer.ContruirVistaPreviaExamenPaciente(temp, examenes);
         }
         
         private void BtnModificar_Click(object sender, EventArgs e)

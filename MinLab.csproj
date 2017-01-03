@@ -24,8 +24,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <TargetCulture>es-PE</TargetCulture>
+    <ApplicationRevision>1000</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -33,7 +34,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -48,7 +49,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\MinLab.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
@@ -78,11 +80,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalisisClinicoDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AnalisisClinicoDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Code\ControlSistemaInterno\Consultorios.cs" />
     <Compile Include="Code\ControlSistemaInterno\Locaciones.cs" />
     <Compile Include="Code\DataLayer\DataConsultorio.cs" />
@@ -236,6 +233,12 @@
     <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.Designer.cs">
       <DependentUpon>PanelCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.Designer.cs">
+      <DependentUpon>PanelModificarPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -290,6 +293,12 @@
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlOrden.Designer.cs">
       <DependentUpon>ControlOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormConfigServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISesion\FormConfigServer.Designer.cs">
+      <DependentUpon>FormConfigServer.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.cs">
       <SubType>Form</SubType>
@@ -434,6 +443,9 @@
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.resx">
       <DependentUpon>ModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.resx">
+      <DependentUpon>PanelModificarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.resx">
       <DependentUpon>FormCopiarTarifario.cs</DependentUpon>
     </EmbeddedResource>
@@ -473,6 +485,9 @@
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.resx">
       <DependentUpon>PanelPerfil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormConfigServer.resx">
+      <DependentUpon>FormConfigServer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.resx">
       <DependentUpon>FormRegistrarProfesional.cs</DependentUpon>
     </EmbeddedResource>
@@ -511,17 +526,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="AnalisisClinicoDataSet.xsc">
-      <DependentUpon>AnalisisClinicoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AnalisisClinicoDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AnalisisClinicoDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AnalisisClinicoDataSet.xss">
-      <DependentUpon>AnalisisClinicoDataSet.xsd</DependentUpon>
-    </None>
     <None Include="DataSQL\DATOS.xlsx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MinLab.Code.EntityLayer.Coleccion.datasource" />
@@ -660,6 +664,26 @@
     <Content Include="Iconos\GRLL.png" />
     <Content Include="Iconos\microscopeTratado.png" />
     <Content Include="microscope.ico" />
+    <None Include="Resources\Tratado2.png" />
+    <None Include="Resources\LogoGobierno.png" />
+    <None Include="Resources\bag.png" />
+    <None Include="Resources\test.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\opendocument.png" />
+    <None Include="Resources\newdocument.png" />
+    <None Include="Resources\microscopeTratado.png" />
+    <None Include="Resources\microscope.png" />
+    <None Include="Resources\idcard.png" />
+    <None Include="Resources\GRLL.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\cleaner.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\database %281%29.png" />
+    <None Include="Resources\database.png" />
+    <None Include="Resources\settings.png" />
     <None Include="Resources\warning %281%29.png" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\export.png" />

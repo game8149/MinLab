@@ -14,7 +14,7 @@ namespace MinLab.Code.DataLayer
         public static int AddPaciente(Paciente paciente)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
 
@@ -43,7 +43,7 @@ namespace MinLab.Code.DataLayer
         public static bool ActualizarPaciente(Paciente paciente)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
             
             comando.Connection = conexion;
@@ -73,7 +73,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int, Paciente> diccionario = new Dictionary<int, Paciente>();
             //Por el momento no se pudo hacer en procedimiento almacenado...
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -120,7 +120,7 @@ namespace MinLab.Code.DataLayer
 
             Paciente paciente= null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -158,7 +158,7 @@ namespace MinLab.Code.DataLayer
 
             Paciente paciente = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -196,7 +196,7 @@ namespace MinLab.Code.DataLayer
 
             Paciente paciente = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -233,7 +233,7 @@ namespace MinLab.Code.DataLayer
         {
             
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.CadenaConexion;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;

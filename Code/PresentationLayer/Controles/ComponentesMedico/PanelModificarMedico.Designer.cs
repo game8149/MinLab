@@ -106,15 +106,13 @@
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnGuardar.Image = global::MinLab.Properties.Resources.diskette;
-            this.BtnGuardar.Location = new System.Drawing.Point(926, 480);
+            this.BtnGuardar.Location = new System.Drawing.Point(937, 493);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(105, 43);
             this.BtnGuardar.TabIndex = 152;
             this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -124,7 +122,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(726, 30);
+            this.panel1.Location = new System.Drawing.Point(737, 17);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 381);
             this.panel1.TabIndex = 157;
@@ -154,11 +152,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Futura Bk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(22, 30);
+            this.label12.Location = new System.Drawing.Point(20, 26);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 19);
+            this.label12.Size = new System.Drawing.Size(240, 19);
             this.label12.TabIndex = 156;
-            this.label12.Text = "Perfil de Medico";
+            this.label12.Text = "Actualizacion de Perfil de Medico";
             // 
             // label2
             // 
@@ -219,14 +217,14 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.SteelBlue;
+            this.BtnCancelar.BackColor = System.Drawing.Color.Crimson;
             this.BtnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelar.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCancelar.Location = new System.Drawing.Point(804, 480);
+            this.BtnCancelar.Location = new System.Drawing.Point(815, 493);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(105, 43);
             this.BtnCancelar.TabIndex = 163;

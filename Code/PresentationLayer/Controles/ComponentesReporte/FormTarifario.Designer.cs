@@ -237,7 +237,7 @@
             this.BtnModificar.AutoSize = true;
             this.BtnModificar.FlatAppearance.BorderSize = 0;
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificar.Image = global::MinLab.Properties.Resources.file1;
+            this.BtnModificar.Image = global::MinLab.Properties.Resources.file;
             this.BtnModificar.Location = new System.Drawing.Point(522, 0);
             this.BtnModificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnModificar.Name = "BtnModificar";

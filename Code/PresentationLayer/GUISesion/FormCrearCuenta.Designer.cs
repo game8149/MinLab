@@ -236,7 +236,6 @@
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::MinLab.Properties.Resources.warning__1_;
             this.label1.Location = new System.Drawing.Point(346, 341);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 23);
@@ -246,7 +245,6 @@
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Image = global::MinLab.Properties.Resources.warning__1_;
             this.label2.Location = new System.Drawing.Point(346, 263);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 22);
@@ -256,7 +254,6 @@
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::MinLab.Properties.Resources.warning__1_;
             this.label3.Location = new System.Drawing.Point(346, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 22);
@@ -266,7 +263,6 @@
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Image = global::MinLab.Properties.Resources.warning__1_;
             this.label5.Location = new System.Drawing.Point(346, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(23, 22);

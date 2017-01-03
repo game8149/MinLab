@@ -73,14 +73,14 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.IndianRed;
+            this.button1.BackColor = System.Drawing.Color.SlateGray;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Futura Bk BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Image = global::MinLab.Properties.Resources.exit__2_1;
+            this.button1.Image = global::MinLab.Properties.Resources.exit;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(-2, 580);
             this.button1.Name = "button1";
@@ -88,6 +88,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnMedico
             // 
@@ -122,7 +123,7 @@
             this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInicio.Font = new System.Drawing.Font("Futura Bk BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnInicio.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnInicio.Image = global::MinLab.Properties.Resources.id_card__1_;
+            this.BtnInicio.Image = global::MinLab.Properties.Resources.idcard;
             this.BtnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnInicio.Location = new System.Drawing.Point(-2, -1);
             this.BtnInicio.Name = "BtnInicio";
@@ -158,7 +159,7 @@
             // 
             // BtnAcerca
             // 
-            this.BtnAcerca.BackColor = System.Drawing.Color.Orange;
+            this.BtnAcerca.BackColor = System.Drawing.Color.SlateGray;
             this.BtnAcerca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAcerca.FlatAppearance.BorderSize = 0;
             this.BtnAcerca.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepSkyBlue;
@@ -267,7 +268,7 @@
             this.CheckBoxMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CheckBoxMenu.FlatAppearance.BorderSize = 0;
             this.CheckBoxMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckBoxMenu.Image = global::MinLab.Properties.Resources.menu__1_;
+            this.CheckBoxMenu.Image = global::MinLab.Properties.Resources.menu;
             this.CheckBoxMenu.Location = new System.Drawing.Point(2, 3);
             this.CheckBoxMenu.Name = "CheckBoxMenu";
             this.CheckBoxMenu.Size = new System.Drawing.Size(38, 31);
@@ -282,9 +283,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
             this.label1.Location = new System.Drawing.Point(50, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 18);
+            this.label1.Size = new System.Drawing.Size(215, 18);
             this.label1.TabIndex = 25;
-            this.label1.Text = "Winchanzao";
+            this.label1.Text = "Sistema de Laboratorio Clinico";
             // 
             // SplitCont
             // 
