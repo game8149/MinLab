@@ -9,7 +9,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen.ComponentesPrueba
     {
         private static ConfiguracionExamen config;
         public bool Changed { get; set; }
-
+        public bool Loading { get; set; }
 
         public static ConfiguracionExamen GetInstance()
         {

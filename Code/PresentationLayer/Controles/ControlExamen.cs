@@ -36,7 +36,8 @@ namespace MinLab.Code.PresentationLayer.Controles
             InicializarComponenteTablaDGVOrden();
 
             DGVOrden.KeyPress += DGVOrden_KeyPress;
-            DGVOrden.DoubleClick += DGVOrden_DoubleClick; 
+            DGVOrden.DoubleClick += DGVOrden_DoubleClick;
+            PickerInit.Value = DateTime.Now;
             isLoadingUI = false;
             
         }
@@ -192,7 +193,6 @@ namespace MinLab.Code.PresentationLayer.Controles
             {
                 temp.Add((int)r.Cells[0].Value, ordenes[(int)r.Cells[0].Value]);
             }
-            Console.WriteLine(temp.Count);
             Impresora printer = new Impresora();
             printer.ContruirVistaPrevia(temp);
         }

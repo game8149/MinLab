@@ -4,6 +4,7 @@ using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.EntityLayer.EOrden;
 using MinLab.Code.EntityLayer.EPlantilla;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
+using MinLab.Code.LogicLayer;
 using MinLab.Code.LogicLayer.LogicaPaciente;
 using System;
 using System.Collections.Generic;
@@ -97,25 +98,38 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
             tamañoPag.Height = tamañoPag.Height / 2;
             tamañoPag.Width = tamañoPag.Width / 2;
             Paciente paciente = enlacePaciente.ObtenerPerfilPorId(orden.IdPaciente);
-
+            
+            int idLastResponsable = 0;
+            DateTime tempTime = DateTime.MinValue;
             foreach (Examen ex in examenes.Values)
             {
                 Area area = (Area)Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Area;
                 repositorio[area].Add(ex.IdData);
+                if (ex.UltimaModificacion >= tempTime) {
+                    tempTime = ex.UltimaModificacion;
+                    idLastResponsable = ex.IdCuenta;
+                }
             }
             
+
             //CONSTRUCCION DE CABECERA 
             formato = new FormatoImpresion();
             FormatoImpresionCabecera cab = new FormatoImpresionCabecera();
             Dictionary<int, FormatoImpresionPagina> paginas = new Dictionary<int, FormatoImpresionPagina>();
-
+            LogicaCuenta oLCuenta = new LogicaCuenta();
+            BLMedico oLMedico = new BLMedico();
+            Medico med = oLMedico.ObtenerMedico(orden.IdMedico);
+            Cuenta cu = oLCuenta.ObtenerCuenta(idLastResponsable);
             Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(paciente.FechaNacimiento);
-            if (tiempo.Año < 1)
-                cab.Edad = tiempo.Mes + " mes(es)";
-            else cab.Edad = tiempo.Año + " año(s)";
-            cab.Orden = "O" + orden.IdData;
-            cab.Nombre = paciente.Nombre + " " + paciente.PrimerApellido + " " + paciente.SegundoApellido;
+            
+            cab.Edad = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
+            cab.Orden = "No "+orden.IdData;
+            cab.Nombre = (paciente.Nombre + " " + paciente.PrimerApellido + " " + paciente.SegundoApellido).ToUpper();
             cab.Historia = paciente.Historia;
+            
+            cab.Responsable = (cu.Nombre + " " + cu.PrimerApellido + " " + cu.SegundoApellido + " - " + cu.Especialidad);
+            cab.Doctor = (med.PrimerApellido + " " + med.SegundoApellido).ToUpper();
+            cab.Estado = (orden.EnGestacion? "GESTANTE" : "NORMAL");
             formato.Cabecera = cab;
 
             Dictionary<int, FormatoImpresionPaginaLinea> lineas=null;
@@ -140,8 +154,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
 
                     lineas.Add(indexLinea, linea);
                     indexLinea++;
-
-                    Console.WriteLine("Estoy en construccion");
+                    
 
                     foreach (int idEx in repositorio[key])
                     {
@@ -298,7 +311,6 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                     formato.Paginas.Add(pagina);
                 }
             }
-            Console.WriteLine("Construccion finalizada");
             return formato;
         }
         

@@ -110,6 +110,40 @@ namespace MinLab.Code.DataLayer
             return cuenta;
         }
 
+        public Cuenta GetCuentaById(int id)
+        {
+            Cuenta cuenta = null;
+            SqlConnection conexion = new SqlConnection();
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            SqlCommand comando = new SqlCommand();
+
+            comando.Connection = conexion;
+            comando.CommandText = ProcGet.GET_CUENTA_BYID;
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idCuenta", id);
+
+            comando.Connection.Open();
+            SqlDataReader resultado = comando.ExecuteReader();
+            while (resultado.Read())
+            {
+                cuenta = new Cuenta();
+                cuenta.IdData = Convert.ToInt32(resultado["id"]);
+                cuenta.Nombre = resultado["nombre"].ToString();
+                cuenta.PrimerApellido = resultado["primerApellido"].ToString();
+                cuenta.SegundoApellido = resultado["segundoApellido"].ToString();
+                cuenta.Especialidad = resultado["especialidad"].ToString();
+                cuenta.CodigoPro = resultado["codigo"].ToString();
+                cuenta.Dni = resultado["dni"].ToString();
+                cuenta.Clave = resultado["clave"].ToString();
+                cuenta.Nivel = (SesionNivel)Convert.ToInt32((resultado["nivel"].ToString()));
+            }
+            resultado.Close();
+            conexion.Close();
+            comando.Dispose();
+
+            return cuenta;
+        }
+
         public string GetSeguridad(Cuenta cuenta)
         {
             string codigo = null;

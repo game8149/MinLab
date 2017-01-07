@@ -46,12 +46,6 @@
             this.CampDni = new System.Windows.Forms.Label();
             this.CampNombre = new System.Windows.Forms.Label();
             this.DGVExamen = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastModif = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -64,6 +58,14 @@
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.CampUbicacion = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ComboBoxOrden = new System.Windows.Forms.ComboBox();
+            this.LabelOrden = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastModif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +73,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.ComboBoxOrden);
+            this.panel1.Controls.Add(this.LabelOrden);
             this.panel1.Controls.Add(this.ComboEstado);
             this.panel1.Controls.Add(this.BtnPrint);
             this.panel1.Controls.Add(this.PickerEnd);
@@ -80,7 +84,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(21, 236);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1018, 34);
+            this.panel1.Size = new System.Drawing.Size(1018, 41);
             this.panel1.TabIndex = 89;
             // 
             // ComboEstado
@@ -89,7 +93,7 @@
             this.ComboEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ComboEstado.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboEstado.FormattingEnabled = true;
-            this.ComboEstado.Location = new System.Drawing.Point(412, 5);
+            this.ComboEstado.Location = new System.Drawing.Point(376, 7);
             this.ComboEstado.Name = "ComboEstado";
             this.ComboEstado.Size = new System.Drawing.Size(121, 24);
             this.ComboEstado.TabIndex = 69;
@@ -117,7 +121,7 @@
             // 
             this.PickerEnd.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerEnd.Location = new System.Drawing.Point(206, 6);
+            this.PickerEnd.Location = new System.Drawing.Point(207, 8);
             this.PickerEnd.Name = "PickerEnd";
             this.PickerEnd.Size = new System.Drawing.Size(97, 23);
             this.PickerEnd.TabIndex = 64;
@@ -127,7 +131,7 @@
             // 
             this.PickerInit.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerInit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerInit.Location = new System.Drawing.Point(57, 6);
+            this.PickerInit.Location = new System.Drawing.Point(58, 8);
             this.PickerInit.MaxDate = new System.DateTime(2110, 12, 31, 0, 0, 0, 0);
             this.PickerInit.MinDate = new System.DateTime(2016, 10, 15, 0, 0, 0, 0);
             this.PickerInit.Name = "PickerInit";
@@ -141,7 +145,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Location = new System.Drawing.Point(8, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 66;
@@ -152,7 +156,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(348, 9);
+            this.label2.Location = new System.Drawing.Point(322, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 16);
             this.label2.TabIndex = 68;
@@ -163,7 +167,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(164, 9);
+            this.label3.Location = new System.Drawing.Point(165, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 67;
@@ -259,7 +263,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVExamen.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVExamen.Location = new System.Drawing.Point(21, 271);
+            this.DGVExamen.Location = new System.Drawing.Point(21, 276);
             this.DGVExamen.Name = "DGVExamen";
             this.DGVExamen.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -270,57 +274,8 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGVExamen.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DGVExamen.Size = new System.Drawing.Size(1018, 266);
+            this.DGVExamen.Size = new System.Drawing.Size(1018, 264);
             this.DGVExamen.TabIndex = 82;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Codigo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Examen";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn2.ToolTipText = "Abrir Examen";
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            this.dataGridViewComboBoxColumn1.HeaderText = "Responsable";
-            this.dataGridViewComboBoxColumn1.MinimumWidth = 150;
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            this.dataGridViewComboBoxColumn1.ReadOnly = true;
-            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewComboBoxColumn1.Width = 150;
-            // 
-            // lastModif
-            // 
-            this.lastModif.HeaderText = "Ultima Modificación";
-            this.lastModif.Name = "lastModif";
-            this.lastModif.ReadOnly = true;
-            // 
-            // IdOrden
-            // 
-            this.IdOrden.HeaderText = "IdOrden";
-            this.IdOrden.Name = "IdOrden";
-            this.IdOrden.ReadOnly = true;
-            this.IdOrden.Visible = false;
             // 
             // label11
             // 
@@ -454,6 +409,81 @@
             this.label5.TabIndex = 126;
             this.label5.Text = "Dist./Sector:";
             // 
+            // ComboBoxOrden
+            // 
+            this.ComboBoxOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxOrden.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxOrden.FormattingEnabled = true;
+            this.ComboBoxOrden.Location = new System.Drawing.Point(581, 7);
+            this.ComboBoxOrden.Name = "ComboBoxOrden";
+            this.ComboBoxOrden.Size = new System.Drawing.Size(278, 24);
+            this.ComboBoxOrden.TabIndex = 73;
+            this.ComboBoxOrden.Visible = false;
+            this.ComboBoxOrden.SelectedIndexChanged += new System.EventHandler(this.ComboBoxOrden_SelectedIndexChanged);
+            // 
+            // LabelOrden
+            // 
+            this.LabelOrden.AutoSize = true;
+            this.LabelOrden.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelOrden.ForeColor = System.Drawing.SystemColors.Window;
+            this.LabelOrden.Location = new System.Drawing.Point(526, 11);
+            this.LabelOrden.Name = "LabelOrden";
+            this.LabelOrden.Size = new System.Drawing.Size(49, 16);
+            this.LabelOrden.TabIndex = 72;
+            this.LabelOrden.Text = "Orden:";
+            this.LabelOrden.Visible = false;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Examen";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn2.ToolTipText = "Abrir Examen";
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.HeaderText = "Responsable";
+            this.dataGridViewComboBoxColumn1.MinimumWidth = 200;
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.ReadOnly = true;
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewComboBoxColumn1.Width = 200;
+            // 
+            // lastModif
+            // 
+            this.lastModif.HeaderText = "Ultima Modificación";
+            this.lastModif.Name = "lastModif";
+            this.lastModif.ReadOnly = true;
+            this.lastModif.Width = 200;
+            // 
+            // IdOrden
+            // 
+            this.IdOrden.HeaderText = "IdOrden";
+            this.IdOrden.Name = "IdOrden";
+            this.IdOrden.ReadOnly = true;
+            this.IdOrden.Visible = false;
+            // 
             // PanelPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,12 +538,6 @@
         private System.Windows.Forms.Label CampDni;
         private System.Windows.Forms.Label CampNombre;
         private System.Windows.Forms.DataGridView DGVExamen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastModif;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdOrden;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -526,5 +550,13 @@
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Label CampUbicacion;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox ComboBoxOrden;
+        private System.Windows.Forms.Label LabelOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastModif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdOrden;
     }
 }

@@ -19,6 +19,7 @@ using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
 using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
 using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.LogicLayer;
 
 namespace MinLab.Code.PresentationLayer.ComponentesExamen
 {
@@ -27,10 +28,10 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
         private int indexRowSelected=-1;
         private int idExamenSelected = -1;
         private ExamenEditorContenedor panelActual;
-        private bool cargandoExamen = false;
 
         public FormExamenEditor()
         {
+            ConfiguracionExamen.GetInstance().Loading = true;
             InitializeComponent();
             this.SuspendLayout();
 
@@ -40,6 +41,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             this.DoubleBuffered = true;
             this.FormClosing += FormExamenGeneral_FormClosing;
             this.ResumeLayout();
+            ConfiguracionExamen.GetInstance().Loading = false;
         }
 
 
@@ -84,9 +86,8 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 CampHistoria.Text = paciente.Historia;;
                 CampSexo.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(DiccionarioGeneral.GetInstance().TipoSexo[(int)paciente.Sexo]));
                 Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(paciente.FechaNacimiento);
-                if (tiempo.Año < 1)
-                    CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
-                CampEdad.Text = tiempo.Año+" años";
+                
+                CampEdad.Text = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             }
         }
 
@@ -174,6 +175,8 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             CampRegistro.Text = "";
             CampSexo.Text = "";
 
+            LabelModif.Visible = false;
+            LabelUsuarioLast.Visible = false;
         }
 
         private void DataGridView_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
@@ -193,7 +196,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 Examen ex = examenes[Convert.ToInt32(DGVExamen.Rows[e.RowIndex].Cells[2].Value)];
                 idExamenSelected = ex.IdData;
                 indexRowSelected = e.RowIndex;
-                cargandoExamen = true;
+                ConfiguracionExamen.GetInstance().Loading = true;
                 DGVExamen.Enabled = false;
 
                 PanelExamen.SuspendLayout();
@@ -212,7 +215,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                     UnblockPanelExamen();
                     HabilitarTools();
                 }
-                cargandoExamen = false;
+                ConfiguracionExamen.GetInstance().Loading = false;
                 PanelExamen.ResumeLayout(false);
 
             }
@@ -255,10 +258,15 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 
         private void CargarPlantillaEnPanel(Examen examen)
         {
+            LogicaCuenta oLCuenta = new LogicaCuenta();
             Plantilla plantilla = Plantillas.GetInstance().GetPlantilla(examen.IdPlantilla);
             CheckEstado.Checked = Convert.ToBoolean((int)examen.Estado);
             LabelExamen.Text = Plantillas.GetInstance().Coleccion()[examen.IdPlantilla].Nombre;
-
+            
+            Cuenta account = oLCuenta.ObtenerCuenta(examen.IdCuenta);
+            LabelUsuarioLast.Text = (account.Nombre + account.PrimerApellido).ToUpper() + " (" + account.Dni + ")";
+            
+            
             this.SuspendLayout();
             List<ExamenEditorFila> filas = new List<ExamenEditorFila>();
             panelActual = new ExamenEditorContenedor(PanelExamen.Width - 10, PanelExamen.Height - 10);
@@ -288,6 +296,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                     {
                         item = filaGrupo.Items[j];
                         itemForm = new ExamenEditorItem(grupoForm.Width - 20, 25, item.TieneUnidad);
+                        
                         itemForm.SuspendLayout();
                         itemForm.TabIndex = posicion;
                         posicion++;
@@ -326,6 +335,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                     filaForm.Tipo = ExamenEditorFila.TipoForm.Item;
 
                     itemForm = new ExamenEditorItem(filaForm.Width - 5, 25, item.TieneUnidad);
+                    
                     itemForm.SuspendLayout();
                     itemForm.Location = new Point(0, 0);
                     itemForm.IdItem = item.IdData;
@@ -394,9 +404,12 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             LogicaExamen enlace = new LogicaExamen();
             try
             {
+                LogicaCuenta oLCuenta = new LogicaCuenta();
                 GetTabRespuestas(examenes[idExamenSelected]);
                 enlace.ValidarExamenes(examenes[idExamenSelected]);
                 enlace.GuardarExamen(examenes[idExamenSelected]);
+                Cuenta account = oLCuenta.ObtenerCuenta(examenes[idExamenSelected].IdCuenta);
+                LabelUsuarioLast.Text = (account.Nombre +" "+ account.PrimerApellido).ToUpper() + " (" + account.Dni + ")";
 
                 ConfiguracionExamen.GetInstance().Changed = false;
             }
@@ -408,17 +421,25 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
+
+            LogicaExamen enlaceExamen;
             if (ConfiguracionExamen.GetInstance().Changed)
             {
-                var window = MessageBox.Show("Desea guardar los cambios realizados?", "Advertencia", MessageBoxButtons.YesNo);
-                if (window == DialogResult.Yes) MessageBox.Show("Cambios Realizados");
+                var window = MessageBox.Show("Has realizardo cambios. ¿Desea guardarlos?", "Advertencia", MessageBoxButtons.YesNo);
+                if (window == DialogResult.Yes)
+                {
+                    enlaceExamen = new LogicaExamen();
+                    enlaceExamen.GuardarExamen(examenes[idExamenSelected]);
+                    ActualizarDGVEstadoExamen();
+                }
                 ConfiguracionExamen.GetInstance().Changed = false;
             }
 
             DehabilitarBarTitle();
             DeshabilitarTools();
             UnblockPanelExamen();
-
+            LabelModif.Visible = false;
+            LabelUsuarioLast.Visible = false;
             PanelExamen.Controls.Remove(panelActual);
             DGVExamen.Enabled = true;
             LabelExamen.Text = "";
@@ -455,12 +476,16 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
         {
             panelActual.Visible = false;
             PanelCerrado.Visible = true;
+            LabelModif.Visible = false;
+            LabelUsuarioLast.Visible = false;
         }
 
         public void UnblockPanelExamen()
         {
             panelActual.Visible = true;
             PanelCerrado.Visible = false;
+            LabelModif.Visible = true;
+            LabelUsuarioLast.Visible = true;
         }
 
 
@@ -469,7 +494,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             LogicControlSistema logicaSistema = new LogicControlSistema();
             LogicaExamen enlaceExamen = new LogicaExamen();
             LogicaOrden enlaceOrden = new LogicaOrden();
-            this.cargandoExamen = true;
+            ConfiguracionExamen.GetInstance().Loading = true;
             if (!logicaSistema.GetPase())
             {
                 ValidarAutorizacion();
@@ -484,8 +509,9 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 ActualizarDGVEstadoExamen();
                 HabilitarTools();
                 UnblockPanelExamen();
+
             }
-            this.cargandoExamen = false;
+            ConfiguracionExamen.GetInstance().Loading = false;
         }
 
 
@@ -499,26 +525,21 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
         private void CheckEstado_CheckedChanged(object sender, EventArgs e)
         {
             LogicaExamen enlaceExamen;
-            if (!cargandoExamen)
+            if (!ConfiguracionExamen.GetInstance().Loading)
             {
                 if (CheckEstado.Checked)
                 {
-                    var window = MessageBox.Show("Esta seguro que desea dar por finalizado el examen?", "Advertencia", MessageBoxButtons.YesNo);
+                    var window = MessageBox.Show("¿Está seguro que desea dar por finalizado el examen?", "Advertencia", MessageBoxButtons.YesNo);
                     if (window == DialogResult.Yes)
                     {
                         enlaceExamen = new LogicaExamen();
                         examenes[idExamenSelected].Estado = EstadoExamen.Terminado;
-                        
                         enlaceExamen.GuardarExamen(examenes[idExamenSelected]);
                         ActualizarDGVEstadoExamen();
                         DeshabilitarTools();
                         BlockPanelExamen();
                     }
                     else CheckEstado.Checked = false;
-                }
-                else
-                {
-
                 }
             }
         }

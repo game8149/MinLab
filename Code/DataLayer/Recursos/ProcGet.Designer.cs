@@ -79,6 +79,15 @@ namespace MinLab.Code.DataLayer.Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a GET_CUENTA_BYID.
+        /// </summary>
+        internal static string GET_CUENTA_BYID {
+            get {
+                return ResourceManager.GetString("GET_CUENTA_BYID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a GET_CUENTA_EXISTE.
         /// </summary>
         internal static string GET_CUENTA_EXISTE {

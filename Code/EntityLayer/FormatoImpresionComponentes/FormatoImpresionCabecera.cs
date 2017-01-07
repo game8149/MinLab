@@ -13,7 +13,10 @@ namespace MinLab.Code.EntityLayer.FormatoImpresionComponentes
         private string nombrePaciente;
         private string edadPaciente;
         private string fechaEmite;
+        private string responsable;
         private string hcPaciente;
+        private string doctor;
+        private string estado;
         private string area;
         private int numero;
 
@@ -22,17 +25,38 @@ namespace MinLab.Code.EntityLayer.FormatoImpresionComponentes
             institucion = "CENTRO DE SALUD WICHANZAO";
             direccion = "Mz. 33 - Lote 2 - Sector 2 - Tel. 270307";
             codigoOrden = "Orden:   ";
-            hcPaciente = "Historia:   ";
+            hcPaciente = "Historia: ";
             area = "Laboratorio:    ";
             edadPaciente = "Edad:   ";
-            nombrePaciente = "Paciente:   ";
-            fechaEmite = "Emision:   " + DateTime.Now.ToShortDateString();
+            nombrePaciente = "Paciente: ";
+            fechaEmite = "Emision:  " + DateTime.Now.ToShortDateString();
+            responsable = "Responsable: ";
+            estado = "Estado:   ";
+            doctor = "Solicita:   ";
         }
 
         public string Institucion
         {
             get { return institucion; }
             set { this.institucion = value; }
+        }
+
+        public string Responsable
+        {
+            get { return responsable; }
+            set { this.responsable += value; }
+        }
+
+        public string Doctor
+        {
+            get { return doctor; }
+            set { this.doctor += value; }
+        }
+
+        public string Estado
+        {
+            get { return estado; }
+            set { this.estado += value; }
         }
 
         public string Direccion

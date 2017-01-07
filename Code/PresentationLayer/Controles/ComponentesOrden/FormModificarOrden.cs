@@ -86,9 +86,10 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 ComboBoxMedico.SelectedValue = orden.IdMedico;
                 if (Perfil.Sexo == Sexo.Mujer)
                 {
-                    CheckBoxGestante.Visible = false;
+                    CheckBoxGestante.Visible = true;
                     CheckBoxGestante.Checked = orden.EnGestacion;
                 }
+                else CheckBoxGestante.Visible = false;
                 PickerTime.Text = orden.FechaRegistro.ToShortDateString();
                 tabla.Clear();
                 foreach (OrdenDetalle ordet in Orden.Detalle.Values)
@@ -309,15 +310,13 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 ordenTemp.FechaRegistro = PickerTime.Value;
                 ordenTemp.IdPaciente = Perfil.IdData;
                 ordenTemp.UltimaModificacion = DateTime.Now;
-                orden.IdConsultorio=(int)ComboBoxConsultorio.SelectedValue;
-                orden.IdMedico=(int)ComboBoxMedico.SelectedValue;
+                ordenTemp.IdConsultorio=(int)ComboBoxConsultorio.SelectedValue;
+                ordenTemp.IdMedico=(int)ComboBoxMedico.SelectedValue;
                 if (Perfil.Sexo == Sexo.Mujer)
                 {
-                    orden.EnGestacion = CheckBoxGestante.Checked;
+                    ordenTemp.EnGestacion = CheckBoxGestante.Checked;
                 }
-
-
-                ordenTemp.Detalle = orden.Detalle;
+                
                 
                 OrdenDetalle detalle = null;
                 

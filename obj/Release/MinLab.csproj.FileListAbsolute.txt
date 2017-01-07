@@ -30,10 +30,6 @@ C:\Users\gavid\Documents\Repo\MinLab\bin\Release\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\MinLab.pdb
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\EPPlus.dll
 C:\Users\gavid\Documents\Repo\MinLab\bin\Release\EPPlus.xml
-C:\Users\gavid\Documents\Repo\bin\MinLab.exe.config
-C:\Users\gavid\Documents\Repo\bin\MinLab.exe
-C:\Users\gavid\Documents\Repo\bin\MinLab.pdb
-C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csprojResolveAssemblyReference.cache
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csproj.ResolveComReference.cache
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.DataLayer.Recursos.MsgError.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.DataLayer.Recursos.ProcAdd.resources
@@ -77,5 +73,9 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.C
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.Test.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Properties.Resources.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csproj.GenerateResource.Cache
+C:\Users\gavid\Documents\Repo\bin\MinLab.exe.config
+C:\Users\gavid\Documents\Repo\bin\MinLab.exe
+C:\Users\gavid\Documents\Repo\bin\MinLab.pdb
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csprojResolveAssemblyReference.cache
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.pdb

@@ -1,4 +1,5 @@
-﻿using MinLab.Code.EntityLayer.EFicha;
+﻿using MinLab.Code.EntityLayer.EExamen;
+using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.EntityLayer.EOrden;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
 using MinLab.Code.LogicLayer.LogicaExamen;
@@ -39,6 +40,50 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
 
 
         PrintPreviewDialog printPreviewDialog;
+
+        public void ContruirVistaPreviaExamenPaciente(Orden orden, Dictionary<int, Examen> examenes)
+        {
+            BLPaciente enlace = new BLPaciente();
+            LogicaExamen enlaceExamen = new LogicaExamen();
+            FormatoImpresion fichero;
+            PrintDocument pd = new PrintDocument();
+            // all sizes are converted from mm to inches & then multiplied by 100.
+            hojaSize.Width = pd.DefaultPageSettings.PaperSize.Width;
+            hojaSize.Height = pd.DefaultPageSettings.PaperSize.Height;
+            pd.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+            pd.PrintPage += new PrintPageEventHandler(this.pd_PrintPage);
+            
+            fichero = ConstructorFicha.GetInstance().CrearAllDocumento(examenes, orden, 7.5f, hojaSize);
+            ficheros.Add(fichero);
+            
+
+            this.printPreviewDialog = new PrintPreviewDialog();
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Location = new System.Drawing.Point(29, 29);
+            this.printPreviewDialog.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.printPreviewDialog.Name = "Vista Previa de Impresión";
+
+            printPreviewDialog.Document = pd;
+            printPreviewDialog.ClientSize = new Size(1100, 500);
+            printPreviewDialog.ShowDialog();
+            //PrintDialog printdia = new PrintDialog();
+            //printdia.Document = pd;
+
+
+            //if (printdia.ShowDialog() == DialogResult.OK)
+            //{
+            //    PrintPreviewControl prControl = new PrintPreviewControl();
+            //    pd.Print();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Print Cancelled");
+            //}
+
+            indexFicheroActual = 0;
+            ficheros.Clear();
+
+        }
 
         public void ContruirVistaPrevia(Dictionary<int,Orden> ordenes)
         {
@@ -337,12 +382,14 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
             
             stringSize = grafico.MeasureString(cabecera.Orden, fontItem);
             grafico.DrawString(cabecera.Orden, fontItem, Brushes.Black, actual.X, actual.Y + lineaPag);
-            grafico.DrawString(cabecera.Fecha, fontItem, Brushes.Black, (actual.X + limit.X) / 2, actual.Y + lineaPag);
+            grafico.DrawString(cabecera.Fecha, fontItem, Brushes.Black, actual.X+ ( limit.X- actual.X ) /3 - 30, actual.Y + lineaPag);
+            grafico.DrawString(cabecera.Estado, fontItem, Brushes.Black, actual.X + 2*( limit.X- actual.X ) / 3 - 55, actual.Y + lineaPag);
             lineaPag += ((int)stringSize.Height + spaceV+3);
 
             stringSize = grafico.MeasureString(cabecera.Edad, fontItem);
             grafico.DrawString(cabecera.Edad, fontItem, Brushes.Black, actual.X, actual.Y + lineaPag);
-            grafico.DrawString(cabecera.Historia, fontItem, Brushes.Black, (actual.X + limit.X) / 2, actual.Y + lineaPag);
+            grafico.DrawString(cabecera.Historia, fontItem, Brushes.Black, actual.X + ( limit.X- actual.X ) / 3 - 30, actual.Y + lineaPag);
+            grafico.DrawString(cabecera.Doctor, fontItem, Brushes.Black, actual.X + 2 * ( limit.X- actual.X) / 3 - 55, actual.Y + lineaPag);
             lineaPag += ((int)stringSize.Height + spaceV+3);
             
             //DIBUJA LA LINEA SEPARADORA
@@ -354,12 +401,10 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
 
 
             grafico.DrawImage(imgMR, ((actual.X + limit.X ) - imgMR.Size.Width) / 2, ((actual.Y + lineaPag) + limit.Y - imgMR.Size.Height) /2);
-
-            Cuenta cu=SistemaControl.GetInstance().Sesion.Cuenta;
-            grafico.DrawString("Responsable: " + cu.Nombre + " " + cu.PrimerApellido + " " + cu.SegundoApellido + " - " + cu.Especialidad, fontFechaSub, Brushes.Black, actual.X+5, limit.Y - 33);
+            
+            grafico.DrawString(cabecera.Responsable, fontFechaSub, Brushes.Black, actual.X+5, limit.Y - 33);
 
             grafico.DrawLine(pen, new Point(actual.X, limit.Y - 35), new Point(limit.X - margen -10, limit.Y - 35));
-            stringSize = grafico.MeasureString("Gracias por su preferencia.", fontFechaSub);
             
 
             return lineaPag+actual.Y;

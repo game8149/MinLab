@@ -1,5 +1,6 @@
 ﻿
 using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.PresentationLayer.ComponentesExamen;
 using MinLab.Code.PresentationLayer.ComponentesExamen.ComponentesPrueba;
 using System;
 using System.Collections.Generic;
@@ -75,17 +76,20 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamenEditor
 
         private void TexBoxTexto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ConfiguracionExamen.GetInstance().Changed = true;
+            if (!ConfiguracionExamen.GetInstance().Loading)
+                ConfiguracionExamen.GetInstance().Changed = true;
         }
 
         private void TexBoxInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ConfiguracionExamen.GetInstance().Changed = true;
+            if (!ConfiguracionExamen.GetInstance().Loading)
+                ConfiguracionExamen.GetInstance().Changed = true;
         }
 
         private void ComboList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ConfiguracionExamen.GetInstance().Changed = true;
+            if(!ConfiguracionExamen.GetInstance().Loading)
+                ConfiguracionExamen.GetInstance().Changed = true;
         }
 
         public void redimensionarWidth(int Ancho)

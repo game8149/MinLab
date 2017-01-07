@@ -15,7 +15,7 @@ namespace MinLab.Code.EntityLayer.EExamen
         private DateTime fechaFinalización;
         private DateTime ultimaModificacion;
         private Dictionary<int, ExamenDetalle> detallesByItem;
-        private string dniResponsable;
+        
         private EstadoExamen estado;
 
 
@@ -29,6 +29,12 @@ namespace MinLab.Code.EntityLayer.EExamen
         {
             get { return idData; }
             set { this.idData = value; }
+        }
+
+        public int IdCuenta
+        {
+            get;
+            set;
         }
 
         public int IdPlantilla
@@ -54,12 +60,7 @@ namespace MinLab.Code.EntityLayer.EExamen
             get { return ultimaModificacion; }
             set { this.ultimaModificacion = value; }
         }
-
-        public string DniResponsable
-        {
-            get { return dniResponsable; }
-            set { this.dniResponsable = value; }
-        }
+        
 
         public DateTime FechaFinalizado
         {

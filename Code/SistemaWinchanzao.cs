@@ -30,9 +30,10 @@ namespace MinLab.Code.PresentationLayer
                 con.Open();
                 con.Close();
                 TestPass = true;
-            }catch(SqlException ex)
+            }
+            catch (SqlException ex)
             {
-                MessageBox.Show("Error de Conexion, proporciona este error a soporte tecnico: \n\n"+ex.Message,"Mensaje del Sistem");
+                MessageBox.Show("Error de Conexion, proporciona este error a soporte tecnico: \n\n" + ex.Message, "Mensaje del Sistem");
             }
             if (TestPass)
             {
@@ -73,9 +74,10 @@ namespace MinLab.Code.PresentationLayer
                 {
                     MessageBox.Show(ex.Message);
                     isRunning = false;
-                }
-                //Application.Run(new Test());
+                }                
             }
+
+            //Application.Run(new Test());
         }
     }
 }

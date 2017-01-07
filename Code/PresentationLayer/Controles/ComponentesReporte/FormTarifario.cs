@@ -77,7 +77,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesReporte
             }
             catch(DataException ex)
             {
-                MessageBox.Show("asdad");
+                MessageBox.Show("Error");
             }
         }
         

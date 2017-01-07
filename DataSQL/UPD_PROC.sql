@@ -1,6 +1,101 @@
 use AnalisisClinico
 go
 
+
+CREATE PROC UPD_CONSULTORIO
+@ID INT,
+@NOMBRE VARCHAR(100)
+AS SET NOCOUNT ON
+BEGIN
+UPDATE CONSULTORIO SET nombre=@NOMBRE WHERE ID=@ID
+END
+GO
+
+CREATE PROC UPD_DISTRITO
+@ID INT,
+@NOMBRE VARCHAR(100)
+AS SET NOCOUNT ON
+BEGIN
+UPDATE DISTRITO SET nombre=@NOMBRE WHERE ID=@ID
+END
+GO
+
+CREATE PROC UPD_SECTOR
+@ID INT,
+@NOMBRE VARCHAR(100),
+@IDDISTRITO INT
+AS SET NOCOUNT ON
+BEGIN
+UPDATE SECTOR SET nombre=@NOMBRE,idDistrito=@IDDISTRITO WHERE ID=@ID
+END
+GO
+
+CREATE PROC UPD_MEDICO
+@ID INT,
+@NOMBRE VARCHAR(100),
+@PRIMERAPELLIDO VARCHAR(100),
+@SEGUNDOAPELLIDO VARCHAR(100),
+@ESPECIALIDAD VARCHAR(100),
+@COLEGIATURA CHAR(20),
+@HABIL bit
+AS SET NOCOUNT ON
+BEGIN
+UPDATE MEDICO SET nombre=@NOMBRE,primerApellido=@PRIMERAPELLIDO,segundoApellido=@SEGUNDOAPELLIDO,especialidad=@ESPECIALIDAD,colegiatura=@COLEGIATURA,habil=@habil WHERE ID=@ID
+END
+GO
+
+
+
+CREATE PROC UPD_TARIFARIO
+@ID int,
+@ANO int,
+@FECHAREG DATE,
+@VIGENTE BIT,
+@DETALLE OTARIFARIODET READONLY
+as set nocount on
+begin
+declare @msg varchar(100)
+Begin Tran Tadd
+    Begin Try
+		
+		update TarifarioCab set vigente=@VIGENTE where id= @id
+		update b Set b.precio=a.precio
+		from @DETALLE a join TarifarioDet b on b.id=a.id
+
+		SET @msg = 'Se registraron datos correctamente.'
+
+		COMMIT TRAN Tadd
+    End try
+    Begin Catch
+        SET @msg = 'Ocurrio un Error: ' + ERROR_MESSAGE() + ' en la línea ' + CONVERT(NVARCHAR(255), ERROR_LINE() ) + '.'
+        Rollback TRAN Tadd;
+		THROW 60000, @msg, 1;  
+    End Catch
+end
+GO
+
+
+CREATE PROC UPD_TARIFARIOCAB_VIGENTE
+@ID int
+AS SET NOCOUNT ON
+BEGIN
+UPDATE TarifarioCab SET vigente=0
+UPDATE TarifarioCab SET vigente=1 where id=@ID
+
+END
+GO
+
+
+CREATE PROC UPD_MEDICO_HABIL
+@ID INT,
+@HABIL BIT
+AS SET NOCOUNT ON
+BEGIN
+UPDATE MEDICO SET habil=@HABIL WHERE ID=@ID
+END
+GO
+
+
 create proc UPD_ORDENCAB
 @id int,
 @numero varchar(15),
@@ -26,7 +121,7 @@ begin
 Begin Tran Tadd
     Begin Try
 		BEGIN
-		update b Set b.fechaModificacion=a.fechaModificacion,b.fechaFinalizacion=a.fechaFinalizacion,b.estado=a.estado
+		update b Set b.fechaModificacion=a.fechaModificacion,b.fechaFinalizacion=a.fechaFinalizacion,b.estado=a.estado,b.idCuenta=a.idCuenta
 		from @examenes a join Examen b on b.id=a.idTemp
 
 		update b Set b.respuesta=a.respuesta
@@ -54,7 +149,7 @@ Begin Tran Tadd
 		BEGIN
 		update Orden set  estado=@estado where id=@idOrden
 
-		update b Set b.fechaModificacion=a.fechaModificacion,b.fechaFinalizacion=a.fechaFinalizacion,b.estado=a.estado
+		update b Set b.fechaModificacion=a.fechaModificacion,b.fechaFinalizacion=a.fechaFinalizacion,b.estado=a.estado,b.idCuenta=a.idCuenta
 		from @examenes a join Examen b on b.id=a.idTemp
 
 		update b Set b.respuesta=a.respuesta

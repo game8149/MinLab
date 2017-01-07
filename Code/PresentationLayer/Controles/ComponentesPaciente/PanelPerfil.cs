@@ -15,6 +15,7 @@ using MinLab.Code.ControlSistemaInterno;
 using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
 using MinLab.Code.ControlSistemaInterno.ControlImpresora;
 using MinLab.Code.EntityLayer.EFicha;
+using MinLab.Code.LogicLayer;
 
 namespace MinLab.Code.PresentationLayer.Controles
 {
@@ -45,18 +46,15 @@ namespace MinLab.Code.PresentationLayer.Controles
 
         public void CargarDatos()
         {
-
             CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
             CampDni.Text = perfil.Dni;
             CampHistoria.Text = perfil.Historia;
             CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
             Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
-            if (tiempo.Año == 0)
-                CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
-            CampEdad.Text = tiempo.Año + " años";
+            CampEdad.Text = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             CampDireccion.Text = perfil.Direccion;
             CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[perfil.IdSector].Nombre;
-            RellenarExamenesEnTabla();
+            RellenarOrdenes();
         }
 
 
@@ -82,20 +80,43 @@ namespace MinLab.Code.PresentationLayer.Controles
         {
 
         }
-
-
-        private void RellenarExamenesEnTabla()
+        
+        private void RellenarOrdenes()
         {
             LogicaOrden enlaceOrden = new LogicaOrden();
-            LogicaExamen enlaceExamen = new LogicaExamen();
-            tabla.Clear();
-
-
             ordenes = enlaceOrden.ObtenerOrdenesByPacienteByFechaByEstado(perfil, PickerInit.Value, PickerEnd.Value, (EstadoOrden)ComboEstado.SelectedIndex);
-
-            examenesGeneral = new Dictionary<int, Examen>();
-            foreach (Orden orden in ordenes.Values)
+            if (ordenes.Count > 0)
             {
+                Dictionary<int, string> listOrden = new Dictionary<int, string>();
+                foreach (Orden or in ordenes.Values)
+                {
+                    listOrden.Add(or.IdData, or.IdData + "-" + (or.Boleta == "" ? "Sin Boleta" : or.Boleta) + " (" + or.FechaRegistro + ")");
+                }
+
+                ComboBoxOrden.DataSource = new BindingSource(listOrden, null);
+                ComboBoxOrden.DisplayMember = "Value";
+                ComboBoxOrden.ValueMember = "Key";
+
+                foreach (int k in listOrden.Keys)
+                    ComboBoxOrden.SelectedValue = k;
+            }
+            ComboBoxOrden.Visible = ordenes.Count > 0;
+            LabelOrden.Visible = ordenes.Count > 0;
+        }
+        private void RellenarExamenesEnTabla()
+        {
+            
+            LogicaCuenta oLCuenta = new LogicaCuenta();
+            LogicaExamen enlaceExamen = new LogicaExamen();
+            if (ordenes.Count > 0)
+            {
+                
+                tabla.Clear();
+
+                Cuenta account;
+
+                examenesGeneral = new Dictionary<int, Examen>();
+                Orden orden = ordenes[(int)ComboBoxOrden.SelectedValue];
                 Dictionary<int, Examen> temp = enlaceExamen.RecuperarExamenes(orden);
                 foreach (Examen ex in temp.Values)
                 {
@@ -109,15 +130,19 @@ namespace MinLab.Code.PresentationLayer.Controles
                         String nombrePaquete = ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre;
                         String nombrePlantilla = Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre;
                         row[2] = (nombrePaquete == nombrePlantilla) ? nombrePaquete : (nombrePaquete + ":" + nombrePlantilla);
-                        row[3] = ex.DniResponsable;
+                        account = oLCuenta.ObtenerCuenta(ex.IdCuenta);
+                        row[3] = (account.Nombre + account.PrimerApellido).ToUpper() + " (" + account.Dni + ")";
                         row[4] = ex.UltimaModificacion;
                         row[5] = orden.IdData;
                         tabla.Rows.Add(row);
                         this.ResumeLayout(false);
                     }
                 }
+
+                BtnPrint.Visible = examenesGeneral.Count > 0;
             }
-            BtnPrint.Visible = examenesGeneral.Count > 0;
+
+
         }
 
 
@@ -181,32 +206,33 @@ namespace MinLab.Code.PresentationLayer.Controles
         private void ComboEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!isLoadingUI)
-                RellenarExamenesEnTabla();
+                RellenarOrdenes();
         }
 
         private void PickerEnd_ValueChanged(object sender, EventArgs e)
         {
             if (!isLoadingUI)
-                RellenarExamenesEnTabla();
+                RellenarOrdenes();
         }
 
         private void PickerInit_ValueChanged(object sender, EventArgs e)
         {
             if (!isLoadingUI)
-                RellenarExamenesEnTabla();
+                RellenarOrdenes();
         }
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             LogicaOrden enlace = new LogicaOrden();
-            Dictionary<int, Orden> temp = new Dictionary<int, Orden>();
+            
             Dictionary<int, Examen> examenes = new Dictionary<int, Examen>();
+            Orden orden = ordenes[(int)ComboBoxOrden.SelectedValue];
             foreach (DataGridViewRow r in DGVExamen.SelectedRows)
             {
-                temp.Add((int)r.Cells[5].Value, ordenes[(int)r.Cells[5].Value]);
+                examenes.Add((int)r.Cells[1].Value, examenesGeneral[(int)r.Cells[1].Value]);
             }
             Impresora printer = new Impresora();
-            //printer.ContruirVistaPreviaExamenPaciente(temp, examenes);
+            printer.ContruirVistaPreviaExamenPaciente(orden, examenes);
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
@@ -218,7 +244,7 @@ namespace MinLab.Code.PresentationLayer.Controles
             form.ShowDialog();
 
             this.perfil = enlace.ObtenerPerfilPorId(perfil.IdData);
-            this.RellenarExamenesEnTabla();
+            this.RellenarOrdenes();
 
             CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
             CampDni.Text = perfil.Dni;
@@ -228,9 +254,8 @@ namespace MinLab.Code.PresentationLayer.Controles
             CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[perfil.IdSector].Nombre;
 
             Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
-            if (tiempo.Año < 1)
-                CampEdad.Text = tiempo.Mes + "meses " + tiempo.Dias + " dias";
-            CampEdad.Text = tiempo.Año + " años";
+            
+            CampEdad.Text = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             form.Dispose();
         }
 
@@ -241,6 +266,12 @@ namespace MinLab.Code.PresentationLayer.Controles
             enlacePaciente.EliminarPaciente(perfil);
 
             this.Dispose();
+        }
+
+        private void ComboBoxOrden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!isLoadingUI)
+                RellenarExamenesEnTabla();
         }
     }
 }

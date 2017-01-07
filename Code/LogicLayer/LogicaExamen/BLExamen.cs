@@ -35,7 +35,7 @@ namespace MinLab.Code.LogicLayer.LogicaExamen
                         examenTemp.UltimaModificacion = DateTime.Now;
                         examenTemp.IdOrdenDetalle = detalleOrden.IdData;
                         examenTemp.IdPlantilla = idPlantilla;
-                        //examenTemp.DniResponsable = Sesion.GetInstance().Cuenta.Dni;
+                        examenTemp.IdCuenta = SistemaControl.GetInstance().Sesion.Cuenta.IdData;
                         examenTemp.IdData = 0;
                         examenTemp.DetallesByItem = new Dictionary<int, ExamenDetalle>();
                         //Agregando Items a los detalles del examen
@@ -87,6 +87,7 @@ namespace MinLab.Code.LogicLayer.LogicaExamen
 
         public bool GuardarExamen(Examen ex)
         {
+            ex.IdCuenta = SistemaControl.GetInstance().Sesion.Cuenta.IdData;
             if(ex.Estado==Examen.EstadoExamen.Terminado)
                 ex.FechaFinalizado=DateTime.Now;
                 

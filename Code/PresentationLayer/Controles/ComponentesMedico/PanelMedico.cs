@@ -177,6 +177,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
+
         }
         
         private void BtnModificar_Click(object sender, EventArgs e)

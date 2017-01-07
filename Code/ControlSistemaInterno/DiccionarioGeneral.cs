@@ -174,5 +174,33 @@ namespace MinLab.Code.ControlSistemaInterno
         }
         
 
+        public string FormatoEdad(Tiempo edad)
+        {
+            bool ano1 = false;
+            bool mes1 = false;
+            StringBuilder bs = new StringBuilder();
+            if (edad.Año > 1)
+                bs.Append(edad.Año + " años ");
+            else {
+
+                if (ano1 = edad.Año == 1)
+                    bs.Append(edad.Año + " año ");
+
+                if (edad.Mes > 1)
+                    bs.Append(edad.Mes + " meses ");
+                else {
+                    if(mes1=edad.Mes == 1)
+                        bs.Append(edad.Mes + " mes ");
+                    if (edad.Dias > 1|| (!mes1&&!ano1))
+                        bs.Append(edad.Dias + " días");
+                    else if (edad.Dias == 1)
+                        bs.Append(edad.Dias + " día");
+                }
+                
+            }
+
+            return bs.ToString();
+        }
+
     }
 }

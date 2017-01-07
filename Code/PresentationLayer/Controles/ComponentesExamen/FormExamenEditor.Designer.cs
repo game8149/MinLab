@@ -61,6 +61,8 @@
             this.CampEdad = new System.Windows.Forms.Label();
             this.CampHistoria = new System.Windows.Forms.Label();
             this.CampSexo = new System.Windows.Forms.Label();
+            this.LabelModif = new System.Windows.Forms.Label();
+            this.LabelUsuarioLast = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVExamen)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -434,12 +436,34 @@
             this.CampSexo.TabIndex = 99;
             this.CampSexo.Text = "label15";
             // 
+            // LabelModif
+            // 
+            this.LabelModif.AutoSize = true;
+            this.LabelModif.Font = new System.Drawing.Font("Futura Bk BT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelModif.Location = new System.Drawing.Point(19, 601);
+            this.LabelModif.Name = "LabelModif";
+            this.LabelModif.Size = new System.Drawing.Size(101, 15);
+            this.LabelModif.TabIndex = 100;
+            this.LabelModif.Text = "Ult. modificación:";
+            // 
+            // LabelUsuarioLast
+            // 
+            this.LabelUsuarioLast.AutoSize = true;
+            this.LabelUsuarioLast.Font = new System.Drawing.Font("Futura Bk BT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelUsuarioLast.Location = new System.Drawing.Point(120, 601);
+            this.LabelUsuarioLast.Name = "LabelUsuarioLast";
+            this.LabelUsuarioLast.Size = new System.Drawing.Size(40, 15);
+            this.LabelUsuarioLast.TabIndex = 101;
+            this.LabelUsuarioLast.Text = "label3";
+            // 
             // FormExamenEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(962, 645);
+            this.Controls.Add(this.LabelUsuarioLast);
+            this.Controls.Add(this.LabelModif);
             this.Controls.Add(this.CampSexo);
             this.Controls.Add(this.CampHistoria);
             this.Controls.Add(this.CampEdad);
@@ -516,5 +540,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn idExamen;
+        private System.Windows.Forms.Label LabelModif;
+        private System.Windows.Forms.Label LabelUsuarioLast;
     }
 }

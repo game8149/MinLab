@@ -259,4 +259,7 @@
   <data name="GET_TARIFARIOCAB_BYANO" xml:space="preserve">
     <value>GET_TARIFARIOCAB_BYANO</value>
   </data>
+  <data name="GET_CUENTA_BYID" xml:space="preserve">
+    <value>GET_CUENTA_BYID</value>
+  </data>
 </root>

@@ -30,6 +30,7 @@ namespace MinLab.Code.DataLayer
                 tablaExamen.Columns.Add("fechaRegistro", typeof(DateTime));
                 tablaExamen.Columns.Add("fechaModificacion", typeof(DateTime));
                 tablaExamen.Columns.Add("fechaFinalizacion", typeof(DateTime));
+                tablaExamen.Columns.Add("idCuenta", typeof(int));
                 tablaExamen.Columns.Add("estado", typeof(int));
 
                 tablaExamenDetalle.Columns.Add("id", typeof(int));
@@ -47,7 +48,8 @@ namespace MinLab.Code.DataLayer
                     row[3] = r.FechaRegistro;
                     row[4] = r.UltimaModificacion;
                     row[5] = r.FechaFinalizado;
-                    row[6] = (int)r.Estado;
+                    row[6] = r.IdCuenta;
+                    row[7] = (int)r.Estado;
                     foreach (ExamenDetalle k in r.DetallesByItem.Values)
                     {
                         DataRow rowDetalle = tablaExamenDetalle.NewRow();
@@ -107,6 +109,7 @@ namespace MinLab.Code.DataLayer
                 examen.Estado = (EstadoExamen)Convert.ToInt32(resultado["estado"]);
                 examen.FechaFinalizado = Convert.ToDateTime(resultado["fechaFinalizacion"]);
                 examen.UltimaModificacion = Convert.ToDateTime(resultado["fechaModificacion"]);
+                examen.IdCuenta= Convert.ToInt32(resultado["idCuenta"]);
                 examen.DetallesByItem = GetExamenDetalleByExamen(examen);
                 examenes.Add(examen.IdData,examen);
             }
@@ -190,6 +193,7 @@ namespace MinLab.Code.DataLayer
                 tablaExamen.Columns.Add("fechaRegistro", typeof(DateTime));
                 tablaExamen.Columns.Add("fechaModificacion", typeof(DateTime));
                 tablaExamen.Columns.Add("fechaFinalizacion", typeof(DateTime));
+                tablaExamen.Columns.Add("idCuenta", typeof(int));
                 tablaExamen.Columns.Add("estado", typeof(int));
 
                 tablaExamenDetalle.Columns.Add("id", typeof(int));
@@ -206,7 +210,8 @@ namespace MinLab.Code.DataLayer
                     row[3] = r.FechaRegistro;
                     row[4] = r.UltimaModificacion;
                     row[5] = r.FechaFinalizado;
-                    row[6] = (int)r.Estado;
+                    row[6] = r.IdCuenta;
+                    row[7] = (int)r.Estado;
                     foreach (ExamenDetalle k in r.DetallesByItem.Values)
                     {
                         DataRow rowDetalle = tablaExamenDetalle.NewRow();
@@ -257,6 +262,7 @@ namespace MinLab.Code.DataLayer
                 tablaExamen.Columns.Add("fechaRegistro", typeof(DateTime));
                 tablaExamen.Columns.Add("fechaModificacion", typeof(DateTime));
                 tablaExamen.Columns.Add("fechaFinalizacion", typeof(DateTime));
+                tablaExamen.Columns.Add("idCuenta", typeof(int));
                 tablaExamen.Columns.Add("estado", typeof(int));
 
                 tablaExamenDetalle.Columns.Add("id", typeof(int));
@@ -271,7 +277,8 @@ namespace MinLab.Code.DataLayer
                 row[3] = examen.FechaRegistro;
                 row[4] = examen.UltimaModificacion;
                 row[5] = examen.FechaFinalizado;
-                row[6] = (int)examen.Estado;
+                row[6] = examen.IdCuenta;
+                row[7] = (int)examen.Estado;
                 foreach (ExamenDetalle k in examen.DetallesByItem.Values)
                 {
                     DataRow rowDetalle = tablaExamenDetalle.NewRow();

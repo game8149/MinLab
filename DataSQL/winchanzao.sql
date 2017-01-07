@@ -166,16 +166,6 @@ respuesta varchar(200) not null,
 primary key(id)
 )
 
---Tipos de Datos;
-create type ExamenesObject as table(
-idTemp int,
-idOrdenDetalle int,
-idPlantilla int,
-fechaRegistro datetime,
-fechaModificacion datetime,
-fechaFinalizacion datetime,
-estado int
-)
 
 
 create type ExamenDetallesObject as table(

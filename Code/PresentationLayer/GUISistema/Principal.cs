@@ -75,7 +75,7 @@ namespace MinLab.Code.PresentationLayer.GUISistema
         {
             if (!modeLogout)
             {
-                var window = MessageBox.Show("Está seguro que desear cerrar la aplicación?", "Advertencia", MessageBoxButtons.YesNo);
+                var window = MessageBox.Show("¿Está seguro que desear cerrar la aplicación?", "Advertencia", MessageBoxButtons.YesNo);
                 if (window == DialogResult.No) e.Cancel = true;
                 else e.Cancel = false;
             }

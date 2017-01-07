@@ -90,5 +90,17 @@ namespace MinLab.Code.LogicLayer
             oLControlSistema.GetCuentaLogin().Clave=nuevaClave;
         }
 
+
+        public Cuenta ObtenerCuenta(string dni)
+        {
+            DataCuenta oDCuenta = new DataCuenta();
+            return oDCuenta.GetCuentaByDni(dni);
+        }
+
+        public Cuenta ObtenerCuenta(int id)
+        {
+            DataCuenta oDCuenta = new DataCuenta();
+            return oDCuenta.GetCuentaById(id);
+        }
     }
 }

@@ -3,6 +3,95 @@
 use AnalisisClinico
 go
 
+
+
+create proc ADD_ADMMIN
+@nombre varchar(100),
+@primerApellido varchar(100),
+@segundoApellido varchar(100),
+@dni char(8),
+@clave char(16),
+@nivel int,
+@code char(8)
+as set nocount on
+begin
+insert into cuenta(nombre,primerApellido,segundoApellido,dni,clave,nivel)
+values(@nombre,@primerApellido,@segundoApellido,@dni,@clave,@nivel)
+
+insert into Seguridad(idCuenta,code) values(@@IDENTITY,@code)
+end
+go
+
+create proc ADD_CONSULTORIO
+@nombre VARCHAR(100)
+as set nocount on
+begin
+insert into CONSULTORIO(nombre) values (@nombre)
+end
+go
+
+create proc ADD_DISTRITO
+@nombre VARCHAR(100)
+as set nocount on
+begin
+insert into Distrito(nombre) values (@nombre)
+end
+go
+
+create proc ADD_SECTOR
+@nombre VARCHAR(100),
+@idDistrito int
+as set nocount on
+begin
+insert into Sector(nombre,idDistrito) values (@nombre,@idDistrito)
+end
+go
+
+create proc ADD_MEDICO
+@NOMBRE VARCHAR(100),
+@PRIMERAPELLIDO VARCHAR(100),
+@SEGUNDOAPELLIDO VARCHAR(100),
+@ESPECIALIDAD VARCHAR(100),
+@COLEGIATURA CHAR(20),
+@habil bit
+as set nocount on
+begin
+insert into MEDICO(nombre,primerApellido,segundoApellido,especialidad,colegiatura,habil) values (@NOMBRE,@PRIMERAPELLIDO,@SEGUNDOAPELLIDO,@ESPECIALIDAD,@COLEGIATURA,@habil)
+end
+go
+
+CREATE PROC ADD_TARIFARIOCAB
+@ANO int,
+@FECHAREG DATE,
+@VIGENTE BIT,
+@DETALLE OTARIFARIODET READONLY
+as set nocount on
+begin
+declare @msg varchar(100)
+DECLARE @ID INT
+Begin Tran Tadd
+    Begin Try
+		
+		insert into TarifarioCab(ano,fechaReg,vigente) values (@ANO,@FECHAREG,@VIGENTE)
+		SELECT @ID = SCOPE_IDENTITY()
+		if((select count(*) from @DETALLE) > 0)
+		begin
+			insert into TarifarioDet(idPaquete,idTarifarioCab,precio) 
+			(select IDPAQUETE,@ID,PRECIO from @DETALLE)
+		end
+		exec UPD_TARIFARIOCAB_VIGENTE @ID
+		SET @msg = 'Se registraron datos correctamente.'
+
+		COMMIT TRAN Tadd
+    End try
+    Begin Catch
+        SET @msg = 'Ocurrio un Error: ' + ERROR_MESSAGE() + ' en la línea ' + CONVERT(NVARCHAR(255), ERROR_LINE() ) + '.'
+        Rollback TRAN Tadd;
+		THROW 60000, @msg, 1;  
+    End Catch
+end
+GO
+
 create proc ADD_CUENTA
 @nombre varchar(100),
 @primerApellido varchar(100),
@@ -217,8 +306,8 @@ Begin Tran Tadd
 		WHILE @cnt < @total
 		BEGIN
 		
-		insert into Examen(idOrdenDetalle,idPlantilla,fechaRegistro,fechaModificacion,fechaFinalizacion,estado)
-		(select idOrdenDetalle,idPlantilla,fechaRegistro,fechaModificacion,fechaFinalizacion,estado from @examenes where idTemp=@cnt)
+		insert into Examen(idOrdenDetalle,idPlantilla,fechaRegistro,fechaModificacion,fechaFinalizacion,idCuenta,estado)
+		(select idOrdenDetalle,idPlantilla,fechaRegistro,fechaModificacion,fechaFinalizacion,idCuenta,estado from @examenes where idTemp=@cnt)
 		set @idDefault = SCOPE_IDENTITY()
 		insert into ExamenDetalle(idExamen,idItem,respuesta) 
 		(select @idDefault,idItem,respuesta from @detalles where idExamen=@cnt)
