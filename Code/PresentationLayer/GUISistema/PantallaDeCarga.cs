@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,9 @@ namespace MinLab.Code.PresentationLayer.GUISistema
                 timer1.Enabled = true;
 
             timer1.Tick += Timer1_Tick;
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            LabelVersion.Text = fvi.FileVersion;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

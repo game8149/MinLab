@@ -136,7 +136,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
         {
             LogicaOrden enlaceLogicaOrden = new LogicaOrden();
             enlaceLogicaOrden.EliminarOrden(orden);
-            ((ControlOrden)this.Parent).ModeBtnFuncion(true);
+            ((ControlOrden)this.Parent.Parent).ModeBtnFuncion(true);
             this.Dispose();
         }
 

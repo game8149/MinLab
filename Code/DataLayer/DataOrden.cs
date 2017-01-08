@@ -115,7 +115,7 @@ namespace MinLab.Code.DataLayer
             {
                 conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 comando.Connection = conexion;
-                comando.CommandText = ProcUpd.UPD_ORDENCAB;
+                comando.CommandText = ProcDel.DEL_ORDENCAB;
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@idOrden", orden.IdData);
                 comando.Connection.Open();
@@ -620,8 +620,8 @@ namespace MinLab.Code.DataLayer
                     int i = 0;
                     row[i] = Convert.ToInt32(resultado["idPaquete"]);
                     i++;
-                    for (; i <= 19; i++)
-                        row[i]=Convert.ToInt32(resultado["c" + i]);
+                    for (; i <= 20; i++)
+                        row[i]=Convert.ToInt32(resultado["c" + (i-1)]);
                     for (int k = 20; k < 76; k += 5,i++)
                         row[i] = Convert.ToInt32(resultado["c" + k]);
                     row[i] = Convert.ToInt32(resultado["c80"]);

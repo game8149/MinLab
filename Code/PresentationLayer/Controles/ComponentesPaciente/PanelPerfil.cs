@@ -264,7 +264,7 @@ namespace MinLab.Code.PresentationLayer.Controles
             BLPaciente enlacePaciente = new BLPaciente();
 
             enlacePaciente.EliminarPaciente(perfil);
-
+            ((ControlPaciente)this.Parent.Parent).ModeBtnFuncion(true);
             this.Dispose();
         }
 

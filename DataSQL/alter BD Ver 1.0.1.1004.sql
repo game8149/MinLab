@@ -34,10 +34,3 @@ estado int
     Deallocate cur 
 
 go
-
-create proc GET_CUENTA_BYID
-@idCuenta int
-as set nocount on
-begin
-select * from Cuenta where id=@idCuenta
-end

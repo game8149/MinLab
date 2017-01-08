@@ -70,7 +70,6 @@ namespace MinLab.Code.PresentationLayer.Controles
             if (orden != null && perfil!=null)
             {
                 control = new PanelFichaOrden();
-                control.Parent = this;
                 ((PanelFichaOrden)control).Perfil = perfil;
                 ((PanelFichaOrden)control).Orden = orden;
                 ModeBtnFuncion(false);

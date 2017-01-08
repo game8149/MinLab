@@ -197,7 +197,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
             BLMedico enlacePaciente = new BLMedico();
             this.Visible = false;
             enlacePaciente.EliminarMedico(perfil.IdData);
-            ((ControlMedico)this.Parent).ModeBtnFuncion(true);
+            ((ControlMedico)this.Parent.Parent).ModeBtnFuncion(true);
             this.Dispose();
         }
     }

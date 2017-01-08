@@ -2,6 +2,12 @@ use AnalisisClinico
 go
 
 
+create proc GET_CUENTA_BYID
+@idCuenta int
+as set nocount on
+begin
+select * from Cuenta where id=@idCuenta
+end
 
 CREATE PROC GET_MEDICO_ALL
 AS SET NOCOUNT ON
@@ -364,6 +370,7 @@ where od.cobertura=@cobertura and year(o.fechaRegistro)=@ano and month(o.fechaRe
 
 end
 go 
+
 
 create proc GET_REPORTE_EDAD
 @cobertura int,

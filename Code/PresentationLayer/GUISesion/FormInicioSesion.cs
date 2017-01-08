@@ -2,6 +2,7 @@
 using MinLab.Code.PresentationLayer.GUISesion;
 using MinLab.Code.PresentationLayer.GUISistema;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MinLab.Code.PresentationLayer
@@ -18,6 +19,9 @@ namespace MinLab.Code.PresentationLayer
             this.CampDni.KeyPress += CampDni_KeyPress;
             this.CampClave.KeyPress += CampClave_KeyPress;
             CampDni.Focus();
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            LabelVersion.Text = fvi.FileVersion;
         }
 
         private void CampClave_KeyPress(object sender, KeyPressEventArgs e)
