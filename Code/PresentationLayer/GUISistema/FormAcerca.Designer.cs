@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAcerca));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelVersion = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.LabelVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(331, 225);
             this.panel1.TabIndex = 37;
+            // 
+            // LabelVersion
+            // 
+            this.LabelVersion.AutoSize = true;
+            this.LabelVersion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelVersion.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.LabelVersion.Location = new System.Drawing.Point(108, 118);
+            this.LabelVersion.Name = "LabelVersion";
+            this.LabelVersion.Size = new System.Drawing.Size(40, 16);
+            this.LabelVersion.TabIndex = 36;
+            this.LabelVersion.Text = "2016";
             // 
             // linkLabel1
             // 
@@ -77,7 +88,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 1;
-            this.label4.Text = "2016";
+            this.label4.Text = "2017";
             // 
             // label1
             // 
@@ -112,17 +123,6 @@
             this.label3.Size = new System.Drawing.Size(179, 16);
             this.label3.TabIndex = 33;
             this.label3.Text = "Sistema de Laboratorio Clinico";
-            // 
-            // LabelVersion
-            // 
-            this.LabelVersion.AutoSize = true;
-            this.LabelVersion.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelVersion.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.LabelVersion.Location = new System.Drawing.Point(108, 118);
-            this.LabelVersion.Name = "LabelVersion";
-            this.LabelVersion.Size = new System.Drawing.Size(40, 16);
-            this.LabelVersion.TabIndex = 36;
-            this.LabelVersion.Text = "2016";
             // 
             // FormAcerca
             // 

@@ -107,6 +107,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                     IndexExist.Add(ordet.IdData);
                     tabla.Rows.Add(row);
                 }
+                idUniqueRowCount++;
                 this.ResumeLayout(false);
             }
             catch (Exception ex)
@@ -210,9 +211,6 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             tabla.Clear();
             Perfil = null;
             BtnEliminar.Visible = false;
-            BtnAgregar.Visible = false;
-            LabelNombreExamen.Visible = false;
-            ComboExamen.Visible = false;
             CampHistoria.Text = "";
             CampNombre.Text = "";
             CampDni.Text = "";
@@ -246,10 +244,10 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 row[2] = p.Nombre;
                 row[3] = 0;
                 row[4] = idUniqueRowCount;
-                idUniqueRowCount++;
                 tabla.Rows.Add(row);
                 IndexInsert.Add(idUniqueRowCount);
                 ComboExamen.SelectedIndex = 0;
+                idUniqueRowCount++;
                 this.ResumeLayout(false);
             }
             catch (Exception ex)
