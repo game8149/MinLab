@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace MinLab.Code.LogicLayer.LogicaPaciente
 {
-    public class BLPaciente
+    public class LogicaPaciente
     {
         public Paciente ObtenerPerfilPorDNI(string DNI)
         {

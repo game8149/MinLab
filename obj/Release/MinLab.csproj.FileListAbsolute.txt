@@ -78,3 +78,5 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Properties.Resources.res
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csproj.GenerateResource.Cache
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.pdb
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.ControlSistemaInterno.Recursos.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csprojResolveAssemblyReference.cache

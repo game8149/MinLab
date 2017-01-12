@@ -82,7 +82,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
 
             try
             {
-                BLPaciente enlacePaciente = new BLPaciente();
+                LogicaPaciente enlacePaciente = new LogicaPaciente();
                 enlacePaciente.ActualizarPaciente(Perfil);
                 this.Close();
             }

@@ -39,7 +39,7 @@ namespace MinLab.Code.PresentationLayer.Controles.GUIBuscarPaciente
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            BLPaciente enlace = new BLPaciente();
+            LogicaPaciente enlace = new LogicaPaciente();
             tabla.Clear();
             diccionario = enlace.ObtenerPerfilPorFiltro(CampDni.Text, CampHistoria.Text, CampNombre.Text, Campapellido1erno.Text, Campapellido2erno.Text);
             this.SuspendLayout();

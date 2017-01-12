@@ -92,7 +92,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
         
         public FormatoImpresion CrearAllDocumento(Dictionary<int, Examen> examenes, Orden orden, float tamañoFuente, Size tamañoPag)
         {
-            BLPaciente enlacePaciente = new BLPaciente();
+            LogicaPaciente enlacePaciente = new LogicaPaciente();
             Clasificador clasificador = new Clasificador();
             FormatoImpresion formato;
             tamañoPag.Height = tamañoPag.Height / 2;
@@ -150,7 +150,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
 
                     linea = new FormatoImpresionPaginaLinea();
                     linea.Nombre = "LABORATORIO DE " + DiccionarioGeneral.GetInstance().Area[(int)key];
-                    linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.Titulo;
+                    linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.TituloArea;
 
                     lineas.Add(indexLinea, linea);
                     indexLinea++;
@@ -162,7 +162,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                         linea = new FormatoImpresionPaginaLinea();
                         linea.Nombre = Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre;
                         linea.Resultado = " Rev. " + ex.FechaFinalizado.ToShortDateString();
-                        linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.SubTitulo;
+                        linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.TituloExamen;
                         lineas.Add(indexLinea, linea);
                         indexLinea++;
 
@@ -175,7 +175,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                                     
                                     PlantillaFilaGrupo filaGrupo = (PlantillaFilaGrupo)plantillaFila[i];
                                     linea = new FormatoImpresionPaginaLinea();
-                                    linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.GrupoInicio;
+                                    linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.TituloGrupo;
                                     linea.Nombre = filaGrupo.Nombre;
 
                                     lineas.Add(indexLinea, linea);

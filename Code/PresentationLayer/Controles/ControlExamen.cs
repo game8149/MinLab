@@ -125,7 +125,7 @@ namespace MinLab.Code.PresentationLayer.Controles
         private void CargarDatosEnDGVOrden()
         {
             LogicaOrden enlaceOrden = new LogicaOrden();
-            BLPaciente enlacePaciente = new BLPaciente();
+            LogicaPaciente enlacePaciente = new LogicaPaciente();
             ordenes = enlaceOrden.ObtenerOrdenesByFechaByEstado(PickerInit.Value, PickerEnd.Value,(EstadoOrden)ComboEstado.SelectedIndex);
             tabla.Clear();
             this.SuspendLayout();
@@ -156,7 +156,7 @@ namespace MinLab.Code.PresentationLayer.Controles
                 index = this.DGVOrden.SelectedRows[0].Index;
                 this.DGVOrden.ClearSelection();
                 this.DGVOrden.Rows[index].Selected = true;
-                BLPaciente enlacePac = new BLPaciente();
+                LogicaPaciente enlacePac = new LogicaPaciente();
                 FormExamenEditor VentanaOrden = new FormExamenEditor();
                 VentanaOrden.Orden = ordenes[Convert.ToInt32(DGVOrden.SelectedRows[0].Cells[0].Value)];
                 VentanaOrden.Paciente = enlacePac.ObtenerPerfilPorId(ordenes[Convert.ToInt32(DGVOrden.SelectedRows[0].Cells[0].Value)].IdPaciente);

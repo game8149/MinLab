@@ -237,7 +237,7 @@ namespace MinLab.Code.PresentationLayer.Controles
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            BLPaciente enlace = new BLPaciente();
+            LogicaPaciente enlace = new LogicaPaciente();
             FormModificarPaciente form = new FormModificarPaciente();
             form.Perfil = this.perfil;
             form.LlenarDatosFormulario();
@@ -261,7 +261,7 @@ namespace MinLab.Code.PresentationLayer.Controles
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            BLPaciente enlacePaciente = new BLPaciente();
+            LogicaPaciente enlacePaciente = new LogicaPaciente();
 
             enlacePaciente.EliminarPaciente(perfil);
             ((ControlPaciente)this.Parent.Parent).ModeBtnFuncion(true);

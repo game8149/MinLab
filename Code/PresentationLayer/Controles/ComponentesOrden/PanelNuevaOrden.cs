@@ -186,7 +186,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 CampHistoria.Text = Perfil.Historia;
                 CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Perfil.Nombre + " " + Perfil.PrimerApellido + " " + Perfil.SegundoApellido);
                 CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)Perfil.Sexo];
-                CampUbicacion.Text = BLPaciente.FormatearUbicacion(Perfil);
+                CampUbicacion.Text = LogicaPaciente.FormatearUbicacion(Perfil);
 
                 HabilitarFormulario();
                 if (Perfil.Sexo == Sexo.Mujer)

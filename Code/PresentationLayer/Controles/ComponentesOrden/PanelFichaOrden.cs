@@ -49,7 +49,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
         {
             BLMedico bl = new BLMedico();
             Medico medico = bl.ObtenerMedico(orden.IdMedico);
-            CampUbicacion.Text = BLPaciente.FormatearUbicacion(perfil);
+            CampUbicacion.Text = LogicaPaciente.FormatearUbicacion(perfil);
             CampDni.Text = perfil.Dni;
             CampHistoria.Text = perfil.Historia;
             CampNombre.Text = perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido;

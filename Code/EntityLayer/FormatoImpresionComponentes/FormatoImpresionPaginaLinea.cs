@@ -9,12 +9,12 @@ namespace MinLab.Code.EntityLayer.FormatoImpresionComponentes
     {
         public enum TipoPaginaLinea
         {
-            SubTitulo,
-            Titulo,
+            TituloExamen,
+            TituloArea,
             TituloFin,
             ItemSimple,
             ItemTexto,
-            GrupoInicio,
+            TituloGrupo,
             GrupoFin,
         }
 

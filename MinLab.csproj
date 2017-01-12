@@ -82,7 +82,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\ControlSistemaInterno\Consultorios.cs" />
+    <Compile Include="Code\ControlSistemaInterno\ControlImpresora\BufferImpresion.cs" />
+    <Compile Include="Code\ControlSistemaInterno\ControlImpresora\Papel.cs" />
+    <Compile Include="Code\ControlSistemaInterno\ControlImpresora\PapelConfiguracion.cs" />
+    <Compile Include="Code\ControlSistemaInterno\ControlImpresora\EstiloFuentePagina.cs" />
     <Compile Include="Code\ControlSistemaInterno\Locaciones.cs" />
+    <Compile Include="Code\ControlSistemaInterno\Recursos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recursos.resx</DependentUpon>
+    </Compile>
     <Compile Include="Code\DataLayer\DataConsultorio.cs" />
     <Compile Include="Code\DataLayer\DataMedico.cs" />
     <Compile Include="Code\DataLayer\DataUbicacion.cs" />
@@ -396,6 +405,10 @@
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Code\ControlSistemaInterno\Recursos.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Recursos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\DataLayer\Recursos\MsgError.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MsgError.Designer.cs</LastGenOutput>

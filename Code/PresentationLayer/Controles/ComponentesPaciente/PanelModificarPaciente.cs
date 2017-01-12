@@ -68,7 +68,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
         {
             try
             {
-                BLPaciente enlacePaciente = new BLPaciente();
+                LogicaPaciente enlacePaciente = new LogicaPaciente();
                 enlacePaciente.ActualizarPaciente(Perfil);
             }
             catch (Exception ex)
@@ -101,7 +101,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
 
             try
             {
-                BLPaciente enlacePaciente = new BLPaciente();
+                LogicaPaciente enlacePaciente = new LogicaPaciente();
                 enlacePaciente.ActualizarPaciente(Perfil);
                 ((PanelPerfil)this.Parent).Perfil = perfilTemp;
                 ((PanelPerfil)this.Parent).CargarDatos();
