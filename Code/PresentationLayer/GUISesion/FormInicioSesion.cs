@@ -4,6 +4,7 @@ using MinLab.Code.PresentationLayer.GUISistema;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace MinLab.Code.PresentationLayer
 {
@@ -23,6 +24,7 @@ namespace MinLab.Code.PresentationLayer
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             LabelVersion.Text = fvi.FileVersion;
         }
+        
 
         private void CampClave_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -40,6 +42,9 @@ namespace MinLab.Code.PresentationLayer
 
         private void CampDni_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsNumber(e.KeyChar)&& !(e.KeyChar==8||((Key)e.KeyChar == Key.Back) || ((Key)e.KeyChar == Key.Tab) || ((Key)e.KeyChar == Key.Delete))) 
+                e.Handled = true;
+           
             if (e.KeyChar == (char)Keys.Enter)
             {
                 CampClave.Focus();

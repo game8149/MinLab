@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MinLab.Code.LogicLayer;
 using MinLab.Code.EntityLayer.EFicha;
+using System.Windows.Input;
 
 namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
 {
@@ -16,8 +17,67 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
         public PanelModificarMedico()
         {
             InitializeComponent();
+            CampColegiatura.KeyPress += CampColegiatura_KeyPress;
+            CampNombre.KeyUp += CampNombre_KeyUp;
+            Campapellido1erno.KeyUp += CampPrimerApellido_KeyUp;
+            Campapellido2erno.KeyUp += CampSegundoApellido_KeyUp;
+            CampEspecialidad.KeyUp += CampEspecialidad_KeyUp;
         }
-        
+
+
+        private void CampSegundoApellido_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if(Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                Campapellido2erno.Text = Campapellido2erno.Text.ToUpper();
+                Campapellido2erno.SelectionStart = Campapellido2erno.TextLength;
+            }
+            else if (((Key)e.KeyValue == Key.Back) || ((Key)e.KeyValue == Key.Tab)) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampPrimerApellido_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                Campapellido1erno.Text = Campapellido1erno.Text.ToUpper();
+                Campapellido1erno.SelectionStart = Campapellido1erno.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampNombre_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                CampNombre.Text = CampNombre.Text.ToUpper();
+                CampNombre.SelectionStart = CampNombre.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampEspecialidad_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                CampEspecialidad.Text = CampEspecialidad.Text.ToUpper();
+                CampEspecialidad.SelectionStart = CampEspecialidad.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+
+
+        private void CampColegiatura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !(e.KeyChar == 8 || ((Key)e.KeyChar == Key.Back) || ((Key)e.KeyChar == Key.Tab) || ((Key)e.KeyChar == Key.Delete)))
+                e.Handled = true;
+
+        }
+
         public void CargarDatos()
         {
             CampNombre.Text = ((PanelMedico)this.Parent).Perfil.Nombre;

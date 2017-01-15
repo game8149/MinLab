@@ -6,6 +6,7 @@ using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.LogicLayer;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace MinLab.Code.PresentationLayer.Controles
 {
@@ -39,6 +40,66 @@ namespace MinLab.Code.PresentationLayer.Controles
                 ComboBoxSector.SelectedValue = key;
                 break;
             }
+
+
+            campDNI.KeyPress += CampDNI_KeyPress;
+            campNombre.KeyUp += CampNombre_KeyUp;
+            campapellido1erno.KeyUp += CampPrimerApellido_KeyUp;
+            campapellido2erno.KeyUp += CampSegundoApellido_KeyUp;
+            campHistoria.KeyUp += CampHistoria_KeyUp;
+            campDireccion.KeyUp += CampDireccion_KeyUp;
+        }
+
+
+        private void CampSegundoApellido_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                campapellido2erno.Text = campapellido2erno.Text.ToUpper();
+                campapellido2erno.SelectionStart = campapellido2erno.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampPrimerApellido_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                campapellido1erno.Text = campapellido1erno.Text.ToUpper();
+                campapellido1erno.SelectionStart = campapellido1erno.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampNombre_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                campNombre.Text = campNombre.Text.ToUpper();
+                campNombre.SelectionStart = campNombre.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampDireccion_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            campDireccion.Text = campDireccion.Text.ToUpper();
+            campDireccion.SelectionStart = campDireccion.TextLength;
+        }
+
+        private void CampHistoria_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            campHistoria.Text = campHistoria.Text.ToUpper();
+            campHistoria.SelectionStart = campHistoria.TextLength;
+        }
+
+        private void CampDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !(e.KeyChar == 8 || ((Key)e.KeyChar == Key.Back) || ((Key)e.KeyChar == Key.Tab) || ((Key)e.KeyChar == Key.Delete)))
+                e.Handled = true;
         }
 
         private void ComboBoxDistrito_SelectedValueChanged(object sender, EventArgs e)

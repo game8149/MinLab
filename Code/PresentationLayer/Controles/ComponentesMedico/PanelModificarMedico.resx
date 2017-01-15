@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label13.Text" xml:space="preserve">
+    <value>El campo Colegiatura acepta máximo 10 de digitos.
+
+Los campos Nombre, 1er Apellido, 2do Apellido  aceptan máximo 100 caracteres (Solo letras).
+
+El campo Especialidad acepta máximo 50 caracteres.
+
+</value>
+  </data>
 </root>

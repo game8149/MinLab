@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelModificarMedico));
             this.CheckBoxHabil = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.CampColegiatura = new System.Windows.Forms.TextBox();
@@ -56,7 +57,7 @@
             this.CheckBoxHabil.Name = "CheckBoxHabil";
             this.CheckBoxHabil.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CheckBoxHabil.Size = new System.Drawing.Size(60, 20);
-            this.CheckBoxHabil.TabIndex = 162;
+            this.CheckBoxHabil.TabIndex = 7;
             this.CheckBoxHabil.Text = ":Habil";
             this.CheckBoxHabil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CheckBoxHabil.UseVisualStyleBackColor = true;
@@ -75,10 +76,10 @@
             // 
             this.CampColegiatura.Font = new System.Drawing.Font("Futura Bk BT", 9.75F);
             this.CampColegiatura.Location = new System.Drawing.Point(169, 78);
-            this.CampColegiatura.MaxLength = 8;
+            this.CampColegiatura.MaxLength = 10;
             this.CampColegiatura.Name = "CampColegiatura";
             this.CampColegiatura.Size = new System.Drawing.Size(149, 23);
-            this.CampColegiatura.TabIndex = 158;
+            this.CampColegiatura.TabIndex = 1;
             // 
             // label6
             // 
@@ -94,10 +95,10 @@
             // 
             this.CampEspecialidad.Font = new System.Drawing.Font("Futura Bk BT", 9.75F);
             this.CampEspecialidad.Location = new System.Drawing.Point(169, 238);
-            this.CampEspecialidad.MaxLength = 100;
+            this.CampEspecialidad.MaxLength = 50;
             this.CampEspecialidad.Name = "CampEspecialidad";
             this.CampEspecialidad.Size = new System.Drawing.Size(374, 23);
-            this.CampEspecialidad.TabIndex = 159;
+            this.CampEspecialidad.TabIndex = 5;
             // 
             // BtnGuardar
             // 
@@ -111,7 +112,7 @@
             this.BtnGuardar.Location = new System.Drawing.Point(937, 493);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(105, 43);
-            this.BtnGuardar.TabIndex = 152;
+            this.BtnGuardar.TabIndex = 8;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnGuardar.UseVisualStyleBackColor = false;
@@ -134,9 +135,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(265, 204);
             this.label13.TabIndex = 125;
-            this.label13.Text = "El campo Colegiatura acepta un numero maximo de 8 de digitos.\r\n\r\nLos campos Nombr" +
-    "e, 1er Apellido, 2do Apellido  y Especialidad aceptan maximo 100 caracteres (Sol" +
-    "o letras).\r\n\r\n";
+            this.label13.Text = resources.GetString("label13.Text");
             // 
             // label1
             // 
@@ -185,7 +184,7 @@
             this.CampNombre.MaxLength = 100;
             this.CampNombre.Name = "CampNombre";
             this.CampNombre.Size = new System.Drawing.Size(374, 23);
-            this.CampNombre.TabIndex = 149;
+            this.CampNombre.TabIndex = 2;
             // 
             // label11
             // 
@@ -204,7 +203,7 @@
             this.Campapellido2erno.MaxLength = 100;
             this.Campapellido2erno.Name = "Campapellido2erno";
             this.Campapellido2erno.Size = new System.Drawing.Size(374, 23);
-            this.Campapellido2erno.TabIndex = 151;
+            this.Campapellido2erno.TabIndex = 4;
             // 
             // Campapellido1erno
             // 
@@ -213,7 +212,7 @@
             this.Campapellido1erno.MaxLength = 100;
             this.Campapellido1erno.Name = "Campapellido1erno";
             this.Campapellido1erno.Size = new System.Drawing.Size(374, 23);
-            this.Campapellido1erno.TabIndex = 150;
+            this.Campapellido1erno.TabIndex = 3;
             // 
             // BtnCancelar
             // 
@@ -227,7 +226,7 @@
             this.BtnCancelar.Location = new System.Drawing.Point(815, 493);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(105, 43);
-            this.BtnCancelar.TabIndex = 163;
+            this.BtnCancelar.TabIndex = 9;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCancelar.UseVisualStyleBackColor = false;

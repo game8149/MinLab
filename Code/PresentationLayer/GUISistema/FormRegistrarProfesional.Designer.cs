@@ -59,7 +59,7 @@
             this.BtnRegistra.Location = new System.Drawing.Point(273, 352);
             this.BtnRegistra.Name = "BtnRegistra";
             this.BtnRegistra.Size = new System.Drawing.Size(107, 36);
-            this.BtnRegistra.TabIndex = 6;
+            this.BtnRegistra.TabIndex = 7;
             this.BtnRegistra.Text = "Registrar";
             this.BtnRegistra.UseVisualStyleBackColor = false;
             this.BtnRegistra.Click += new System.EventHandler(this.BtnRegistra_Click);
@@ -109,10 +109,10 @@
             // 
             this.CampEspecialidad.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CampEspecialidad.Location = new System.Drawing.Point(172, 183);
-            this.CampEspecialidad.MaxLength = 8;
+            this.CampEspecialidad.MaxLength = 50;
             this.CampEspecialidad.Name = "CampEspecialidad";
             this.CampEspecialidad.Size = new System.Drawing.Size(208, 23);
-            this.CampEspecialidad.TabIndex = 3;
+            this.CampEspecialidad.TabIndex = 4;
             // 
             // label3
             // 
@@ -138,14 +138,16 @@
             // 
             this.CampSegundoApellido.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CampSegundoApellido.Location = new System.Drawing.Point(172, 144);
+            this.CampSegundoApellido.MaxLength = 100;
             this.CampSegundoApellido.Name = "CampSegundoApellido";
             this.CampSegundoApellido.Size = new System.Drawing.Size(208, 23);
-            this.CampSegundoApellido.TabIndex = 2;
+            this.CampSegundoApellido.TabIndex = 3;
             // 
             // CampNombre
             // 
             this.CampNombre.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CampNombre.Location = new System.Drawing.Point(172, 68);
+            this.CampNombre.MaxLength = 100;
             this.CampNombre.Name = "CampNombre";
             this.CampNombre.Size = new System.Drawing.Size(208, 23);
             this.CampNombre.TabIndex = 1;
@@ -164,11 +166,11 @@
             // 
             this.CampColegiatura.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CampColegiatura.Location = new System.Drawing.Point(172, 222);
-            this.CampColegiatura.MaxLength = 16;
+            this.CampColegiatura.MaxLength = 10;
             this.CampColegiatura.Name = "CampColegiatura";
             this.CampColegiatura.PasswordChar = '*';
             this.CampColegiatura.Size = new System.Drawing.Size(208, 23);
-            this.CampColegiatura.TabIndex = 4;
+            this.CampColegiatura.TabIndex = 5;
             this.CampColegiatura.UseSystemPasswordChar = true;
             // 
             // label12
@@ -185,9 +187,10 @@
             // 
             this.CampPrimerApellido.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CampPrimerApellido.Location = new System.Drawing.Point(172, 106);
+            this.CampPrimerApellido.MaxLength = 100;
             this.CampPrimerApellido.Name = "CampPrimerApellido";
             this.CampPrimerApellido.Size = new System.Drawing.Size(208, 23);
-            this.CampPrimerApellido.TabIndex = 57;
+            this.CampPrimerApellido.TabIndex = 2;
             // 
             // label5
             // 

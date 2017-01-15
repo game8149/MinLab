@@ -10,6 +10,7 @@ using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.LogicLayer;
 using MinLab.Code.ControlSistemaInterno;
 using MinLab.Code.LogicLayer.LogicaPaciente;
+using System.Windows.Input;
 
 namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
 {
@@ -18,6 +19,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
         public PanelModificarPaciente()
         {
             InitializeComponent();
+
             ComboSexo.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().TipoSexo, null);
             ComboSexo.DisplayMember = "Value";
             ComboSexo.ValueMember = "Key";
@@ -25,58 +27,97 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
             ComboBoxDistrito.DataSource = new BindingSource(BLUbicacion.ObtenerListaDistritos(), null);
             ComboBoxDistrito.DisplayMember = "Value";
             ComboBoxDistrito.ValueMember = "Key";
-            
-            ComboBoxDistrito.SelectedValueChanged += ComboBoxDistrito_SelectedValueChanged;
 
+            ComboBoxDistrito.SelectionChangeCommitted += ComboBoxDistrito_SelectionChangeCommitted;
+            
+            CampDNI.KeyPress += CampDNI_KeyPress;
+            CampNombre.KeyUp += CampNombre_KeyUp;
+            Campapellido1erno.KeyUp += CampPrimerApellido_KeyUp;
+            Campapellido2erno.KeyUp += CampSegundoApellido_KeyUp;
+            CampHistoria.KeyUp += CampHistoria_KeyUp;
+            CampDireccion.KeyUp += CampDireccion_KeyUp;
         }
 
-        public Paciente Perfil
+        private void CampDireccion_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            set;
-            get;
+            CampDireccion.Text = CampDireccion.Text.ToUpper();
+            CampDireccion.SelectionStart = CampDireccion.TextLength;
+        }
+
+        private void CampSegundoApellido_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                Campapellido2erno.Text = Campapellido2erno.Text.ToUpper();
+                Campapellido2erno.SelectionStart = Campapellido2erno.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampPrimerApellido_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                Campapellido1erno.Text = Campapellido1erno.Text.ToUpper();
+                Campapellido1erno.SelectionStart = Campapellido1erno.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampNombre_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (Char.IsLetter((char)e.KeyValue) || Char.IsWhiteSpace((char)e.KeyValue))
+            {
+                CampNombre.Text = CampNombre.Text.ToUpper();
+                CampNombre.SelectionStart = CampNombre.TextLength;
+            }
+            else if ((Key)e.KeyValue == Key.Back || (Key)e.KeyValue == Key.Tab) ;
+            else e.SuppressKeyPress = true;
+        }
+
+        private void CampHistoria_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            CampHistoria.Text = CampHistoria.Text.ToUpper();
+            CampHistoria.SelectionStart = CampHistoria.TextLength;
+        }
+        
+        private void CampDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !(e.KeyChar == 8 || ((Key)e.KeyChar == Key.Back) || ((Key)e.KeyChar == Key.Tab) || ((Key)e.KeyChar == Key.Delete)))
+                e.Handled = true;
+        }
+        
+        private void ComboBoxDistrito_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ComboBoxSector.DataSource = new BindingSource(BLUbicacion.ObtenerListaSectores((int)ComboBoxDistrito.SelectedValue), null);
+            ComboBoxSector.DisplayMember = "Value";
+            ComboBoxSector.ValueMember = "Key";
         }
         
 
-        private void ComboBoxDistrito_SelectedValueChanged(object sender, EventArgs e)
+        public void CargarDatos()
         {
-            ComboBoxSector.DataSource = new BindingSource(BLUbicacion.ObtenerListaSectores((int)ComboBoxDistrito.SelectedValue), null);
-            ComboBoxSector.DisplayMember = "Value";
-            ComboBoxSector.ValueMember = "Key";
-        }
 
-        public void LlenarDatosFormulario()
-        {
-            CampNombre.Text = Perfil.Nombre;
-            Campapellido1erno.Text = Perfil.PrimerApellido;
-            Campapellido2erno.Text = Perfil.SegundoApellido;
-            CampDNI.Text = Perfil.Dni;
-            CampHistoria.Text = Perfil.Historia;
-            ComboSexo.SelectedValue = (int)Perfil.Sexo;
-            CampFecha.Value = Perfil.FechaNacimiento;
-            CampDireccion.Text = Perfil.Direccion;
+            CampNombre.Text = ((PanelPerfil)this.Parent).Perfil.Nombre;
+            Campapellido1erno.Text = ((PanelPerfil)this.Parent).Perfil.PrimerApellido;
+            Campapellido2erno.Text = ((PanelPerfil)this.Parent).Perfil.SegundoApellido;
+            CampDNI.Text = ((PanelPerfil)this.Parent).Perfil.Dni;
+            CampHistoria.Text = ((PanelPerfil)this.Parent).Perfil.Historia;
+            ComboSexo.SelectedValue = (int)((PanelPerfil)this.Parent).Perfil.Sexo;
+            CampFecha.Value = ((PanelPerfil)this.Parent).Perfil.FechaNacimiento;
+            CampDireccion.Text = ((PanelPerfil)this.Parent).Perfil.Direccion;
 
-            ComboBoxDistrito.SelectedValue = Perfil.IdDistrito;
+            ComboBoxDistrito.SelectedValue = ((PanelPerfil)this.Parent).Perfil.IdDistrito;
 
             ComboBoxSector.DataSource = new BindingSource(BLUbicacion.ObtenerListaSectores((int)ComboBoxDistrito.SelectedValue), null);
             ComboBoxSector.DisplayMember = "Value";
             ComboBoxSector.ValueMember = "Key";
 
-            ComboBoxSector.SelectedValue = Perfil.IdSector;
+            ComboBoxSector.SelectedValue = ((PanelPerfil)this.Parent).Perfil.IdSector;
         }
-
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LogicaPaciente enlacePaciente = new LogicaPaciente();
-                enlacePaciente.ActualizarPaciente(Perfil);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+        
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -87,7 +128,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
         {
 
             Paciente perfilTemp = new Paciente();
-
+            perfilTemp.IdData = ((PanelPerfil)this.Parent).Perfil.IdData;
             perfilTemp.Dni = CampDNI.Text;
             perfilTemp.Direccion = CampDireccion.Text;
             perfilTemp.Sexo = (Sexo)ComboSexo.SelectedValue;
@@ -102,7 +143,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesPaciente
             try
             {
                 LogicaPaciente enlacePaciente = new LogicaPaciente();
-                enlacePaciente.ActualizarPaciente(Perfil);
+                enlacePaciente.ActualizarPaciente(perfilTemp);
                 ((PanelPerfil)this.Parent).Perfil = perfilTemp;
                 ((PanelPerfil)this.Parent).CargarDatos();
 

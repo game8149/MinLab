@@ -92,12 +92,12 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
         
         public FormatoImpresion CrearAllDocumento(Dictionary<int, Examen> examenes, Orden orden, float tamañoFuente, Size tamañoPag)
         {
-            LogicaPaciente enlacePaciente = new LogicaPaciente();
+            LogicaPaciente oLPaciente = new LogicaPaciente();
             Clasificador clasificador = new Clasificador();
             FormatoImpresion formato;
             tamañoPag.Height = tamañoPag.Height / 2;
             tamañoPag.Width = tamañoPag.Width / 2;
-            Paciente paciente = enlacePaciente.ObtenerPerfilPorId(orden.IdPaciente);
+            Paciente paciente = oLPaciente.ObtenerPerfilPorId(orden.IdPaciente);
             
             int idLastResponsable = 0;
             DateTime tempTime = DateTime.MinValue;
@@ -124,12 +124,12 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
             
             cab.Edad = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             cab.Orden = "No "+orden.IdData;
-            cab.Nombre = (paciente.Nombre + " " + paciente.PrimerApellido + " " + paciente.SegundoApellido).ToUpper();
+            cab.Nombre = CultureInfo.CurrentCulture.TextInfo.ToTitleCase((paciente.Nombre + " " + paciente.PrimerApellido + " " + paciente.SegundoApellido));
             cab.Historia = paciente.Historia;
             
-            cab.Responsable = (cu.Nombre + " " + cu.PrimerApellido + " " + cu.SegundoApellido + " - " + cu.Especialidad);
-            cab.Doctor = (med.PrimerApellido + " " + med.SegundoApellido).ToUpper();
-            cab.Estado = (orden.EnGestacion? "GESTANTE" : "NORMAL");
+            cab.Responsable = CultureInfo.CurrentCulture.TextInfo.ToTitleCase((cu.Nombre + " " + cu.PrimerApellido + " " + cu.SegundoApellido + " - " + cu.Especialidad));
+            cab.Doctor = CultureInfo.CurrentCulture.TextInfo.ToTitleCase((med.Nombre+" "+med.PrimerApellido + " " + med.SegundoApellido));
+            cab.UltimaRev = (tempTime.ToShortDateString());
             formato.Cabecera = cab;
 
             Dictionary<int, FormatoImpresionPaginaLinea> lineas=null;
@@ -161,7 +161,6 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                         Examen ex = examenes[idEx];
                         linea = new FormatoImpresionPaginaLinea();
                         linea.Nombre = Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre;
-                        linea.Resultado = " Rev. " + ex.FechaFinalizado.ToShortDateString();
                         linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.TituloExamen;
                         lineas.Add(indexLinea, linea);
                         indexLinea++;

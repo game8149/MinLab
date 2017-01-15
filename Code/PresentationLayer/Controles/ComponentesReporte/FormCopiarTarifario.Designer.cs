@@ -84,9 +84,9 @@
             this.label2.Font = new System.Drawing.Font("Futura Bk BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(280, 16);
+            this.label2.Size = new System.Drawing.Size(278, 16);
             this.label2.TabIndex = 77;
-            this.label2.Text = "Seleccione el tarifario segun su año de vigencia:\r\n";
+            this.label2.Text = "Seleccione el tarifario según el año de vigencia:\r\n";
             // 
             // label3
             // 
@@ -133,7 +133,7 @@
             this.CheckBoxVigente.Text = "Hacer este tarifario vigente";
             this.CheckBoxVigente.UseVisualStyleBackColor = true;
             // 
-            // FormSelectAnoCopy
+            // FormCopiarTarifario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +148,7 @@
             this.Controls.Add(this.ComboBoxAno);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormSelectAnoCopy";
+            this.Name = "FormCopiarTarifario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Copia de Tarifario";
             ((System.ComponentModel.ISupportInitialize)(this.NumericUDAño)).EndInit();

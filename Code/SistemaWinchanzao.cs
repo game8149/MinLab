@@ -74,7 +74,7 @@ namespace MinLab.Code.PresentationLayer
                 {
                     MessageBox.Show(ex.Message);
                     isRunning = false;
-                }                
+                }
             }
 
             //Application.Run(new Test());

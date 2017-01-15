@@ -27,7 +27,7 @@ namespace MinLab.Code.PresentationLayer.Controles
         private BindingSource bindingSource;
         private Dictionary<int, Examen> examenesGeneral;
         private Dictionary<int, Orden> ordenes;
-
+        public UserControl controlSecondActive;
 
         private Paciente perfil;
 
@@ -80,7 +80,7 @@ namespace MinLab.Code.PresentationLayer.Controles
         {
 
         }
-        
+
         private void RellenarOrdenes()
         {
             LogicaOrden enlaceOrden = new LogicaOrden();
@@ -237,26 +237,14 @@ namespace MinLab.Code.PresentationLayer.Controles
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            LogicaPaciente enlace = new LogicaPaciente();
-            FormModificarPaciente form = new FormModificarPaciente();
-            form.Perfil = this.perfil;
-            form.LlenarDatosFormulario();
-            form.ShowDialog();
-
-            this.perfil = enlace.ObtenerPerfilPorId(perfil.IdData);
-            this.RellenarOrdenes();
-
-            CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
-            CampDni.Text = perfil.Dni;
-            CampHistoria.Text = perfil.Historia;
-            CampDireccion.Text = perfil.Direccion;
-            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
-            CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[perfil.IdSector].Nombre;
-
-            Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
+            controlSecondActive = new PanelModificarPaciente();
+            controlSecondActive.Parent = this;
+            this.Controls.Add(controlSecondActive);
+            controlSecondActive.Location = new System.Drawing.Point(0, 0);
+            ((PanelModificarPaciente)controlSecondActive).CargarDatos();
+            controlSecondActive.BringToFront();
+            controlSecondActive.Show();            
             
-            CampEdad.Text = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
-            form.Dispose();
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)

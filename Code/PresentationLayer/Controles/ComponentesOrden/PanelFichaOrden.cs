@@ -39,7 +39,9 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             InitializeComponent();
             this.SuspendLayout();
             tabla = new DataTable("Lista");
-                InicializarTablaOrdenDetalle();
+            InicializarTablaOrdenDetalle();
+            CampGestacion.Visible = false;
+            LabelGestacion.Visible = false;
             this.ResumeLayout(false);
             
             
@@ -57,17 +59,16 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
             CampMedico.Text = medico.Nombre + " " + medico.PrimerApellido + " " + medico.SegundoApellido;
             CampConsultorio.Text = Consultorios.GetInstance().GetConsultorio(orden.IdConsultorio).Nombre;
+
+            LabelGestacion.Visible = false;
+            CampGestacion.Visible = false;
             if (perfil.Sexo==Sexo.Mujer)
             {
                 LabelGestacion.Visible = true;
                 CampGestacion.Visible = true;
                 CampGestacion.Text = orden.EnGestacion ? "Si" : "No";
             }
-            else
-            {
-                LabelGestacion.Visible = false;
-                CampGestacion.Visible = false;
-            }
+            
             PickerTime.Text = orden.FechaRegistro.ToShortDateString();
             tabla.Clear();
             foreach (OrdenDetalle ord in orden.Detalle.Values) {

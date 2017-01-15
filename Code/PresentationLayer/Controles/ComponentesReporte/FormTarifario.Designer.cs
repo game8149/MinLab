@@ -136,10 +136,10 @@
             this.label2.Font = new System.Drawing.Font("Futura Bk BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 571);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(467, 14);
+            this.label2.Size = new System.Drawing.Size(465, 14);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nota: Sea prudente al manipular esta informaci\'on.  Si tiene dudas, consulte con " +
-    "el jefe de area.";
+            this.label2.Text = "Nota: Sea prudente al manipular esta información.  Si tiene dudas, consulte con e" +
+    "l jefe de área.";
             // 
             // panel4
             // 
@@ -316,7 +316,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "FormTarifario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Configuraci\'on de Tarifario";
+            this.Text = "Configuración de Tarifario";
             ((System.ComponentModel.ISupportInitialize)(this.DGVTar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

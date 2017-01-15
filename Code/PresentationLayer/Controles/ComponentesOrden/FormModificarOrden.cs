@@ -84,12 +84,12 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 CampBoleta.Text = orden.Boleta;
                 ComboBoxConsultorio.SelectedValue = orden.IdConsultorio;
                 ComboBoxMedico.SelectedValue = orden.IdMedico;
+                CheckBoxGestante.Visible = false;
                 if (Perfil.Sexo == Sexo.Mujer)
                 {
                     CheckBoxGestante.Visible = true;
                     CheckBoxGestante.Checked = orden.EnGestacion;
                 }
-                else CheckBoxGestante.Visible = false;
                 PickerTime.Text = orden.FechaRegistro.ToShortDateString();
                 tabla.Clear();
                 foreach (OrdenDetalle ordet in Orden.Detalle.Values)
@@ -218,6 +218,8 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             CampDireccion.Text = "";
             CampSexo.Text = "";
             CheckBoxGestante.Checked = false;
+            CheckBoxGestante.Visible = false;
+            CheckBoxGestante.Visible = false;
         }
 
 

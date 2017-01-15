@@ -231,12 +231,6 @@
     <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.Designer.cs">
       <DependentUpon>PanelNuevaOrden.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.Designer.cs">
-      <DependentUpon>ModificarPaciente.cs</DependentUpon>
-    </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -453,9 +447,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.resx">
       <DependentUpon>FormModificarOrden.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\ModificarPaciente.resx">
-      <DependentUpon>ModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.resx">
       <DependentUpon>PanelModificarPaciente.cs</DependentUpon>
@@ -678,6 +669,8 @@
     <Content Include="Iconos\GRLL.png" />
     <Content Include="Iconos\microscopeTratado.png" />
     <Content Include="microscope.ico" />
+    <None Include="Resources\logo_regionbn.png" />
+    <None Include="Resources\logo_region.png" />
     <None Include="Resources\Tratado2.png" />
     <None Include="Resources\LogoGobierno.png" />
     <None Include="Resources\bag.png" />

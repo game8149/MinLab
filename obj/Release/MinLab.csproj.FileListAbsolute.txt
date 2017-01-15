@@ -47,7 +47,6 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.C
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesMedico.PanelModificarMedico.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesMedico.PanelRegistrarMedico.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesOrden.FormModificarOrden.resources
-C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesPaciente.FormModificarPaciente.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesPaciente.PanelModificarPaciente.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesReporte.FormCopiarTarifario.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.Controles.ComponentesReporte.FormCrearTarifario.resources

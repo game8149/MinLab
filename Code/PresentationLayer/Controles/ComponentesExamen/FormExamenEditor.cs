@@ -174,6 +174,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
             CampNombre.Text = "";
             CampRegistro.Text = "";
             CampSexo.Text = "";
+            LabelExamen.Text = "";
 
             LabelModif.Visible = false;
             LabelUsuarioLast.Visible = false;

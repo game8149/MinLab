@@ -99,8 +99,8 @@ GO
 create proc UPD_ORDENCAB
 @id int,
 @numero varchar(15),
-@fecha date,
-@ultimaModificacion date,
+@fecha datetime,
+@ultimaModificacion datetime,
 @estado int,
 @idConsultorio int,
 @idMedico int,

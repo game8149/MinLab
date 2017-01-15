@@ -31,7 +31,7 @@ namespace MinLab.Code.EntityLayer.FormatoImpresionComponentes
             nombrePaciente = "Paciente: ";
             fechaEmite = "Emision:  " + DateTime.Now.ToShortDateString();
             responsable = "Responsable: ";
-            estado = "Estado:   ";
+            estado = "Ult. Rev:   ";
             doctor = "Solicita:   ";
         }
 
@@ -53,7 +53,7 @@ namespace MinLab.Code.EntityLayer.FormatoImpresionComponentes
             set { this.doctor += value; }
         }
 
-        public string Estado
+        public string UltimaRev
         {
             get { return estado; }
             set { this.estado += value; }

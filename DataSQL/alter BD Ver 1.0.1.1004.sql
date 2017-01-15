@@ -1,6 +1,20 @@
 
 use AnalisisClinico;
 
+Declare @procName varchar(500) 
+    Declare cur Cursor For Select [name] From sys.objects where type = 'p' 
+    Open cur 
+    Fetch Next From cur Into @procName 
+    While @@fetch_status = 0 
+    Begin 
+     Exec('drop procedure ' + @procName) 
+     Fetch Next From cur Into @procName 
+    End
+    Close cur 
+    Deallocate cur 
+
+go
+
 
 ALTER TABLE Examen ADD idCuenta int not null default 3; -- todos a senor jorge
 
@@ -21,16 +35,4 @@ estado int
 )
 
 
- Declare @procName varchar(500) 
-    Declare cur Cursor For Select [name] From sys.objects where type = 'p' 
-    Open cur 
-    Fetch Next From cur Into @procName 
-    While @@fetch_status = 0 
-    Begin 
-     Exec('drop procedure ' + @procName) 
-     Fetch Next From cur Into @procName 
-    End
-    Close cur 
-    Deallocate cur 
-
-go
+ 

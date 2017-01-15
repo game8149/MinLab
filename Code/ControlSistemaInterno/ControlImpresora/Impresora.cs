@@ -113,7 +113,6 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                                     case FormatoImpresionPaginaLinea.TipoPaginaLinea.TituloExamen:
                                         graphics.DrawString(linea.Nombre, EstiloFuentePagina.TituloExamen, Brushes.Black, this.sector.Inicio.X + this.sector.Configuracion.Margen.Left, this.sector.Cabezal);//TITULO DEL EXAMEN
                                         tamañoTexto = graphics.MeasureString(linea.Nombre, EstiloFuentePagina.TituloExamen);
-                                        graphics.DrawString(linea.Resultado, EstiloFuentePagina.Fecha, Brushes.Black, this.sector.Inicio.X + this.sector.Configuracion.Margen.Left + tamañoTexto.Width + 2, this.sector.Cabezal);// FECHA DE REV.
                                         break;
                                     case FormatoImpresionPaginaLinea.TipoPaginaLinea.ItemSimple:
                                         graphics.DrawString(linea.Nombre + ":  " + linea.Resultado, EstiloFuentePagina.Item, Brushes.Black, this.sector.Inicio.X + this.sector.Configuracion.Margen.Left * 2, this.sector.Cabezal);
@@ -170,14 +169,14 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
         private void PaintCabecera(FormatoImpresionCabecera cabecera, Graphics grafico, Sector hoja)
         {
             SizeF tamañoTexto;
-            //Image imgGR= ScaleImage(global::MinLab.Properties.Resources.GRLL,75,50);
+            Image imgGR= ScaleImage(global::MinLab.Properties.Resources.logo_regionbn,50,50);
             Image imgMR = ScaleImage(global::MinLab.Properties.Resources.Tratado2,200,200);
 
             hoja.Cabezal = 0;
             Point pInit = hoja.Inicio;
             Point pLimit = hoja.Limite;
 
-            //grafico.DrawImage(imgGR, (limit.X -25-imgGR.Width)  , actual.Y );
+            grafico.DrawImage(imgGR, (pLimit.X -25-imgGR.Width)  , pInit.Y );
 
             tamañoTexto = grafico.MeasureString(cabecera.Institucion, EstiloFuentePagina.TituloFormato);
             grafico.DrawString(cabecera.Institucion, EstiloFuentePagina.TituloFormato, Brushes.Black, (pInit.X + pLimit.X) / 2 - tamañoTexto.Width / 2, pInit.Y + hoja.Cabezal);
@@ -194,7 +193,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
             tamañoTexto = grafico.MeasureString(cabecera.Orden, EstiloFuentePagina.Item);
             grafico.DrawString(cabecera.Orden, EstiloFuentePagina.Item, Brushes.Black, pInit.X, pInit.Y + hoja.Cabezal);
             grafico.DrawString(cabecera.Fecha, EstiloFuentePagina.Item, Brushes.Black, pInit.X+ ( pLimit.X- pInit.X ) /3 - 30, pInit.Y + hoja.Cabezal);
-            grafico.DrawString(cabecera.Estado, EstiloFuentePagina.Item, Brushes.Black, pInit.X + 2*( pLimit.X- pInit.X ) / 3 - 55, pInit.Y + hoja.Cabezal);
+            grafico.DrawString(cabecera.UltimaRev, EstiloFuentePagina.Item, Brushes.Black, pInit.X + 2*( pLimit.X- pInit.X ) / 3 - 55, pInit.Y + hoja.Cabezal);
             hoja.Cabezal += ((int)tamañoTexto.Height + hoja.Configuracion.Sangria);
 
             tamañoTexto = grafico.MeasureString(cabecera.Edad, EstiloFuentePagina.Item);
