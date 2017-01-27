@@ -3,6 +3,7 @@ using MinLab.Code.EntityLayer;
 using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.EntityLayer.FormatoImpresionComponentes;
 using MinLab.Code.LogicLayer.LogicaControl;
+using MinLab.Code.PresentationLayer.ComponenteGeneral;
 using MinLab.Code.PresentationLayer.Controles;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,7 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             this.KeyPress += Principal_KeyPress;
             this.Focus();
             SplitCont.VerticalScroll.Enabled = false;
+
         }
         
         private void Principal_KeyPress(object sender, KeyPressEventArgs e)
@@ -94,7 +96,6 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             botones.Add(Vista.Medico, BtnMedico);
             
             RelocalizarUI();
-
             this.Show();
         }
         
@@ -109,10 +110,10 @@ namespace MinLab.Code.PresentationLayer.GUISistema
 
         public void setBotonColorOriginal(Vista id)
         {
-            botones[id].BackColor = PaletaColor.BtnOriginalBack;
-            botones[id].FlatAppearance.BorderColor = PaletaColor.BtnOriginalBorder;
-            botones[id].FlatAppearance.MouseDownBackColor = PaletaColor.BtnOriginalDown;
-            botones[id].FlatAppearance.MouseOverBackColor = PaletaColor.BtnOriginalOver;
+            botones[id].BackColor = PaletaColor.BtnSelectBack;
+            botones[id].FlatAppearance.BorderColor=PaletaColor.BtnSelectBorder;
+            botones[id].FlatAppearance.MouseDownBackColor = PaletaColor.BtnSelectDown;
+            botones[id].FlatAppearance.MouseOverBackColor = PaletaColor.BtnSelectOver;
         }
         
         private void RelocalizarUI()
@@ -189,9 +190,32 @@ namespace MinLab.Code.PresentationLayer.GUISistema
                     setBotonColorSelect(VistaActual);
 
                 panelPrincipal.Controls.Add(ControlActual);
+                foreach (Control con in this.Controls)
+                {
+                    CambiarFuente(con);
+                }
             }
         }
 
+
+
+        public void CambiarFuente(Control c)
+        {
+            if (c.Controls.Count == 0)
+            {
+                if (c is ButtonUI)
+                {
+                    Decorator e = new Decorator();
+                    e.FormatButton((ButtonUI)c);
+                }
+            }
+            else
+                foreach (Control con in c.Controls)
+                {
+                    CambiarFuente(con);
+                }
+            return;
+        }
 
         private void BtnExamen_Click(object sender, EventArgs e)
         {
@@ -239,5 +263,6 @@ namespace MinLab.Code.PresentationLayer.GUISistema
             modeLogout = true;
             this.Close();
         }
+        
     }
 }

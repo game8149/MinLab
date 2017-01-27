@@ -81,6 +81,25 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\ControlSistemaInterno\Configuracion\ConfiguracionSystem.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\ButtonUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\ButtonUI.Designer.cs">
+      <DependentUpon>ButtonUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\CheckBoxUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\CheckBoxUI.Designer.cs">
+      <DependentUpon>CheckBoxUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\StyleUI.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\Decorator.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\FormPersonalizable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\Configuracion\ConfiguracionData.cs" />
     <Compile Include="Code\ControlSistemaInterno\Consultorios.cs" />
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\BufferImpresion.cs" />
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\Papel.cs" />
@@ -92,6 +111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Recursos.resx</DependentUpon>
     </Compile>
+    <Compile Include="Code\ControlSistemaInterno\Util\Utilidad.cs" />
     <Compile Include="Code\DataLayer\DataConsultorio.cs" />
     <Compile Include="Code\DataLayer\DataMedico.cs" />
     <Compile Include="Code\DataLayer\DataUbicacion.cs" />
@@ -112,7 +132,6 @@
     <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresionPaginaLinea.cs" />
     <Compile Include="Code\ControlSistemaInterno\SistemaControl.cs" />
     <Compile Include="Code\DataLayer\DataCuenta.cs" />
-    <Compile Include="Code\ControlSistemaInterno\ConfiguracionDataAccess.cs" />
     <Compile Include="Code\DataLayer\DataExamen.cs" />
     <Compile Include="Code\DataLayer\DataPaciente.cs" />
     <Compile Include="Code\DataLayer\DataPlantilla.cs" />
@@ -171,6 +190,19 @@
     <Compile Include="Code\LogicLayer\LogicaControl\BLControlSistema.cs" />
     <Compile Include="Code\ControlSistemaInterno\CargadorArchivos.cs" />
     <Compile Include="Code\LogicLayer\LogicaTarifario\BLTarifario.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\LabelUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\LabelUI.Designer.cs">
+      <DependentUpon>LabelUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\StylesGeneral.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\TextBoxUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\TextBoxUI.Designer.cs">
+      <DependentUpon>TextBoxUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +336,12 @@
     <Compile Include="Code\PresentationLayer\GUISesion\FormConfigServer.Designer.cs">
       <DependentUpon>FormConfigServer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\ConfiguracionGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\ConfiguracionGUI.Designer.cs">
+      <DependentUpon>ConfiguracionGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +405,12 @@
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\Impresora.cs" />
     <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresion.cs" />
     <Compile Include="Code\ControlSistemaInterno\Paleta.cs" />
+    <Compile Include="Code\PresentationLayer\GUISistema\PanelOpcion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\PanelOpcion.Designer.cs">
+      <DependentUpon>PanelOpcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +422,11 @@
     </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\GUISistema\RecursosUI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosUI.resx</DependentUpon>
     </Compile>
     <Compile Include="Code\SistemaWinchanzao.cs" />
     <Compile Include="Code\PresentationLayer\GUISesion\FormCrearCuenta.cs">
@@ -392,10 +441,10 @@
     <Compile Include="Code\PresentationLayer\Controles\ControlBienvenida.Designer.cs">
       <DependentUpon>ControlBienvenida.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\Test.cs">
+    <Compile Include="Code\PresentationLayer\GUISistema\Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\Test.Designer.cs">
+    <Compile Include="Code\PresentationLayer\GUISistema\Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -426,6 +475,18 @@
     <EmbeddedResource Include="Code\DataLayer\Recursos\ProcDel.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ProcDel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\ButtonUI.resx">
+      <DependentUpon>ButtonUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\CheckBoxUI.resx">
+      <DependentUpon>CheckBoxUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\LabelUI.resx">
+      <DependentUpon>LabelUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\TextBoxUI.resx">
+      <DependentUpon>TextBoxUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarCuenta.resx">
       <DependentUpon>FormModificarCuenta.cs</DependentUpon>
@@ -493,6 +554,9 @@
     <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormConfigServer.resx">
       <DependentUpon>FormConfigServer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\ConfiguracionGUI.resx">
+      <DependentUpon>ConfiguracionGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.resx">
       <DependentUpon>FormRegistrarProfesional.cs</DependentUpon>
     </EmbeddedResource>
@@ -511,6 +575,9 @@
     <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormInicioSesion.resx">
       <DependentUpon>FormInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\PanelOpcion.resx">
+      <DependentUpon>PanelOpcion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.resx">
       <DependentUpon>PantallaDeCarga.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,7 +590,11 @@
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlBienvenida.resx">
       <DependentUpon>ControlBienvenida.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\Test.resx">
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\RecursosUI.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosUI.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -669,6 +740,7 @@
     <Content Include="Iconos\GRLL.png" />
     <Content Include="Iconos\microscopeTratado.png" />
     <Content Include="microscope.ico" />
+    <None Include="Resources\angle-arrow-down.png" />
     <None Include="Resources\logo_regionbn.png" />
     <None Include="Resources\logo_region.png" />
     <None Include="Resources\Tratado2.png" />

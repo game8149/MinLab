@@ -1,4 +1,5 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.ControlSistemaInterno.Configuracion;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer.EFicha;
 using System;
@@ -13,7 +14,7 @@ namespace MinLab.Code.DataLayer
         public void AddMedico(Medico medico)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -35,7 +36,7 @@ namespace MinLab.Code.DataLayer
         public void UpdMedico(Medico medico)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -58,7 +59,7 @@ namespace MinLab.Code.DataLayer
         public void DelMedico(int  idMedico)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -75,7 +76,7 @@ namespace MinLab.Code.DataLayer
         public Dictionary<int,Medico> GetAllMedico()
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
             Dictionary<int, Medico> temp = new Dictionary<int, Medico>();
             Medico tempMed;
@@ -107,7 +108,7 @@ namespace MinLab.Code.DataLayer
         public Dictionary<int, Medico> GetAllMedicoHabil()
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
             Dictionary<int, Medico> temp = new Dictionary<int, Medico>();
             Medico tempMed;
@@ -139,7 +140,7 @@ namespace MinLab.Code.DataLayer
         public Medico GetMedico(int ID)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
             Medico tempMed=null;
             comando.Connection = conexion;
@@ -172,7 +173,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int, Medico> temp = new Dictionary<int, Medico>();
 
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
             Medico tempMed = null;
             comando.Connection = conexion;

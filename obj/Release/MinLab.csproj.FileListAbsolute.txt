@@ -79,3 +79,10 @@ C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.exe
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.pdb
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.ControlSistemaInterno.Recursos.resources
 C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.csprojResolveAssemblyReference.cache
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.GUISistema.ConfiguracionGUI.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.GUISistema.PanelOpcion.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.ComponenteGeneral.ButtonUI.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.ComponenteGeneral.LabelUI.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.ComponenteGeneral.TextBoxUI.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.ComponenteGeneral.CheckBoxUI.resources
+C:\Users\gavid\Documents\Repo\MinLab\obj\Release\MinLab.Code.PresentationLayer.GUISistema.RecursosUI.resources

@@ -42,7 +42,7 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
             /// 3 diccionarios INDEXDOS por cada cobertura
             Dictionary<int, Dictionary<int,int>> porCobertura = new Dictionary<int, Dictionary<int, int>>();
 
-            foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+            foreach (int cobertura in DataEstaticaGeneral.CoberturaTipos.Keys)
             {
                 porCobertura.Add(cobertura, enlaceOrden.GetReporteAcumuladoFromDB(cobertura, año, mes));
             }
@@ -56,7 +56,7 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
             /// 3 diccionarios INDEXDOS por cada cobertura
             Dictionary<int, Dictionary<int, int>> porCobertura = new Dictionary<int, Dictionary<int, int>>();
 
-            foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+            foreach (int cobertura in DataEstaticaGeneral.CoberturaTipos.Keys)
             {
                 porCobertura.Add(cobertura, enlaceOrden.GetReporteCantidadFromDB(cobertura, año, mes));
             }
@@ -72,7 +72,7 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
             /// 3 diccionarios INDEXDOS por cada cobertura
             Dictionary<int, Dictionary<int, int>> porCobertura = new Dictionary<int, Dictionary<int, int>>();
 
-            foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+            foreach (int cobertura in DataEstaticaGeneral.CoberturaTipos.Keys)
             {
                 porCobertura.Add(cobertura, enlaceOrden.GetReporteAcumuladoFromDB(cobertura, año, mes,idMedico));
             }
@@ -86,7 +86,7 @@ namespace MinLab.Code.LogicLayer.LogicaTarifario
             /// 3 diccionarios INDEXDOS por cada cobertura
             Dictionary<int, Dictionary<int, int>> porCobertura = new Dictionary<int, Dictionary<int, int>>();
 
-            foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+            foreach (int cobertura in DataEstaticaGeneral.CoberturaTipos.Keys)
             {
                 porCobertura.Add(cobertura, enlaceOrden.GetReporteCantidadFromDB(cobertura, año, mes,idMedico));
             }

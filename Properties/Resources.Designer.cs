@@ -73,6 +73,16 @@ namespace MinLab.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap angle_arrow_down {
+            get {
+                object obj = ResourceManager.GetObject("angle-arrow-down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bag {
             get {
                 object obj = ResourceManager.GetObject("bag", resourceCulture);

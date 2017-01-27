@@ -78,7 +78,7 @@ namespace MinLab.Code.LogicLayer
 
             if (@direccion != null)
             {
-                @dir = @direccion + "\\ReporteResultadoGeneral-" + DiccionarioGeneral.GetInstance().Mes[month - 1] + "-" + year + ".xlsx";
+                @dir = @direccion + "\\ReporteResultadoGeneral-" + DataEstaticaGeneral.Meses[month - 1] + "-" + year + ".xlsx";
                 if (File.Exists(@dir))
                     File.Delete(@dir);
 
@@ -111,7 +111,7 @@ namespace MinLab.Code.LogicLayer
 
                     hojaActual.Cells["B3:E3"].Value = cuenta.Nombre + " " + cuenta.PrimerApellido + " " + cuenta.SegundoApellido;
                     hojaActual.Cells["B4:E4"].Value = year;
-                    hojaActual.Cells["B5:E5"].Value = DiccionarioGeneral.GetInstance().Mes[month - 1];
+                    hojaActual.Cells["B5:E5"].Value = DataEstaticaGeneral.Meses[month - 1];
 
 
                     hojaActual.Cells[7, 1, 7, 12].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
@@ -171,7 +171,7 @@ namespace MinLab.Code.LogicLayer
 
             if (@direccion != null)
             {
-                @dir = @direccion + "\\ReporteEconomicoGeneral-" + DiccionarioGeneral.GetInstance().Mes[month - 1] + "-" + year + ".xlsx";
+                @dir = @direccion + "\\ReporteEconomicoGeneral-" + DataEstaticaGeneral.Meses[month - 1] + "-" + year + ".xlsx";
                 if (File.Exists(@dir))
                     File.Delete(@dir);
 
@@ -207,7 +207,7 @@ namespace MinLab.Code.LogicLayer
                         
                     hojaActual.Cells["B3:E3"].Value = cuenta.Nombre + " " + cuenta.PrimerApellido + " " + cuenta.SegundoApellido;
                     hojaActual.Cells["B4:E4"].Value = year;
-                    hojaActual.Cells["B5:E5"].Value = DiccionarioGeneral.GetInstance().Mes[month-1];
+                    hojaActual.Cells["B5:E5"].Value = DataEstaticaGeneral.Meses[month-1];
 
 
                     hojaActual.Cells[7, 1,7,11].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
@@ -298,7 +298,7 @@ namespace MinLab.Code.LogicLayer
 
                 DateTime first = DateTime.Now;
 
-                @dir = @direccion + "\\ReporteMensualGrupoEtareo-" + DiccionarioGeneral.GetInstance().Mes[month - 1] + "-" + year + ".xlsx";
+                @dir = @direccion + "\\ReporteMensualGrupoEtareo-" + DataEstaticaGeneral.Meses[month - 1] + "-" + year + ".xlsx";
                 if (File.Exists(@dir))
                     File.Delete(@dir);
 
@@ -310,9 +310,9 @@ namespace MinLab.Code.LogicLayer
                 {
                     Cuenta cuenta = SistemaControl.GetInstance().Sesion.Cuenta;
 
-                    foreach (int cobertura in DiccionarioGeneral.GetInstance().TipoCobertura.Keys)
+                    foreach (int cobertura in DataEstaticaGeneral.CoberturaTipos.Keys)
                     {
-                        hojaActual = excel.Workbook.Worksheets.Add(DiccionarioGeneral.GetInstance().TipoCobertura[cobertura]);
+                        hojaActual = excel.Workbook.Worksheets.Add(DataEstaticaGeneral.CoberturaTipos[cobertura]);
                         hojaActual.PrinterSettings.PaperSize = ePaperSize.A4;
                         hojaActual.PrinterSettings.Orientation = eOrientation.Landscape;
 
@@ -336,8 +336,8 @@ namespace MinLab.Code.LogicLayer
 
                         hojaActual.Cells["B3:E3"].Value = cuenta.Nombre + " " + cuenta.PrimerApellido + " " + cuenta.SegundoApellido;
                         hojaActual.Cells["B4:E4"].Value = year;
-                        hojaActual.Cells["B5:E5"].Value = DiccionarioGeneral.GetInstance().Mes[month-1];
-                        hojaActual.Cells["B6:E6"].Value = DiccionarioGeneral.GetInstance().TipoCobertura[cobertura];
+                        hojaActual.Cells["B5:E5"].Value = DataEstaticaGeneral.Meses[month-1];
+                        hojaActual.Cells["B6:E6"].Value = DataEstaticaGeneral.CoberturaTipos[cobertura];
 
 
                         int it = 4;
@@ -380,7 +380,7 @@ namespace MinLab.Code.LogicLayer
                         rangoTabla.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
 
 
-                        string nombreT = "T" + DiccionarioGeneral.GetInstance().TipoCobertura[cobertura].Replace(' ', '_') + DiccionarioGeneral.GetInstance().TipoCobertura[cobertura].Replace(' ', '_');
+                        string nombreT = "T" + DataEstaticaGeneral.CoberturaTipos[cobertura].Replace(' ', '_') + DataEstaticaGeneral.CoberturaTipos[cobertura].Replace(' ', '_');
                         hojaActual.Tables.Add(rangoTabla, nombreT);
                         hojaActual.Tables[nombreT].TableStyle = OfficeOpenXml.Table.TableStyles.Light9;
 
@@ -409,7 +409,7 @@ namespace MinLab.Code.LogicLayer
 
             if (@direccion != null)
             {
-                @dir = @direccion + "\\ReporteMensualMedico-" + DiccionarioGeneral.GetInstance().Mes[month - 1] + "-" + year + ".xlsx";
+                @dir = @direccion + "\\ReporteMensualMedico-" + DataEstaticaGeneral.Meses[month - 1] + "-" + year + ".xlsx";
                 if (File.Exists(@dir))
                     File.Delete(@dir);
 
@@ -449,7 +449,7 @@ namespace MinLab.Code.LogicLayer
                         hojaActual.Cells["B2:E2"].Value = BLMedico.FormatearNombre(dicMedicos[key]);
                         hojaActual.Cells["B3:E3"].Value = dicMedicos[key].Colegiatura+"/"+ dicMedicos[key].Especialidad;
                         hojaActual.Cells["B4:E4"].Value = year;
-                        hojaActual.Cells["B5:E5"].Value = DiccionarioGeneral.GetInstance().Mes[month-1];
+                        hojaActual.Cells["B5:E5"].Value = DataEstaticaGeneral.Meses[month-1];
 
 
                         hojaActual.Cells["A7:I7"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
@@ -735,13 +735,13 @@ namespace MinLab.Code.LogicLayer
                     row[2] = obt[3].ToString();
                     row[3] = obt[4].ToString();
                     row[4] = obt[5];
-                    row[5] = DiccionarioGeneral.GetInstance().TipoSexo[(int)obt[6]];
+                    row[5] = DataEstaticaGeneral.SexoTipos[(int)obt[6]];
                     row[6] = Convert.ToBoolean(obt[7])?"SI":"NO";
                     row[7] = Plantillas.GetInstance().GetPlantilla((int)obt[0]).Nombre;
                     row[8] = obt[8].ToString().Replace('.',',');
                     row[9] = obt[9];
-                    row[10] = DiccionarioGeneral.GetInstance().TipoCobertura[(int)obt[10]];
-                    row[11] = DiccionarioGeneral.GetInstance().EstadoExamen[(int)obt[11]];
+                    row[10] = DataEstaticaGeneral.CoberturaTipos[(int)obt[10]];
+                    row[11] = DataEstaticaGeneral.ExamenEstados[(int)obt[11]];
 
                     tablaInterna.Rows.Add(row);
                 }

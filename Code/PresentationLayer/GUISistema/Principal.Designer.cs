@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
             this.panelOpciones = new System.Windows.Forms.Panel();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panelBar = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SplitCont = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnMedico = new System.Windows.Forms.Button();
             this.BtnInicio = new System.Windows.Forms.Button();
@@ -40,11 +44,7 @@
             this.BtnReporte = new System.Windows.Forms.Button();
             this.BtnOrden = new System.Windows.Forms.Button();
             this.BtnPaciente = new System.Windows.Forms.Button();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelBar = new System.Windows.Forms.Panel();
             this.CheckBoxMenu = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SplitCont = new System.Windows.Forms.SplitContainer();
             this.panelOpciones.SuspendLayout();
             this.panelBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitCont)).BeginInit();
@@ -57,11 +57,11 @@
             // 
             this.panelOpciones.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelOpciones.BackColor = System.Drawing.Color.DimGray;
+            this.panelOpciones.Controls.Add(this.BtnAcerca);
             this.panelOpciones.Controls.Add(this.button1);
             this.panelOpciones.Controls.Add(this.BtnMedico);
             this.panelOpciones.Controls.Add(this.BtnInicio);
             this.panelOpciones.Controls.Add(this.BtnExamen);
-            this.panelOpciones.Controls.Add(this.BtnAcerca);
             this.panelOpciones.Controls.Add(this.BtnReporte);
             this.panelOpciones.Controls.Add(this.BtnOrden);
             this.panelOpciones.Controls.Add(this.BtnPaciente);
@@ -70,6 +70,56 @@
             this.panelOpciones.Name = "panelOpciones";
             this.panelOpciones.Size = new System.Drawing.Size(38, 623);
             this.panelOpciones.TabIndex = 0;
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.BackColor = System.Drawing.Color.FloralWhite;
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1072, 623);
+            this.panelPrincipal.TabIndex = 4;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
+            // 
+            // panelBar
+            // 
+            this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelBar.Controls.Add(this.CheckBoxMenu);
+            this.panelBar.Controls.Add(this.label1);
+            this.panelBar.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panelBar.Location = new System.Drawing.Point(0, 0);
+            this.panelBar.Name = "panelBar";
+            this.panelBar.Size = new System.Drawing.Size(1118, 36);
+            this.panelBar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
+            this.label1.Location = new System.Drawing.Point(46, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Sistema de Laboratorio Clinico";
+            // 
+            // SplitCont
+            // 
+            this.SplitCont.BackColor = System.Drawing.SystemColors.GrayText;
+            this.SplitCont.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SplitCont.Location = new System.Drawing.Point(0, 36);
+            this.SplitCont.Name = "SplitCont";
+            // 
+            // SplitCont.Panel1
+            // 
+            this.SplitCont.Panel1.Controls.Add(this.panelOpciones);
+            // 
+            // SplitCont.Panel2
+            // 
+            this.SplitCont.Panel2.Controls.Add(this.panelPrincipal);
+            this.SplitCont.Size = new System.Drawing.Size(1118, 625);
+            this.SplitCont.SplitterDistance = 40;
+            this.SplitCont.TabIndex = 5;
             // 
             // button1
             // 
@@ -82,17 +132,16 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Image = global::MinLab.Properties.Resources.exit;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-2, 580);
+            this.button1.Location = new System.Drawing.Point(-3, 570);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 42);
+            this.button1.Size = new System.Drawing.Size(42, 42);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnMedico
             // 
-            this.BtnMedico.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnMedico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(150)))));
             this.BtnMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnMedico.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnMedico.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
@@ -107,7 +156,7 @@
             this.BtnMedico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMedico.Location = new System.Drawing.Point(-1, 102);
             this.BtnMedico.Name = "BtnMedico";
-            this.BtnMedico.Size = new System.Drawing.Size(182, 48);
+            this.BtnMedico.Size = new System.Drawing.Size(180, 50);
             this.BtnMedico.TabIndex = 9;
             this.BtnMedico.Text = "Medicos";
             this.BtnMedico.UseVisualStyleBackColor = false;
@@ -168,11 +217,10 @@
             this.BtnAcerca.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnAcerca.Image = global::MinLab.Properties.Resources.information;
             this.BtnAcerca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAcerca.Location = new System.Drawing.Point(-2, 537);
+            this.BtnAcerca.Location = new System.Drawing.Point(-1, 522);
             this.BtnAcerca.Name = "BtnAcerca";
-            this.BtnAcerca.Size = new System.Drawing.Size(183, 42);
+            this.BtnAcerca.Size = new System.Drawing.Size(42, 42);
             this.BtnAcerca.TabIndex = 6;
-            this.BtnAcerca.Text = "Acerca";
             this.BtnAcerca.UseVisualStyleBackColor = false;
             this.BtnAcerca.Click += new System.EventHandler(this.BtnAcerca_Click);
             // 
@@ -241,27 +289,6 @@
             this.BtnPaciente.UseVisualStyleBackColor = false;
             this.BtnPaciente.Click += new System.EventHandler(this.BtnPaciente_Click);
             // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.BackColor = System.Drawing.Color.FloralWhite;
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1072, 623);
-            this.panelPrincipal.TabIndex = 4;
-            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
-            // 
-            // panelBar
-            // 
-            this.panelBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelBar.Controls.Add(this.CheckBoxMenu);
-            this.panelBar.Controls.Add(this.label1);
-            this.panelBar.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panelBar.Location = new System.Drawing.Point(0, 0);
-            this.panelBar.Name = "panelBar";
-            this.panelBar.Size = new System.Drawing.Size(1118, 36);
-            this.panelBar.TabIndex = 2;
-            // 
             // CheckBoxMenu
             // 
             this.CheckBoxMenu.Appearance = System.Windows.Forms.Appearance.Button;
@@ -275,35 +302,6 @@
             this.CheckBoxMenu.TabIndex = 29;
             this.CheckBoxMenu.UseVisualStyleBackColor = true;
             this.CheckBoxMenu.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Futura Bk BT", 11.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(50, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 18);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Sistema de Laboratorio Clinico";
-            // 
-            // SplitCont
-            // 
-            this.SplitCont.BackColor = System.Drawing.SystemColors.GrayText;
-            this.SplitCont.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SplitCont.Location = new System.Drawing.Point(0, 36);
-            this.SplitCont.Name = "SplitCont";
-            // 
-            // SplitCont.Panel1
-            // 
-            this.SplitCont.Panel1.Controls.Add(this.panelOpciones);
-            // 
-            // SplitCont.Panel2
-            // 
-            this.SplitCont.Panel2.Controls.Add(this.panelPrincipal);
-            this.SplitCont.Size = new System.Drawing.Size(1118, 625);
-            this.SplitCont.SplitterDistance = 40;
-            this.SplitCont.TabIndex = 5;
             // 
             // Principal
             // 
@@ -347,5 +345,6 @@
         private System.Windows.Forms.Button BtnMedico;
         private System.Windows.Forms.CheckBox CheckBoxMenu;
         private System.Windows.Forms.Button button1;
+        private ComponenteGeneral.LabelUI labelMod1;
     }
 }

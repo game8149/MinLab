@@ -12,7 +12,7 @@ using MinLab.Code.LogicLayer.LogicaPaciente;
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
-using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
+using static MinLab.Code.ControlSistemaInterno.DataEstaticaGeneral;
 using MinLab.Code.ControlSistemaInterno.ControlImpresora;
 using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.LogicLayer;
@@ -54,7 +54,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesMedico
             limpiarCamps();
 
             this.SuspendLayout();
-            ComboEstado.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().EstadoOrden, null);
+            ComboEstado.DataSource = new BindingSource(DataEstaticaGeneral.OrdenEstados, null);
             ComboEstado.DisplayMember = "Value";
             ComboEstado.ValueMember = "Key";
             this.ResumeLayout(false);

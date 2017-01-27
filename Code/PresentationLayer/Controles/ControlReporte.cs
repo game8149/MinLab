@@ -21,12 +21,12 @@ namespace MinLab.Code.PresentationLayer.Controles
         {
             InitializeComponent();
 
-            ComboBoxMesEcono.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().Mes, null);
+            ComboBoxMesEcono.DataSource = new BindingSource(DataEstaticaGeneral.Meses, null);
             ComboBoxMesEcono.DisplayMember = "Value";
             ComboBoxMesEcono.ValueMember = "Key";
 
 
-            ComboBoxMesResult.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().Mes, null);
+            ComboBoxMesResult.DataSource = new BindingSource(DataEstaticaGeneral.Meses, null);
             ComboBoxMesResult.DisplayMember = "Value";
             ComboBoxMesResult.ValueMember = "Key";
 

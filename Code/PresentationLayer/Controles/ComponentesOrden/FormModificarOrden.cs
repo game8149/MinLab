@@ -79,7 +79,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 CampDireccion.Text = perfil.Direccion;
                 CampDni.Text = perfil.Dni;
                 CampHistoria.Text = perfil.Historia;
-                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)Perfil.Sexo];
+                CampSexo.Text = DataEstaticaGeneral.SexoTipos[(int)Perfil.Sexo];
                 CampNombre.Text = perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido;
                 CampBoleta.Text = orden.Boleta;
                 ComboBoxConsultorio.SelectedValue = orden.IdConsultorio;
@@ -159,7 +159,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
 
             this.dataGridView.Columns[3].DataPropertyName = "cobertura";   // The DataTable column name.
             this.dataGridView.Columns[3].HeaderText = "Cobertura";
-            ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).DataSource = new BindingSource(DiccionarioGeneral.GetInstance().TipoCobertura, null);
+            ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).DataSource = new BindingSource(DataEstaticaGeneral.CoberturaTipos, null);
             ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).DisplayMember = "Value";
             ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).ValueMember = "Key";
             this.dataGridView.Columns[3].Resizable = DataGridViewTriState.False;

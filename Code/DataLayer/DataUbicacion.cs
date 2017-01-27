@@ -1,4 +1,5 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
+using MinLab.Code.ControlSistemaInterno.Configuracion;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer.EUbicacion;
 using System;
@@ -17,7 +18,7 @@ namespace MinLab.Code.DataLayer
             Distrito distrito = null;
             Dictionary<int, Distrito> temp = new Dictionary<int, Distrito>();
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -45,7 +46,7 @@ namespace MinLab.Code.DataLayer
             Sector sector = null;
             Dictionary<int, Sector> temp = new Dictionary<int, Sector>();
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
+            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;

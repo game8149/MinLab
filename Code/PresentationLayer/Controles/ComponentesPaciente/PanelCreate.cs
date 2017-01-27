@@ -15,7 +15,7 @@ namespace MinLab.Code.PresentationLayer.Controles
         public PanelCrearPaciente()
         {
             InitializeComponent();
-            comboSexo.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().TipoSexo, null);
+            comboSexo.DataSource = new BindingSource(DataEstaticaGeneral.SexoTipos, null);
             comboSexo.DisplayMember = "Value";
             comboSexo.ValueMember = "Key";
 

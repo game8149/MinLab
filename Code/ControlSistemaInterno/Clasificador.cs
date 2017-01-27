@@ -1,10 +1,11 @@
-﻿using MinLab.Code.EntityLayer;
+﻿using MinLab.Code.ControlSistemaInterno.Util;
+using MinLab.Code.EntityLayer;
 using MinLab.Code.EntityLayer.EExamen;
 using MinLab.Code.EntityLayer.EFicha;
 using System;
 using System.Globalization;
 using System.Text;
-using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
+using static MinLab.Code.ControlSistemaInterno.DataEstaticaGeneral;
 
 namespace MinLab.Code.ControlSistemaInterno
 {
@@ -40,7 +41,7 @@ namespace MinLab.Code.ControlSistemaInterno
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
             value=double.Parse(exdet.Campo, nfi);
-            Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(pac.FechaNacimiento);
+            Tiempo tiempo = Utilidad.CalcularEdad(pac.FechaNacimiento);
             switch (exdet.IdItem)
             {
                 case 1:
