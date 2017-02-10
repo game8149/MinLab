@@ -26,11 +26,11 @@ namespace MinLab.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K2R2PHT\\SQLEXPRESS;Initial Catalog=AnalisisClinico;User ID=sa" +
-            ";Password=xperiax8")]
-        public string AnalisisClinicoConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K2R2PHT\\SQLEXPRESS;Initial Catalog=AnalisisClinico; user = sa" +
+            ";password = alexis123 ;Integrated Security=True")]
+        public string ConnectionString {
             get {
-                return ((string)(this["AnalisisClinicoConnectionString"]));
+                return ((string)(this["ConnectionString"]));
             }
         }
     }

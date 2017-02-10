@@ -1,6 +1,4 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.ControlSistemaInterno.Configuracion;
-using MinLab.Code.PresentationLayer.ComponenteGeneral;
 using System;
 using System.Data.SqlClient;
 
@@ -19,16 +17,13 @@ namespace MinLab.Code.ControlSistemaInterno
         {
             try
             {
-                StylesGeneral.Init();
-                //ListaAnalisis.GetInstance().LoadAnalisis();
-                //Locaciones.GetInstance().LoadLocaciones();
-                //Consultorios.GetInstance().LoadConsultorio();
-                //Plantillas.GetInstance().LoadPlantillas();
+                ListaAnalisis.GetInstance().LoadAnalisis();
+                Locaciones.GetInstance().LoadLocaciones();
+                Consultorios.GetInstance().LoadConsultorio();
+                Plantillas.GetInstance().LoadPlantillas();
+                DiccionarioGeneral.GetInstance().Load();
 
-                DataEstaticaGeneral.Init();
-                ConfiguracionSystem.Init();
-
-                //SistemaControl.GetInstance();
+                SistemaControl.GetInstance();
             }
             catch (SqlException s)
             {

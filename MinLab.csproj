@@ -82,6 +82,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\ControlSistemaInterno\Configuracion\ConfiguracionSystem.cs" />
+    <Compile Include="Code\ControlSistemaInterno\GestorEstilo\SliderPanel.cs" />
+    <Compile Include="Code\ControlSistemaInterno\GestorEstilo\StyleUIPalette.cs" />
+    <Compile Include="Code\ControlSistemaInterno\GestorSonido\RecursosSound.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosSound.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\GestorSonido\ReproductorSonido.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\FormMensaje.cs" />
     <Compile Include="Code\PresentationLayer\ComponenteGeneral\ButtonUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,12 +103,21 @@
     <Compile Include="Code\PresentationLayer\ComponenteGeneral\CheckBoxUI.Designer.cs">
       <DependentUpon>CheckBoxUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\ComponenteGeneral\StyleUI.cs" />
-    <Compile Include="Code\PresentationLayer\ComponenteGeneral\Decorator.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\PanelSesionUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\PanelSesionUI.Designer.cs">
+      <DependentUpon>PanelSesionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\PanelUIControl.cs" />
+    <Compile Include="Code\PresentationLayer\ComponenteGeneral\PanelUIControl.Designer.cs">
+      <DependentUpon>PanelUIControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ControlSistemaInterno\GestorEstilo\StyleUIParameters.cs" />
+    <Compile Include="Code\ControlSistemaInterno\GestorEstilo\Decorator.cs" />
     <Compile Include="Code\PresentationLayer\ComponenteGeneral\FormPersonalizable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\ControlSistemaInterno\Configuracion\ConfiguracionData.cs" />
     <Compile Include="Code\ControlSistemaInterno\Consultorios.cs" />
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\BufferImpresion.cs" />
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\Papel.cs" />
@@ -187,7 +205,7 @@
     <Compile Include="Code\LogicLayer\BLMedico.cs" />
     <Compile Include="Code\LogicLayer\BLReporte.cs" />
     <Compile Include="Code\LogicLayer\BLUbicacion.cs" />
-    <Compile Include="Code\LogicLayer\LogicaControl\BLControlSistema.cs" />
+    <Compile Include="Code\LogicLayer\LogicaControl\LogicaControlSistema.cs" />
     <Compile Include="Code\ControlSistemaInterno\CargadorArchivos.cs" />
     <Compile Include="Code\LogicLayer\LogicaTarifario\BLTarifario.cs" />
     <Compile Include="Code\PresentationLayer\ComponenteGeneral\LabelUI.cs">
@@ -196,7 +214,7 @@
     <Compile Include="Code\PresentationLayer\ComponenteGeneral\LabelUI.Designer.cs">
       <DependentUpon>LabelUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\ComponenteGeneral\StylesGeneral.cs" />
+    <Compile Include="Code\ControlSistemaInterno\GestorEstilo\StyleUl.cs" />
     <Compile Include="Code\PresentationLayer\ComponenteGeneral\TextBoxUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,84 +233,78 @@
     <Compile Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarClave.Designer.cs">
       <DependentUpon>FormModificarClave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\FormBuscarMedico.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\FormMedicoBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\FormBuscarMedico.Designer.cs">
-      <DependentUpon>FormBuscarMedico.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\FormMedicoBuscar.Designer.cs">
+      <DependentUpon>FormMedicoBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedico.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoPerfil.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedico.Designer.cs">
-      <DependentUpon>PanelMedico.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoPerfil.Designer.cs">
+      <DependentUpon>PanelMedicoPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelModificarMedico.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoEditar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelModificarMedico.Designer.cs">
-      <DependentUpon>PanelModificarMedico.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoEditar.Designer.cs">
+      <DependentUpon>PanelMedicoEditar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelRegistrarMedico.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoNuevo.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoNuevo.Designer.cs">
+      <DependentUpon>PanelMedicoNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormOrdenBuscar.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormOrdenBuscar.Designer.cs">
+      <DependentUpon>FormOrdenBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenEditar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelRegistrarMedico.Designer.cs">
-      <DependentUpon>PanelRegistrarMedico.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenEditar.Designer.cs">
+      <DependentUpon>PanelOrdenEditar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.Designer.cs">
-      <DependentUpon>FormBuscarOrden.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.Designer.cs">
-      <DependentUpon>FormModificarOrden.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelFichaOrden.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenPerfil.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelFichaOrden.Designer.cs">
-      <DependentUpon>PanelFichaOrden.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenPerfil.Designer.cs">
+      <DependentUpon>PanelOrdenPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenNuevo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.Designer.cs">
-      <DependentUpon>PanelNuevaOrden.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenNuevo.Designer.cs">
+      <DependentUpon>PanelOrdenNuevo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacienteNuevo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.Designer.cs">
-      <DependentUpon>PanelCreate.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacienteNuevo.Designer.cs">
+      <DependentUpon>PanelPacienteNuevo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacienteEditar.cs" />
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacienteEditar.Designer.cs">
+      <DependentUpon>PanelPacienteEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacientePerfil.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.Designer.cs">
-      <DependentUpon>PanelModificarPaciente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.Designer.cs">
-      <DependentUpon>PanelPerfil.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacientePerfil.Designer.cs">
+      <DependentUpon>PanelPacientePerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\ConstructorFormato.cs" />
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifarioTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.Designer.cs">
-      <DependentUpon>FormCopiarTarifario.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifarioTransferencia.Designer.cs">
+      <DependentUpon>FormTarifarioTransferencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCrearTarifario.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifarioNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCrearTarifario.Designer.cs">
-      <DependentUpon>FormCrearTarifario.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifarioNuevo.Designer.cs">
+      <DependentUpon>FormTarifarioNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlExamen.cs">
       <SubType>UserControl</SubType>
@@ -312,17 +324,17 @@
     <Compile Include="Code\PresentationLayer\Controles\ControlPaciente.Designer.cs">
       <DependentUpon>ControlPaciente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ControlReporte.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ControlContabilidad.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ControlReporte.Designer.cs">
-      <DependentUpon>ControlReporte.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ControlContabilidad.Designer.cs">
+      <DependentUpon>ControlContabilidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormBuscarPaciente.cs">
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormPacienteBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormBuscarPaciente.Designer.cs">
-      <DependentUpon>FormBuscarPaciente.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormPacienteBuscar.Designer.cs">
+      <DependentUpon>FormPacienteBuscar.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ControlOrden.cs">
       <SubType>UserControl</SubType>
@@ -341,12 +353,6 @@
     </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\ConfiguracionGUI.Designer.cs">
       <DependentUpon>ConfiguracionGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.Designer.cs">
-      <DependentUpon>FormRegistrarProfesional.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifario.cs">
       <SubType>Form</SubType>
@@ -405,11 +411,11 @@
     <Compile Include="Code\ControlSistemaInterno\ControlImpresora\Impresora.cs" />
     <Compile Include="Code\EntityLayer\FormatoImpresionComponentes\FormatoImpresion.cs" />
     <Compile Include="Code\ControlSistemaInterno\Paleta.cs" />
-    <Compile Include="Code\PresentationLayer\GUISistema\PanelOpcion.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Code\PresentationLayer\GUISistema\FormCargando.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Code\PresentationLayer\GUISistema\PanelOpcion.Designer.cs">
-      <DependentUpon>PanelOpcion.cs</DependentUpon>
+    <Compile Include="Code\PresentationLayer\GUISistema\FormCargando.Designer.cs">
+      <DependentUpon>FormCargando.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.cs">
       <SubType>Form</SubType>
@@ -423,10 +429,20 @@
     <Compile Include="Code\PresentationLayer\GUISistema\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\PresentationLayer\GUISistema\RecursosUI.Designer.cs">
+    <Compile Include="Code\PresentationLayer\RecursosUI.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecursosUI.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\RecursosUIMensajes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosUIMensajes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\PresentationLayer\RecursosUIToolkit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosUIToolkit.resx</DependentUpon>
     </Compile>
     <Compile Include="Code\SistemaWinchanzao.cs" />
     <Compile Include="Code\PresentationLayer\GUISesion\FormCrearCuenta.cs">
@@ -447,7 +463,23 @@
     <Compile Include="Code\PresentationLayer\GUISistema\Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Opciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Opciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Opciones.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Code\ControlSistemaInterno\GestorSonido\RecursosSound.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosSound.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\ControlSistemaInterno\Recursos.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Recursos.Designer.cs</LastGenOutput>
@@ -485,6 +517,12 @@
     <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\LabelUI.resx">
       <DependentUpon>LabelUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\PanelSesionUI.resx">
+      <DependentUpon>PanelSesionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\PanelUIControl.resx">
+      <DependentUpon>PanelUIControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\ComponenteGeneral\TextBoxUI.resx">
       <DependentUpon>TextBoxUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,29 +532,29 @@
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesBienvenida\FormModificarClave.resx">
       <DependentUpon>FormModificarClave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\FormBuscarMedico.resx">
-      <DependentUpon>FormBuscarMedico.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\FormMedicoBuscar.resx">
+      <DependentUpon>FormMedicoBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedico.resx">
-      <DependentUpon>PanelMedico.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoPerfil.resx">
+      <DependentUpon>PanelMedicoPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelModificarMedico.resx">
-      <DependentUpon>PanelModificarMedico.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoEditar.resx">
+      <DependentUpon>PanelMedicoEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelRegistrarMedico.resx">
-      <DependentUpon>PanelRegistrarMedico.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesMedico\PanelMedicoNuevo.resx">
+      <DependentUpon>PanelMedicoNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormModificarOrden.resx">
-      <DependentUpon>FormModificarOrden.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenEditar.resx">
+      <DependentUpon>PanelOrdenEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelModificarPaciente.resx">
-      <DependentUpon>PanelModificarPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacienteEditar.resx">
+      <DependentUpon>PanelPacienteEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCopiarTarifario.resx">
-      <DependentUpon>FormCopiarTarifario.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifarioTransferencia.resx">
+      <DependentUpon>FormTarifarioTransferencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormCrearTarifario.resx">
-      <DependentUpon>FormCrearTarifario.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifarioNuevo.resx">
+      <DependentUpon>FormTarifarioNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlExamen.resx">
       <DependentUpon>ControlExamen.cs</DependentUpon>
@@ -527,38 +565,35 @@
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlPaciente.resx">
       <DependentUpon>ControlPaciente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlReporte.resx">
-      <DependentUpon>ControlReporte.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlContabilidad.resx">
+      <DependentUpon>ControlContabilidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormBuscarOrden.resx">
-      <DependentUpon>FormBuscarOrden.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\FormOrdenBuscar.resx">
+      <DependentUpon>FormOrdenBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormBuscarPaciente.resx">
-      <DependentUpon>FormBuscarPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\FormPacienteBuscar.resx">
+      <DependentUpon>FormPacienteBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlOrden.resx">
       <DependentUpon>ControlOrden.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelFichaOrden.resx">
-      <DependentUpon>PanelFichaOrden.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenPerfil.resx">
+      <DependentUpon>PanelOrdenPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelNuevaOrden.resx">
-      <DependentUpon>PanelNuevaOrden.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesOrden\PanelOrdenNuevo.resx">
+      <DependentUpon>PanelOrdenNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelCreate.resx">
-      <DependentUpon>PanelCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacienteNuevo.resx">
+      <DependentUpon>PanelPacienteNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPerfil.resx">
-      <DependentUpon>PanelPerfil.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesPaciente\PanelPacientePerfil.resx">
+      <DependentUpon>PanelPacientePerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormConfigServer.resx">
       <DependentUpon>FormConfigServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\ConfiguracionGUI.resx">
       <DependentUpon>ConfiguracionGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormRegistrarProfesional.resx">
-      <DependentUpon>FormRegistrarProfesional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ComponentesReporte\FormTarifario.resx">
       <DependentUpon>FormTarifario.cs</DependentUpon>
@@ -575,8 +610,8 @@
     <EmbeddedResource Include="Code\PresentationLayer\GUISesion\FormInicioSesion.resx">
       <DependentUpon>FormInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\PanelOpcion.resx">
-      <DependentUpon>PanelOpcion.cs</DependentUpon>
+    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\FormCargando.resx">
+      <DependentUpon>FormCargando.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\PantallaDeCarga.resx">
       <DependentUpon>PantallaDeCarga.cs</DependentUpon>
@@ -590,12 +625,20 @@
     <EmbeddedResource Include="Code\PresentationLayer\Controles\ControlBienvenida.resx">
       <DependentUpon>ControlBienvenida.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Code\PresentationLayer\GUISistema\RecursosUI.resx">
+    <EmbeddedResource Include="Code\PresentationLayer\RecursosUI.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursosUI.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Code\PresentationLayer\GUISistema\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\RecursosUIMensajes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosUIMensajes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\PresentationLayer\RecursosUIToolkit.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosUIToolkit.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -609,16 +652,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Opciones.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Opciones.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -726,6 +768,7 @@
     <None Include="Iconos\microscope %283%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Code\ControlSistemaInterno\GestorEstilo\StyleDefault.xml" />
     <Content Include="DataSQL\ADD_PROC.sql" />
     <Content Include="DataSQL\alter BD Ver 1.1.sql" />
     <Content Include="DataSQL\cuenta.sql" />
@@ -740,6 +783,62 @@
     <Content Include="Iconos\GRLL.png" />
     <Content Include="Iconos\microscopeTratado.png" />
     <Content Include="microscope.ico" />
+    <None Include="Resources\userqq.png" />
+    <None Include="Resources\icon_img_user.bmp" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\high-volume.png" />
+    <None Include="Resources\television.png" />
+    <None Include="Resources\manss.png" />
+    <None Include="Resources\nurse1.png" />
+    <None Include="Resources\printer %282%29.png" />
+    <None Include="Resources\edit %283%29.png" />
+    <None Include="Resources\searching-user %281%29.png" />
+    <None Include="Resources\add-plus-button.png" />
+    <None Include="Resources\delete %281%29.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\pencil-edit-button.png" />
+    <None Include="Resources\printer-tool.png" />
+    <None Include="Resources\printer %281%29.png" />
+    <None Include="Resources\close-button1.png" />
+    <None Include="Resources\saveDefault.png" />
+    <None Include="Resources\openFileAmarillo.png" />
+    <None Include="Resources\add-page %283%29.png" />
+    <None Include="Resources\searching-userBlue.png" />
+    <None Include="Resources\searching-user.png" />
+    <None Include="Resources\save %281%29.png" />
+    <None Include="Resources\pencil-edit-button %282%29.png" />
+    <None Include="Resources\close-button %281%29.png" />
+    <None Include="Resources\printer-.png" />
+    <None Include="Resources\printer1.png" />
+    <None Include="Resources\openfolderBue.png" />
+    <None Include="Resources\add-page.png" />
+    <None Include="Resources\add-new-page %283%29.png" />
+    <None Include="Resources\add-new-page.png" />
+    <None Include="Resources\addnewpage.png" />
+    <None Include="Resources\medicoAdd1.png" />
+    <None Include="Resources\MedicoAdd.png" />
+    <None Include="Resources\information1.png" />
+    <None Include="Resources\report1.png" />
+    <None Include="Resources\woman.png" />
+    <None Include="Resources\nurse %281%29.png" />
+    <None Include="Resources\sticky-note.png" />
+    <None Include="Resources\nurse.png" />
+    <None Include="Resources\ExamFlat.png" />
+    <None Include="Resources\OpcionesFlat.png" />
+    <None Include="Resources\PacienteFlat.png" />
+    <None Include="Resources\UsuarioFlat.bmp" />
+    <None Include="Resources\doctor1.png" />
+    <None Include="Resources\ClickPanel.wav" />
+    <None Include="Resources\TestVol.wav" />
+    <None Include="Resources\SesionOff.wav" />
+    <None Include="Resources\SesionInit.wav" />
+    <None Include="Resources\Mensaje.wav" />
+    <None Include="Resources\Error.wav" />
+    <None Include="Resources\Default.wav" />
+    <None Include="Resources\BtnUIClick.wav" />
+    <None Include="Resources\IMG-20170130-WA0003.jpg" />
+    <None Include="Resources\settings1.png" />
     <None Include="Resources\angle-arrow-down.png" />
     <None Include="Resources\logo_regionbn.png" />
     <None Include="Resources\logo_region.png" />

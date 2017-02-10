@@ -29,7 +29,7 @@ namespace MinLab.Code.PresentationLayer.Controles
             tabla = new DataTable("Examenes");
             bindingSource = new BindingSource();
 
-            ComboEstado.DataSource = new BindingSource(DataEstaticaGeneral.OrdenEstados, null);
+            ComboEstado.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().EstadoOrden, null);
             ComboEstado.DisplayMember = "Value";
             ComboEstado.ValueMember = "Key";
 
@@ -140,7 +140,7 @@ namespace MinLab.Code.PresentationLayer.Controles
                 row[3] = enlaceOrden.ObtenerDescripcion(orden);
                 row[4] = orden.FechaRegistro;
                 row[5] = orden.Boleta;
-                row[6] = DataEstaticaGeneral.OrdenEstados[Convert.ToInt32(orden.Estado)];
+                row[6] = DiccionarioGeneral.GetInstance().EstadoOrden[Convert.ToInt32(orden.Estado)];
                 tabla.Rows.Add(row);              
             }
             this.DGVOrden.ClearSelection();

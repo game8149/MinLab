@@ -1,5 +1,4 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.ControlSistemaInterno.Configuracion;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer.EPlantilla;
 using System;
@@ -21,7 +20,7 @@ namespace MinLab.Code.DataLayer
             SqlDataReader resultado;
 
             conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -71,7 +70,7 @@ namespace MinLab.Code.DataLayer
             SqlDataReader resultado = null;
             
             conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -123,7 +122,7 @@ namespace MinLab.Code.DataLayer
             SqlDataReader resultado = null;
 
             conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -152,7 +151,7 @@ namespace MinLab.Code.DataLayer
             PlantillaFilaGrupo fila;
 
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -186,7 +185,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int, PlantillaFila> detalles = new Dictionary<int, PlantillaFila>();
             PlantillaFilaSimple fila;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             int indiceItem = 0, idPlantilla = idData;
@@ -242,7 +241,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int,PlantillaItem> items = new Dictionary<int,PlantillaItem>();
             PlantillaItem item = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -284,7 +283,7 @@ namespace MinLab.Code.DataLayer
             Dictionary<int, PlantillaItemList> opciones = new Dictionary<int, PlantillaItemList>();
             PlantillaItemList opcion = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;

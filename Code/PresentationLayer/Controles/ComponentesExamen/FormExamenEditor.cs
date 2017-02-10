@@ -17,10 +17,9 @@ using static MinLab.Code.PresentationLayer.ComponentesExamenEditor.ExamenEditorF
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
-using static MinLab.Code.ControlSistemaInterno.DataEstaticaGeneral;
+using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
 using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.LogicLayer;
-using MinLab.Code.ControlSistemaInterno.Util;
 
 namespace MinLab.Code.PresentationLayer.ComponentesExamen
 {
@@ -85,10 +84,10 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 CampNombre.Text = paciente.Nombre+" "+paciente.PrimerApellido +" "+paciente.SegundoApellido;
                 CampDni.Text = paciente.Dni;
                 CampHistoria.Text = paciente.Historia;;
-                CampSexo.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(DataEstaticaGeneral.SexoTipos[(int)paciente.Sexo]));
-                Tiempo tiempo = Utilidad.CalcularEdad(paciente.FechaNacimiento);
+                CampSexo.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(DiccionarioGeneral.GetInstance().TipoSexo[(int)paciente.Sexo]));
+                Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(paciente.FechaNacimiento);
                 
-                CampEdad.Text = Utilidad.FormatoEdad(tiempo);
+                CampEdad.Text = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             }
         }
 
@@ -118,7 +117,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                 String nombrePaquete = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(ControlSistemaInterno.ListaAnalisis.GetInstance().GetAnalisisById(orden.Detalle[ex.IdOrdenDetalle].IdDataPaquete).Nombre));
                 String nombrePlantilla = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToLower(Plantillas.GetInstance().GetPlantilla(ex.IdPlantilla).Nombre));
                 row[0] = (nombrePaquete == nombrePlantilla) ? nombrePaquete : (nombrePaquete + ":" + nombrePlantilla);
-                row[1] = DataEstaticaGeneral.ExamenEstados[(int)ex.Estado];
+                row[1] = DiccionarioGeneral.GetInstance().EstadoExamen[(int)ex.Estado];
                 row[2] = ex.IdData;//Examen
                 tabla.Rows.Add(row);
                 
@@ -315,7 +314,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
                         }
 
                         if (item.TipoDato == TipoDato.Entero|| item.TipoDato == TipoDato.Bool)
-                            itemForm.RegEx = DataEstaticaGeneral.Expressions[(int)item.TipoDato];
+                            itemForm.RegEx = DiccionarioGeneral.GetInstance().Expression[(int)item.TipoDato];
                         if (item.TieneUnidad)
                             itemForm.Unidad = item.Unidad;
                         itemForm.Location = new Point(10, 20);
@@ -520,7 +519,7 @@ namespace MinLab.Code.PresentationLayer.ComponentesExamen
         private void ActualizarDGVEstadoExamen()
         {
             DGVExamen.SuspendLayout();
-            DGVExamen.Rows[indexRowSelected].Cells[1].Value = DataEstaticaGeneral.ExamenEstados[(int)examenes[idExamenSelected].Estado];
+            DGVExamen.Rows[indexRowSelected].Cells[1].Value = DiccionarioGeneral.GetInstance().EstadoExamen[(int)examenes[idExamenSelected].Estado];
             DGVExamen.ResumeLayout(false);
         }
 

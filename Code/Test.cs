@@ -1,6 +1,4 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.PresentationLayer.ComponenteGeneral;
-using MinLab.Code.PresentationLayer.GUISistema;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,48 +15,8 @@ namespace MinLab.Code
         public Test()
         {
             InitializeComponent();
-
-            BtnUI1.Tipo = ButtonUI.ButtonTipo.Ok;
-            LblUI1.Tipo = LabelUI.LabelTipo.Item;
-            LblUI2.Tipo = LabelUI.LabelTipo.Item;
-
-
-            Decorator e = new Decorator();
-            foreach (Control con in this.Controls)
-            {
-                if(con is ButtonUI)
-                    ((ButtonUI)con).ComponenteUI.Text = RecursosUI.ResourceManager.GetString(con.Name);
-                if(con is LabelUI)
-                    ((LabelUI)con).ComponenteUI.Text = RecursosUI.ResourceManager.GetString(con.Name);
-                CambiarFuente(con);
-            }
-
            
-
-
         }
-
-        Decorator e = new Decorator();
-
-        public void CambiarFuente(Control c)
-        {
-                    
-            if (c.Controls.Count == 1)
-            {
-                if (c is ButtonUI)
-                    e.FormatButton((ButtonUI)c);
-                else if (c is LabelUI)
-                    e.FormatLabel((LabelUI)c);
-            }
-            else
-                foreach (Control con in c.Controls)
-                {
-                    CambiarFuente(con);
-                }
-            return;
-        }
-
-
         public static Image ScaleImage(Image image, int maxWidth, int maxHeight)
         {
             var ratioX = (double)maxWidth / image.Width;
@@ -103,11 +61,6 @@ namespace MinLab.Code
         private void TB_Scroll(object sender, EventArgs e)
         {
             CampEdad.Text = TB.Value.ToString();
-        }
-
-        private void labelUI1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

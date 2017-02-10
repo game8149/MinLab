@@ -33,9 +33,6 @@
             this.LabelImg = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.TB = new System.Windows.Forms.TrackBar();
-            this.BtnUI1 = new MinLab.Code.PresentationLayer.ComponenteGeneral.ButtonUI();
-            this.LblUI2 = new MinLab.Code.PresentationLayer.ComponenteGeneral.LabelUI();
-            this.LblUI1 = new MinLab.Code.PresentationLayer.ComponenteGeneral.LabelUI();
             ((System.ComponentModel.ISupportInitialize)(this.TB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +56,7 @@
             // LabelImg
             // 
             this.LabelImg.Image = global::MinLab.Properties.Resources.logo_region;
-            this.LabelImg.Location = new System.Drawing.Point(600, 172);
+            this.LabelImg.Location = new System.Drawing.Point(29, 22);
             this.LabelImg.Name = "LabelImg";
             this.LabelImg.Size = new System.Drawing.Size(74, 71);
             this.LabelImg.TabIndex = 3;
@@ -67,7 +64,7 @@
             // button1
             // 
             this.button1.Image = global::MinLab.Properties.Resources.Tratado2;
-            this.button1.Location = new System.Drawing.Point(443, 19);
+            this.button1.Location = new System.Drawing.Point(724, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -86,36 +83,11 @@
             this.TB.Value = 20;
             this.TB.Scroll += new System.EventHandler(this.TB_Scroll);
             // 
-            // BtnUI1
-            // 
-            this.BtnUI1.Location = new System.Drawing.Point(146, 172);
-            this.BtnUI1.Name = "BtnUI1";
-            this.BtnUI1.Size = new System.Drawing.Size(243, 114);
-            this.BtnUI1.TabIndex = 7;
-            // 
-            // LblUI2
-            // 
-            this.LblUI2.Location = new System.Drawing.Point(38, 80);
-            this.LblUI2.Name = "LblUI2";
-            this.LblUI2.Size = new System.Drawing.Size(35, 13);
-            this.LblUI2.TabIndex = 6;
-            // 
-            // LblUI1
-            // 
-            this.LblUI1.Location = new System.Drawing.Point(38, 46);
-            this.LblUI1.Name = "LblUI1";
-            this.LblUI1.Size = new System.Drawing.Size(35, 13);
-            this.LblUI1.TabIndex = 5;
-            this.LblUI1.Load += new System.EventHandler(this.labelUI1_Load);
-            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 741);
-            this.Controls.Add(this.BtnUI1);
-            this.Controls.Add(this.LblUI2);
-            this.Controls.Add(this.LblUI1);
             this.Controls.Add(this.TB);
             this.Controls.Add(this.LabelImg);
             this.Controls.Add(this.CampEdad);
@@ -136,8 +108,5 @@
         private System.Windows.Forms.Label CampEdad;
         private System.Windows.Forms.Label LabelImg;
         private System.Windows.Forms.TrackBar TB;
-        private PresentationLayer.ComponenteGeneral.LabelUI LblUI1;
-        private PresentationLayer.ComponenteGeneral.LabelUI LblUI2;
-        private PresentationLayer.ComponenteGeneral.ButtonUI BtnUI1;
     }
 }

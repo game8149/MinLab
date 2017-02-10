@@ -99,7 +99,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
 
             this.dataGridView.Columns[3].DataPropertyName = "cobertura";   // The DataTable column name.
             this.dataGridView.Columns[3].HeaderText = "Cobertura";
-            ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).DataSource = new BindingSource(DataEstaticaGeneral.CoberturaTipos, null);
+            ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).DataSource = new BindingSource(DiccionarioGeneral.GetInstance().TipoCobertura, null);
             ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).DisplayMember = "Value";
             ((DataGridViewComboBoxColumn)this.dataGridView.Columns[3]).ValueMember = "Key";
             this.dataGridView.Columns[3].Resizable = DataGridViewTriState.False;
@@ -185,7 +185,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
                 CampDni.Text = Perfil.Dni;
                 CampHistoria.Text = Perfil.Historia;
                 CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Perfil.Nombre + " " + Perfil.PrimerApellido + " " + Perfil.SegundoApellido);
-                CampSexo.Text = DataEstaticaGeneral.SexoTipos[(int)Perfil.Sexo];
+                CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)Perfil.Sexo];
                 CampUbicacion.Text = LogicaPaciente.FormatearUbicacion(Perfil);
 
                 HabilitarFormulario();

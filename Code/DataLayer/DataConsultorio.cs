@@ -1,5 +1,4 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.ControlSistemaInterno.Configuracion;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer;
 using System;
@@ -17,7 +16,7 @@ namespace MinLab.Code.DataLayer
         public static Dictionary<int, Consultorio> GetConsultorioAll()
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
             Dictionary<int, Consultorio> temp = new Dictionary<int, Consultorio>();
             Consultorio tempConsul;

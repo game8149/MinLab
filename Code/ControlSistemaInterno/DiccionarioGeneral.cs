@@ -5,113 +5,202 @@ using System.Text;
 
 namespace MinLab.Code.ControlSistemaInterno
 {
-    public class DataEstaticaGeneral
+    public class DiccionarioGeneral
     {
         
+
         public class Tiempo
         {
             public int Año { get; set; }
             public int Mes { get; set; }
             public int Dias { get; set; }
         }
+
+        private static DiccionarioGeneral coleccion = null;
+
+        private  Dictionary<int, string> diccionarioRegex = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioSexo = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioEstadoOrden = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioDoc = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioCobertura = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioAño= new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioMes = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioArea = new Dictionary<int, string>();
+        private  Dictionary<int, string> diccionarioEstadoExamen = new Dictionary<int, string>();
+        private Dictionary<int, Distrito> diccionarioUbicacion = new Dictionary<int, Distrito>();
         
-        private static Dictionary<int, string> regexs = new Dictionary<int, string>();
-        private static Dictionary<int, string> sexoList = new Dictionary<int, string>();
-        private static Dictionary<int, string> ordenStates = new Dictionary<int, string>();
-        private static Dictionary<int, string> docTipos = new Dictionary<int, string>();
-        private static Dictionary<int, string> coberturaTipos = new Dictionary<int, string>();
-        private static Dictionary<int, string> diccionarioAño= new Dictionary<int, string>();
-        private static Dictionary<int, string> meses = new Dictionary<int, string>();
-        private static Dictionary<int, string> areas = new Dictionary<int, string>();
-        private static Dictionary<int, string> examenStates = new Dictionary<int, string>();
-        private static Dictionary<int, Distrito> ubicaciones = new Dictionary<int, Distrito>();
-        
-        
-        public static void Init()
+        public static DiccionarioGeneral GetInstance()
         {
+            if (coleccion == null)
+                coleccion = new DiccionarioGeneral();
 
-            sexoList.Add((int)Sexo.Hombre, "HOMBRE");
-            sexoList.Add((int)Sexo.Mujer, "MUJER");
 
-            docTipos.Add(0, "DNI");
-            docTipos.Add(1, "HC");
-
-            coberturaTipos.Add(0, "PARTICULAR");
-            coberturaTipos.Add(1, "SIS");
-            coberturaTipos.Add(2, "EXONERADO");
-
-            areas.Add(0, "BIOQUIMICA");
-            areas.Add(1, "ESTUDIO DE SECRECIONES");
-            areas.Add(2, "HEMATOLOGIA");
-            areas.Add(3, "INMUNOLOGIA");
-            areas.Add(4, "MICROBIOLOGIA");
-            areas.Add(5, "PARASITOLOGIA");
-            areas.Add(6, "UROANALISIS");
-            
-            ordenStates.Add(0, "EN PROCESO");
-            ordenStates.Add(1, "TERMINADO");
-            
-            examenStates.Add(0, "EN PROCESO");
-            examenStates.Add(1, "TERMINADO");
-
-            meses.Add(0, "ENERO");
-            meses.Add(1, "FEBRERO");
-            meses.Add(2, "MARZO");
-            meses.Add(3, "ABRIL");
-            meses.Add(4, "MAYO");
-            meses.Add(5, "JUNIO");
-            meses.Add(6, "JULIO");
-            meses.Add(7, "AGOSTO");
-            meses.Add(8, "SEPTIEMBRE");
-            meses.Add(9, "OCTUBRE");
-            meses.Add(10, "NOVIEMBRE");
-            meses.Add(11, "DICIEMBRE");
-
-            
-            regexs.Add(2, @"(\b[0-9]+$)");
-            regexs.Add(3, @"(\b[0-9]+$|(\b[0-9]+.[0-9]+$))");
-            
-        }
-
-        public static Dictionary<int,string> SexoTipos
-        {
-            get { return sexoList; }
-        }
-
-        public static Dictionary<int, string> OrdenEstados
-        {
-            get { return ordenStates; }
-        }
-
-        public static Dictionary<int, string> CoberturaTipos
-        {
-            get { return coberturaTipos; }
-        }
-
-        public static Dictionary<int, string> DocTipos
-        {
-            get { return docTipos; }
-        }
-
-        public static Dictionary<int, string> Meses
-        {
-            get { return meses; }
-        }
-
-        public static Dictionary<int, string> Expressions
-        {
-            get { return regexs; }
-        }
-
-        public static Dictionary<int, string> Areas
-        {
-            get { return areas; }
-        }
-
-        public static Dictionary<int, string> ExamenEstados
-        {
-            get { return examenStates; }
+            return coleccion;
         }
         
+        public void Load()
+        {
+
+            diccionarioSexo.Add((int)Sexo.Hombre, "HOMBRE");
+            diccionarioSexo.Add((int)Sexo.Mujer, "MUJER");
+
+            diccionarioDoc.Add(0, "DNI");
+            diccionarioDoc.Add(1, "HC");
+
+            diccionarioCobertura.Add(0, "PARTICULAR");
+            diccionarioCobertura.Add(1, "SIS");
+            diccionarioCobertura.Add(2, "EXONERADO");
+
+            diccionarioArea.Add(0, "BIOQUIMICA");
+            diccionarioArea.Add(1, "ESTUDIO DE SECRECIONES");
+            diccionarioArea.Add(2, "HEMATOLOGIA");
+            diccionarioArea.Add(3, "INMUNOLOGIA");
+            diccionarioArea.Add(4, "MICROBIOLOGIA");
+            diccionarioArea.Add(5, "PARASITOLOGIA");
+            diccionarioArea.Add(6, "UROANALISIS");
+            
+            diccionarioEstadoOrden.Add(0, "EN PROCESO");
+            diccionarioEstadoOrden.Add(1, "TERMINADO");
+            
+            diccionarioEstadoExamen.Add(0, "EN PROCESO");
+            diccionarioEstadoExamen.Add(1, "TERMINADO");
+
+            diccionarioMes.Add(0, "ENERO");
+            diccionarioMes.Add(1, "FEBRERO");
+            diccionarioMes.Add(2, "MARZO");
+            diccionarioMes.Add(3, "ABRIL");
+            diccionarioMes.Add(4, "MAYO");
+            diccionarioMes.Add(5, "JUNIO");
+            diccionarioMes.Add(6, "JULIO");
+            diccionarioMes.Add(7, "AGOSTO");
+            diccionarioMes.Add(8, "SEPTIEMBRE");
+            diccionarioMes.Add(9, "OCTUBRE");
+            diccionarioMes.Add(10, "NOVIEMBRE");
+            diccionarioMes.Add(11, "DICIEMBRE");
+
+            
+            diccionarioRegex.Add(2, @"(\b[0-9]+$)");
+            diccionarioRegex.Add(3, @"(\b[0-9]+$|(\b[0-9]+.[0-9]+$))");
+            
+        }
+
+        public  Dictionary<int,string> TipoSexo
+        {
+            get { return diccionarioSexo; }
+        }
+
+        public Dictionary<int, string> EstadoOrden
+        {
+            get { return diccionarioEstadoOrden; }
+        }
+
+        public  Dictionary<int, string> TipoCobertura
+        {
+            get { return diccionarioCobertura; }
+        }
+
+        public  Dictionary<int, string> TipoDoc
+        {
+            get { return diccionarioDoc; }
+        }
+
+        public  Dictionary<int, string> Mes
+        {
+            get { return diccionarioMes; }
+        }
+
+        public Dictionary<int, string> Expression
+        {
+            get { return diccionarioRegex; }
+        }
+
+        public  Dictionary<int, string> Area
+        {
+            get { return diccionarioArea; }
+        }
+
+        public Dictionary<int, string> EstadoExamen
+        {
+            get { return diccionarioEstadoExamen; }
+        }
+
+
+
+        public Tiempo CalcularEdad(DateTime fechaNacimiento)
+        {
+            
+            int anos;
+            int meses;
+            int dias;
+
+            DateTime actual = DateTime.Now;
+
+            anos = (actual.Year - fechaNacimiento.Year);
+            meses = (actual.Month - fechaNacimiento.Month);
+            dias = (actual.Day - fechaNacimiento.Day);
+
+            if (meses < 0)
+            {
+                anos -= 1;
+                meses += 12;
+            }
+
+            if (dias < 0)
+            {
+                meses -= 1;
+                int DiasAno = actual.Year;
+                int DiasMes = actual.Month;
+
+                if ((actual.Month - 1) == 0)
+                {
+                    DiasAno = DiasAno - 1;
+                    DiasMes = 12;
+                }
+                else
+                {
+                    DiasMes = DiasMes - 1;
+                }
+
+                dias += DateTime.DaysInMonth(DiasAno, DiasMes);
+            }
+            
+
+            Tiempo tiempo = new Tiempo();
+            tiempo.Año = anos;
+            tiempo.Dias = dias;
+            tiempo.Mes = meses;
+
+            return tiempo;
+        }
+        
+
+        public string FormatoEdad(Tiempo edad)
+        {
+            bool ano1 = false;
+            bool mes1 = false;
+            StringBuilder bs = new StringBuilder();
+            if (edad.Año > 1)
+                bs.Append(edad.Año + " años ");
+            else {
+
+                if (ano1 = edad.Año == 1)
+                    bs.Append(edad.Año + " año ");
+
+                if (edad.Mes > 1)
+                    bs.Append(edad.Mes + " meses ");
+                else {
+                    if(mes1=edad.Mes == 1)
+                        bs.Append(edad.Mes + " mes ");
+                    if (edad.Dias > 1|| (!mes1&&!ano1))
+                        bs.Append(edad.Dias + " días");
+                    else if (edad.Dias == 1)
+                        bs.Append(edad.Dias + " día");
+                }
+                
+            }
+
+            return bs.ToString();
+        }
+
     }
 }

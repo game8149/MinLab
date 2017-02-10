@@ -1,5 +1,4 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.ControlSistemaInterno.Configuracion;
 using MinLab.Code.DataLayer.Recursos;
 using MinLab.Code.EntityLayer;
 using MinLab.Code.EntityLayer.EFicha;
@@ -16,7 +15,7 @@ namespace MinLab.Code.DataLayer
         public void AddCuenta(Cuenta cuenta)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
             
             comando.Connection = conexion;
@@ -40,7 +39,7 @@ namespace MinLab.Code.DataLayer
         public void UpdCuenta(Cuenta cuenta)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -62,7 +61,7 @@ namespace MinLab.Code.DataLayer
         public void UpdClave(Cuenta cuenta)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -81,7 +80,7 @@ namespace MinLab.Code.DataLayer
         {
             Cuenta cuenta = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -115,7 +114,7 @@ namespace MinLab.Code.DataLayer
         {
             Cuenta cuenta = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -149,7 +148,7 @@ namespace MinLab.Code.DataLayer
         {
             string codigo = null;
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -173,7 +172,7 @@ namespace MinLab.Code.DataLayer
         public bool UpdateSeguridad(Cuenta cuenta,string code)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;
@@ -197,7 +196,7 @@ namespace MinLab.Code.DataLayer
             try
             {
                 SqlConnection conexion = new SqlConnection();
-                conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+                conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = conexion;
@@ -226,7 +225,7 @@ namespace MinLab.Code.DataLayer
         public void AddSeguridad(Cuenta cuenta, string code)
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfiguracionSystem.ConexionConfig;
+            conexion.ConnectionString = ConfiguracionDataAccess.GetInstance().CadenaConexion;
             SqlCommand comando = new SqlCommand();
 
             comando.Connection = conexion;

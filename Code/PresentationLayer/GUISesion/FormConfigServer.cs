@@ -1,5 +1,4 @@
 ﻿using MinLab.Code.ControlSistemaInterno;
-using MinLab.Code.ControlSistemaInterno.Configuracion;
 using MinLab.Code.LogicLayer.LogicaControl;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,7 @@ namespace MinLab.Code.PresentationLayer.GUISesion
             InitializeComponent();
             this.FormClosing += FormConfigServer_FormClosing;
 
-            CampConexion.Text = ConfiguracionSystem.ConexionConfig;
+            CampConexion.Text = ConfiguracionDataAccess.GetInstance().CadenaConexion;
         }
 
         private void FormConfigServer_FormClosing(object sender, FormClosingEventArgs e)
@@ -32,7 +31,7 @@ namespace MinLab.Code.PresentationLayer.GUISesion
 
         private void BtnInicia_Click(object sender, EventArgs e)
         {
-            //ConfiguracionSystem.ConexionConfig = CampConexion.Text;
+            ConfiguracionDataAccess.GetInstance().CadenaConexion = CampConexion.Text;
         }
 
         private void FormAutorizacion_Load(object sender, EventArgs e)

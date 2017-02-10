@@ -1,5 +1,4 @@
-﻿using MinLab.Code.ControlSistemaInterno.Util;
-using MinLab.Code.EntityLayer;
+﻿using MinLab.Code.EntityLayer;
 using MinLab.Code.EntityLayer.EExamen;
 using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.EntityLayer.EOrden;
@@ -13,7 +12,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Text;
 using System.Windows.Media;
-using static MinLab.Code.ControlSistemaInterno.DataEstaticaGeneral;
+using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
 
 namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
 {
@@ -121,9 +120,9 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
             BLMedico oLMedico = new BLMedico();
             Medico med = oLMedico.ObtenerMedico(orden.IdMedico);
             Cuenta cu = oLCuenta.ObtenerCuenta(idLastResponsable);
-            Tiempo tiempo = Utilidad.CalcularEdad(paciente.FechaNacimiento);
+            Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(paciente.FechaNacimiento);
             
-            cab.Edad = Utilidad.FormatoEdad(tiempo);
+            cab.Edad = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             cab.Orden = "No "+orden.IdData;
             cab.Nombre = CultureInfo.CurrentCulture.TextInfo.ToTitleCase((paciente.Nombre + " " + paciente.PrimerApellido + " " + paciente.SegundoApellido));
             cab.Historia = paciente.Historia;
@@ -150,7 +149,7 @@ namespace MinLab.Code.ControlSistemaInterno.ControlImpresora
                     //CONSTRUCCION DE PAGINAS
 
                     linea = new FormatoImpresionPaginaLinea();
-                    linea.Nombre = "LABORATORIO DE " + DataEstaticaGeneral.Areas[(int)key];
+                    linea.Nombre = "LABORATORIO DE " + DiccionarioGeneral.GetInstance().Area[(int)key];
                     linea.TipoLinea = FormatoImpresionPaginaLinea.TipoPaginaLinea.TituloArea;
 
                     lineas.Add(indexLinea, linea);

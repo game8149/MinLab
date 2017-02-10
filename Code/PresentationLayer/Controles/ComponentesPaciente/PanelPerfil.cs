@@ -12,11 +12,10 @@ using MinLab.Code.LogicLayer.LogicaPaciente;
 
 using MinLab.Code.EntityLayer;
 using MinLab.Code.ControlSistemaInterno;
-using static MinLab.Code.ControlSistemaInterno.DataEstaticaGeneral;
+using static MinLab.Code.ControlSistemaInterno.DiccionarioGeneral;
 using MinLab.Code.ControlSistemaInterno.ControlImpresora;
 using MinLab.Code.EntityLayer.EFicha;
 using MinLab.Code.LogicLayer;
-using MinLab.Code.ControlSistemaInterno.Util;
 
 namespace MinLab.Code.PresentationLayer.Controles
 {
@@ -50,9 +49,9 @@ namespace MinLab.Code.PresentationLayer.Controles
             CampNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(perfil.Nombre + " " + perfil.PrimerApellido + " " + perfil.SegundoApellido);
             CampDni.Text = perfil.Dni;
             CampHistoria.Text = perfil.Historia;
-            CampSexo.Text = DataEstaticaGeneral.SexoTipos[(int)perfil.Sexo];
-            Tiempo tiempo = Utilidad.CalcularEdad(perfil.FechaNacimiento);
-            CampEdad.Text = Utilidad.FormatoEdad(tiempo);
+            CampSexo.Text = DiccionarioGeneral.GetInstance().TipoSexo[(int)perfil.Sexo];
+            Tiempo tiempo = DiccionarioGeneral.GetInstance().CalcularEdad(perfil.FechaNacimiento);
+            CampEdad.Text = DiccionarioGeneral.GetInstance().FormatoEdad(tiempo);
             CampDireccion.Text = perfil.Direccion;
             CampUbicacion.Text = Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Nombre + ", " + Locaciones.GetInstance().GetDistrito(perfil.IdDistrito).Sectores[perfil.IdSector].Nombre;
             RellenarOrdenes();
@@ -68,7 +67,7 @@ namespace MinLab.Code.PresentationLayer.Controles
             limpiarCamps();
 
             this.SuspendLayout();
-            ComboEstado.DataSource = new BindingSource(DataEstaticaGeneral.OrdenEstados, null);
+            ComboEstado.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().EstadoOrden, null);
             ComboEstado.DisplayMember = "Value";
             ComboEstado.ValueMember = "Key";
             this.ResumeLayout(false);

@@ -119,7 +119,7 @@ namespace MinLab.Code.PresentationLayer.Controles.ComponentesOrden
             bindingSourceOrden = new BindingSource();
             DGVOrden.DataSource = bindingSourceOrden;
 
-            ComboEstado.DataSource = new BindingSource(DataEstaticaGeneral.OrdenEstados, null);
+            ComboEstado.DataSource = new BindingSource(DiccionarioGeneral.GetInstance().EstadoOrden, null);
             ComboEstado.DisplayMember = "Value";
             ComboEstado.ValueMember = "Key";
 
